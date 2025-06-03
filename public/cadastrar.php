@@ -1,13 +1,17 @@
 <?php
-include '../includes/conexao.php';
+    include '../includes/conexao.php';
+    session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = $_POST['nome'] ?? '';
     $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usuarios (email, senha) VALUES ('$email', '$senhaHash')";
+    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senhaHash')";
 
     if ($conn->query($sql) === TRUE) {
+    $_SESSION['usuario_nome'] = $nome;
         header('location: cadastrado.php');
         exit();
     } else {
@@ -65,17 +69,23 @@ include '../includes/conexao.php';
                             <div class="card-body">
                                 
                                 <form action="cadastrar.php" method="POST">
+
                                     <div class="input-group mt-1">
+                                        <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                                        <input type="text" class="form-control" name="nome" placeholder="Usuário" required>
+                                    </div>
+                                    
+                                    <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                        <input type="email" class="form-control" name="email" id="" placeholder="e-mail" required>
+                                        <input type="email" class="form-control" name="email" id="" placeholder="E-mail" required>
                                     </div>
                                     
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                        <input type="password" class="form-control" name="senha" id="" placeholder="senha" required>
+                                        <input type="password" class="form-control" name="senha" id="" placeholder="Senha" required>
                                     </div>
                                     
-                                    <button class="btn btn-sm btn-light mt-2 w-100" type="submit">Entrar</button>
+                                    <button class="btn btn-sm btn-light mt-2 w-100" type="submit">Cadastrar</button>
                                     <div class="text-end mt-2"><a href="login.php">Já possui login?</a></div>
                                 </form>
                             </div>
@@ -83,8 +93,6 @@ include '../includes/conexao.php';
                 </div>
             </div>
         </div>
-
-
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>

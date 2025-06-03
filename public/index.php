@@ -1,7 +1,3 @@
-<?php 
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +9,7 @@
     <title>APP ????</title>
 
 </head>
-    <body style="background:black">
+    <body style="background:#000">
 
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
@@ -35,6 +31,9 @@
                 </div>
             </div>
         </nav>
+
+        
+
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
