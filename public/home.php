@@ -27,10 +27,9 @@ session_start();
         
         <div class="container mt-5">
     <div class="alert alert-success text-center">
-        Bem-vindo, <?php echo $_SESSION['nome']; ?>!
+        SEJA MUITO BEM VINDO <?php echo $_SESSION['usuario_nome']; ?> AO SEU SISTEMA DE ??
     </div>
 </div>
-
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

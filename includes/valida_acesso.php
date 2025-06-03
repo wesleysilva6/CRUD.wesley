@@ -20,9 +20,9 @@ if ($result->num_rows == 1) {
         header('Location: ../public/home.php');
         exit();
     } else {
-        echo "Senha incorreta.";
+        header('location: ../public/login.php?erro');
     }
 } else {
-    echo "Usuário não encontrado.";
+    header('location: ../public/login.php?erro=senha?incorreta');
 }
 ?>

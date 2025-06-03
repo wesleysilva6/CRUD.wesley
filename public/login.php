@@ -55,7 +55,7 @@
                                         <span class="input-group-text"><i class="bi bi-lock"></i></span>
                                             <input type="password" class="form-control" name="senha" placeholder="senha">
                                     </div>
-                                        
+                                    
                                     <button class="btn btn-sm btn-light mt-2 w-100" type="submit">Entrar</button>
                                     <div class="text-end mt-2"><a href="cadastrar.php">Cadastrar-se</a></div>
                                 </form>
