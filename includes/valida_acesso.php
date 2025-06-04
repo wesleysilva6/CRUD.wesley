@@ -17,12 +17,13 @@ if ($result->num_rows == 1) {
     // Verifica a senha
     if (password_verify($senha, $usuario['senha'])) {
         $_SESSION['email'] = $usuario['email'];
+        $_SESSION['nome'] = $usuario['nome'];
         header('Location: ../public/home.php');
         exit();
     } else {
         header('location: ../public/login.php?erro');
     }
 } else {
-    header('location: ../public/login.php?erro=senha?incorreta');
+    header('location: ../public/login.php?erro=login');
 }
 ?>
