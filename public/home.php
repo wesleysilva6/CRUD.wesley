@@ -33,7 +33,7 @@
         
         <div class="container mt-5">
     <div class="alert alert-success text-center">
-        Seja Muito Bem-Vindo <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !
+        Seja Muito Bem-Vindo(a) <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !
     </div>
 </div>
 

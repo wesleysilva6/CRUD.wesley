@@ -37,6 +37,10 @@
         margin: 0 auto;
     }
 
+        .card {
+        background-color: #0C0F16;
+    }
+
         input:focus, .form-control:focus {
         box-shadow: none;
         outline: none;
@@ -65,7 +69,7 @@
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
-                        <div class="card bg-dark">
+                        <div class="card">
                             <div class="card-header" style="color:#fff">Cadastrar</div>
                             <div class="card-body">
                                 
