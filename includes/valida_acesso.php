@@ -18,12 +18,12 @@ if ($result->num_rows == 1) {
     if (password_verify($senha, $usuario['senha'])) {
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['nome'] = $usuario['nome'];
-        header('Location: ../public/home.php');
+        header('Location: ../private/home.php');
         exit();
     } else {
-        header('location: ../public/login.php?erro');
+        header('location: ../private/login.php?erro');
     }
 } else {
-    header('location: ../public/login.php?erro=login');
+    header('location: ../private/login.php?erro=login');
 }
 ?>

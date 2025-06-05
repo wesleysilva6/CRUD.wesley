@@ -39,11 +39,11 @@
 
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
-                <a href="index.php" class="navbar-brand">
+                <a href="../public/index.php" class="navbar-brand">
                 <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="deslogar.php" class="nav-link">Voltar</a></li>
+                    <li class="nav-item"><a href="../includes/deslogar.php" class="nav-link">Voltar</a></li>
                 </ul>
             </div>
         </nav>
@@ -68,7 +68,7 @@
                                     </div>
                                     
                                     <button class="btn btn-sm btn-light mt-2 w-100" type="submit">Entrar</button>
-                                    <div class="text-end mt-2"><a href="cadastrar.php">Cadastrar-se</a></div>
+                                    <div class="text-end mt-2"><a href="../private/cadastrar.php">Cadastrar-se</a></div>
                                 </form>
                             </div>
                         </div>  
