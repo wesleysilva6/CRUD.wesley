@@ -32,13 +32,18 @@
         font-size: 1rem;
         color: #e0e0e0;
         line-height: 1.6;
-}
+    }
 
         .container {
         margin: 16rem 0 0 12rem; 
         color: #fff;
         }
 
+        .container2 {
+        justify-content:left;
+        color: #fff;
+        padding:15rem;
+        }
 
         .btn {
         background-color: #006853;
@@ -51,12 +56,12 @@
         }
 
         .texto {
-            justify-content:end;
+        justify-content:end;
         }
 
         footer {
         background: #0C0F16;
-        padding: 5rem 4%;
+        padding: 1rem 4%;
         margin: 14.19rem 0 0 0;
     }
 
@@ -68,7 +73,6 @@
             <div class="container-fluid">
                 <a href="../public/index.php" class="navbar-brand">
                 <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
-                
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,18 +103,18 @@
                             <a href="../private/login.php"><button class="btn">Login</button></a>
                             <a href="../private/cadastrar.php"><button class="btn">Cadastre-se</button></a>
                         </div>
-
+                        
                         <div class="col-md-4 d-flex justify-content-end" id="logo">
                             <img src="../assets/img/caixa_fundop.png" alt="" class="postion-absolute d-none d-md-block" width="250rem" style="margin-right: -10rem;">
                         </div>
-
+                        
                     </div>
                 </div>
             </section>
-
+            
             <section id="sobre">
-                <div class="container">
-                    <div class="row align-items-end">
+                <div class="container2">
+                    <div class="row align-items-center">
                             <div class="text-center mt-5">
                             <h3 class="text-center mt-5">SOBRE</h3>
                             <img src="../assets/img/fundop.png" alt="" width="350rem" class="">    
@@ -121,7 +125,7 @@
             </section>
 
             <footer>
-                
+                <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
             </footer>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
