@@ -14,6 +14,14 @@
     <title>Estoque Aqui - System</title>
     
     <style>
+        ::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:  #00b894;
+        }
+
         .navbar {
         background-color: #0C0F16;
         }
@@ -53,10 +61,6 @@
         .btn:focus, .btn:active, .btn:focus:active, .btn:visited, .btn:hover {
         background-color:rgb(0, 75, 60);
         color:#fff
-        }
-
-        .texto {
-        justify-content:end;
         }
 
         footer {
