@@ -31,6 +31,14 @@
     <title>Estoque Aqui - System</title>
 
     <style>
+        ::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:  #00b894;
+        }
+
         .card-login {
         padding: 13rem 0 0 0;
         width: 28rem;
@@ -41,9 +49,27 @@
         background-color: #0C0F16;
     }
 
+        .input-group-text {
+        background-color: #20252A;
+        border: 1px solid #393E42;
+        }
+
+        .form-control {
+        color: #fff;
+        background-color: #20252A;
+        border: 1px solid #393E42;
+        }
+
+        .form-control::placeholder {
+        color:rgba(255, 255, 255, 0.76); 
+    }
+
         input:focus, .form-control:focus {
         box-shadow: none;
         outline: none;
+        background-color: #20252A;
+        color:#fff;
+        border-color: #393E42;
     }
 
         .navbar {
@@ -83,21 +109,21 @@
                                 <form action="cadastrar.php" method="POST">
 
                                     <div class="input-group mt-1">
-                                        <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                                        <span class="input-group-text"><i class="bi bi-person-circle" style="color:#fff"></i></span>
                                         <input type="text" class="form-control" name="nome" placeholder="Usuário" required>
                                     </div>
                                     
                                     <div class="input-group mt-2">
-                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>
                                         <input type="email" class="form-control" name="email" id="" placeholder="E-mail" required>
                                     </div>
                                     
                                     <div class="input-group mt-2">
-                                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                        <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
                                         <input type="password" class="form-control" name="senha" id="" placeholder="Senha" required>
                                     </div>
                                     
-                                    <button class="btn btn-sm btn-light mt-2 w-100" type="submit">Cadastrar</button>
+                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Cadastrar</button>
                                     <div class="text-end mt-2"><a href="../private/login.php">Já possui login?</a></div>
                                 </form>
                             </div>

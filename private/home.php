@@ -10,26 +10,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Estoque Aqui - Dashboard</title>
 
     <style>
+        ::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:  #00b894;
+        }
+
         .navbar {
         background-color: #0C0F16;
         }
 
-        .card-produto {
-        padding: 13rem 0 0 0;
-        width: 50rem;
-        margin: 0 auto;
-    }
+        .btn-produto {
+        margin:7rem 19.4rem 0 0;
+        text-align:end;
+        }
 
         input:focus, .form-control:focus {
         box-shadow: none;
         outline: none;
     }
+
+        .modal-content {
+        border-radius:4rem;
+        }
+
+        .modal-header {
+        background-color: #161A1F;
+        border-bottom:1px solid #000;
+        }
+
+        .modal-body {
+        background-color: #161A1F;
+        }
+
+        .form-control {
+        color: #fff;
+        background-color: #20252A;
+        border: 1px solid #393E42;
+        }
+
+        .form-control::placeholder {
+        color:rgba(255, 255, 255, 0.76); 
+    }
+
+        .form-control:focus {
+        background-color: #20252A;
+        color:#fff;
+        border-color: #393E42;
+}
+
     </style>
-
-
 </head>
     <body style="background:#000">
         <nav class="navbar" data-bs-theme="dark">
@@ -47,33 +83,53 @@
             <div class="alert alert-success text-center"> Seja Muito Bem-Vindo(a) <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !</div>
         </div>
 
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalProduto">Adicionar Produto</button>
+        <div class="btn-produto">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"></i> Adicionar Tópico</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalProduto"><i class="bi bi-plus-circle"></i> Adicionar Produto</button>
+        </div>
+
+        <div class="modal fade" id="modalTopico" tabiindex="-1">
+            <div class="modal-dialog">
+                <form action="../src/adicionar_topico.php" method="POST" class="modal-content">
+                    <div class="modal-header text-white">
+                        <h5 class="modal-tittle text-white">Adicionar Tópico</h5>
+                        <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                        <div class="modal-body text-white">
+                            <div class="mb-3">
+                                <label for="form-label">Nome do Tópico:</label>
+                                <input type="text" class="form-control" name="nome_topico" palceholder="Nome do Tópico" required>
+                            </div>
+                                    <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
+                        </div>
+                </form>
+            </div>
+        </div>
 
         <div class="modal fade" id="modalProduto" tabindex="-1">
             <div class="modal-dialog">
 
                 <form action="../src/adicionar_produto.php" method="POST" class="modal-content">
-                        <div class="modal-header bg-dark text-white">
-                            <h5 class="modal-tittle">Adicionar Produto</h5>
+                        <div class="modal-header text-white">
+                            <h5 class="modal-tittle text-white">Adicionar Produto</h5>
                             <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
                         </div>
-                            <div class="modal-body bg-dark text-white">
+                            <div class="modal-body text-white">
                                         <div class="mb-3">
-                                            <label class="form-label">Adicionar Produto:</label>
+                                            <label class="form-label">Nome do Produto:</label>
                                             <input type="text" class="form-control" name="nome_produto" placeholder="Nome do Produto" required>
                                         </div>
+
                                         <div class="mb-3">
-                                            <label class="form-label">Quantidade</label>
-                                            <input type="number" class="form-control" name="quantidade_produto" required>
+                                            <label class="form-label">Quantidade:</label>
+                                            <input type="number" class="form-control" name="quantidade_produto" placeholder="Quantidade" required>
                                         </div>
+
                                         <div class="mb-3">
-                                            <label class="form-label">Descrição</label>
+                                            <label class="form-label">Descrição:</label>
                                             <textarea class="form-control" id="" placeholder="Descrição do Produto" required></textarea>
                                         </div>
-                                        <div class="modal-footer">
-                                            
-                                            <button type="submit" class="btn btn-info w-100 mt-3">Adicionar Produto</button>
-                                        </div>
+                                    <button type="submit" class="btn btn-primary w-100">Adicionar Produto</button>
                             </div>
                 </form>
             </div>

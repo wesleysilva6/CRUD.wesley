@@ -8,6 +8,14 @@
     <title>Estoque Aqui - System</title>
 
     <style>
+        ::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:  #00b894;
+        }
+
         .navbar {
         background-color: #0C0F16;
     }
