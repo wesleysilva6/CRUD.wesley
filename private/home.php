@@ -31,11 +31,6 @@
         text-align:end;
         }
 
-        input:focus, .form-control:focus {
-        box-shadow: none;
-        outline: none;
-    }
-
         .modal-content {
         border-radius:4rem;
         }
@@ -63,7 +58,15 @@
         background-color: #20252A;
         color:#fff;
         border-color: #393E42;
+        box-shadow: none;
+        outline: none;
 }
+
+        footer {
+        background: #0C0F16;
+        padding: 1rem 4%;
+        margin: 50rem 0 0 0;
+    }
 
     </style>
 </head>
@@ -92,13 +95,13 @@
             <div class="modal-dialog">
                 <form action="../src/adicionar_topico.php" method="POST" class="modal-content">
                     <div class="modal-header text-white">
-                        <h5 class="modal-tittle text-white">Adicionar Tópico</h5>
+                        <h5 class="modal-tittle text-white">Adicionar Tópico :</h5>
                         <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
                     </div>
                         <div class="modal-body text-white">
                             <div class="mb-3">
-                                <label for="form-label">Nome do Tópico:</label>
-                                <input type="text" class="form-control" name="nome_topico" palceholder="Nome do Tópico" required>
+                                <label for="form-label">Nome do Tópico :</label>
+                                <input type="text" class="form-control" name="nome_topico" placeholder="Nome do Tópico" required>
                             </div>
                                     <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
                         </div>
@@ -109,26 +112,28 @@
         <div class="modal fade" id="modalProduto" tabindex="-1">
             <div class="modal-dialog">
 
-                <form action="../src/adicionar_produto.php" method="POST" class="modal-content">
+                <form action="../src/adicionar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
                         <div class="modal-header text-white">
                             <h5 class="modal-tittle text-white">Adicionar Produto</h5>
                             <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
                         </div>
                             <div class="modal-body text-white">
+
                                         <div class="mb-3">
-                                            <label class="form-label">Nome do Produto:</label>
+                                            <label class="form-label">Nome do Produto :</label>
                                             <input type="text" class="form-control" name="nome_produto" placeholder="Nome do Produto" required>
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Quantidade:</label>
+                                            <label class="form-label">Quantidade :</label>
                                             <input type="number" class="form-control" name="quantidade_produto" placeholder="Quantidade" required>
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Descrição:</label>
-                                            <textarea class="form-control" id="" placeholder="Descrição do Produto" required></textarea>
+                                            <label class="form-label">Descrição :</label>
+                                            <textarea class="form-control" style="resize:none" placeholder="Descrição do Produto" required></textarea>
                                         </div>
+                                        
                                     <button type="submit" class="btn btn-primary w-100">Adicionar Produto</button>
                             </div>
                 </form>
@@ -137,7 +142,9 @@
 
 
 
-
+            <footer>
+                <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
+            </footer>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

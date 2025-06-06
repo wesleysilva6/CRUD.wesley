@@ -18,7 +18,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-        background:  #00b894;
+        background:  #0B5ED7;
         }
 
         .card-login {
