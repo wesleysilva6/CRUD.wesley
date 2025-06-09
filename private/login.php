@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
     <title>Estoque Aqui - System</title>
 
     <style>
@@ -21,15 +23,19 @@
         background:  #0B5ED7;
         }
 
+        .navbar {
+        background-color: #0C0F16;
+        }
+
         .card-login {
         padding: 13rem 0 0 0;
         width: 28rem;
         margin: 0 auto;
-    }
+        }
 
         .card {
         background-color: #0C0F16;
-    }
+        }
 
         .input-group-text {
         background-color: #20252A;
@@ -42,27 +48,23 @@
         border: 1px solid #393E42;
         }
 
-        .form-control::placeholder {
-        color:rgba(255, 255, 255, 0.76); 
-    }
-
-        input:focus, .form-control:focus {
+        .form-control:focus {
         box-shadow: none;
         outline: none;
         background-color: #20252A;
         color:#fff;
         border-color: #393E42;
-    }
+        }
 
-        .navbar {
-        background-color: #0C0F16;
-    }
+        .form-control::placeholder {
+        color:rgba(255, 255, 255, 0.76); 
+        }
 
         footer {
         background: #0C0F16;
         padding: 1rem 4%;
         margin: 14.19rem 0 0 0;
-    }
+        }
     </style>
 
 

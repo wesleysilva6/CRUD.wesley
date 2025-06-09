@@ -9,8 +9,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     <title>Estoque Aqui - Dashboard</title>
 
     <style>
@@ -52,7 +54,7 @@
 
         .form-control::placeholder {
         color:rgba(255, 255, 255, 0.76); 
-    }
+        }
 
         .form-control:focus {
         background-color: #20252A;
@@ -60,13 +62,13 @@
         border-color: #393E42;
         box-shadow: none;
         outline: none;
-}
+        }
 
         footer {
         background: #0C0F16;
         padding: 1rem 4%;
         margin: 50rem 0 0 0;
-    }
+        }
 
     </style>
 </head>
@@ -139,8 +141,6 @@
                 </form>
             </div>
         </div>
-
-
 
             <footer>
                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
