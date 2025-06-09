@@ -15,7 +15,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-        background:  #00b894;
+        background:  #0B5ED7;
         }
 
         .navbar {
@@ -44,10 +44,10 @@
         </nav>
 
         <div class="container">
-            <img src="../assets/img/icons8-certo-700.png" class="d-block mx-auto" alt="" style="width: 19rem; margin-top:12rem">
+            <img src="../assets/img/icon_certo.png" class="d-block mx-auto" alt="" style="width: 19rem; margin-top:12rem;">
                 <div class="text-center">
                     <p style="font-size: 1.8rem; color: #fff">USUÁRIO CADASTRADO COM SUCESSO !!</p>
-                    <a href="login.php"><button class="btn btn-success" style="height: 3rem; width: 33rem">REALIZE O LOGIN</button></a>
+                    <a href="login.php"><button class="btn btn-primary" style="height: 3rem; width: 33rem">REALIZE O LOGIN</button></a>
                 </div>
         </div>
 

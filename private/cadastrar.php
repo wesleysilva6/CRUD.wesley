@@ -91,7 +91,7 @@
 
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
-                <a href="../public/index.php" class="navbar-brand">
+                <a href="../private/cadastrar.php" class="navbar-brand">
                 <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
                 <ul class="navbar-nav">
