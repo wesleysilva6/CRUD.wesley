@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    
     <title>Estoque Aqui - System</title>
 
     <style>
@@ -20,7 +20,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-        background:  #00b894;
+        background:  #0B5ED7;
         }
 
         .navbar {
@@ -31,7 +31,7 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: 2.5rem;
-        color: #00b894;
+        color: #0B5ED7;
         letter-spacing: 0.5px;
         }
 
@@ -56,13 +56,13 @@
         }
 
         .btn {
-        background-color: #006853;
+        background-color:#0B5ED7;
         color:#fff;
         }
 
         .btn:focus, .btn:active, .btn:focus:active, .btn:visited, .btn:hover {
-        background-color:rgb(0, 75, 60);
-        color:#fff
+        background-color:rgb(6, 53, 124);
+        color:#fff;
         }
 
         footer {
@@ -96,12 +96,12 @@
         </nav>
 
             <section id="inicio">
-                <div class="container">
+                <div class="container ml-5">
                     <div class="row align-items-center justify-content-between">
                         
                         <div class="col-md-8">
                             <h3>Seja Bem-Vindo a ESTOQUE AQUI !</h3>
-                            <p>Seja bem-vindo ao nosso Sistema de Controle de Estoque, uma plataforma completa, segura e eficiente desenvolvida para facilitar a gestão de produtos e materiais da sua empresa.
+                            <p class="ml-5">Seja bem-vindo ao nosso Sistema de Controle de Estoque, uma plataforma completa, segura e eficiente desenvolvida para facilitar a gestão de produtos e materiais da sua empresa.
                             Com este sistema, você pode cadastrar, atualizar, excluir e acompanhar em tempo real todas as movimentações do seu estoque, garantindo organização, agilidade e total controle sobre suas operações.
                             Ideal para empresas que buscam precisão e praticidade, nossa ferramenta oferece uma interface intuitiva e responsiva, que se adapta a diferentes dispositivos e usuários.
                             Nosso compromisso é proporcionar uma experiência moderna e confiável, ajudando você a evitar perdas, controlar quantidades, e manter o seu estoque sempre atualizado com rapidez e segurança.
@@ -124,7 +124,7 @@
                             <div class="text-center mt-5">
                             <h3 class="text-center mt-5">SOBRE</h3>
                             <img src="../assets/img/fundop.png" alt="" width="350rem" class="">    
-                                <p><strong>O ESTOQUE AQUI</strong> é um sistema completo de controle de estoque desenvolvido para oferecer praticidade, organização e eficiência na gestão de produtos. A plataforma permite que você adicione novos itens ao seu estoque com facilidade, preenchendo informações essenciais como nome do produto, quantidade disponível, descrição detalhada e o horário exato da última atualização. Além disso, é possível atualizar rapidamente a quantidade de qualquer produto existente, refletindo em tempo real as movimentações do seu estoque. Caso algum item precise ser removido, o sistema também disponibiliza a função de exclusão com segurança, mantendo o histórico organizado e livre de informações desnecessárias. Com uma interface intuitiva e totalmente responsiva, o sistema se adapta a diferentes dispositivos, permitindo que você gerencie seu estoque de qualquer lugar. <strong>O ESTOQUE AQUI</strong> é a ferramenta ideal para empresas que buscam controle preciso, agilidade nas operações e um ambiente profissional para monitoramento contínuo dos seus produtos.</p>
+                                <p class=""><strong>O ESTOQUE AQUI</strong> é um sistema completo de controle de estoque desenvolvido para oferecer praticidade, organização e eficiência na gestão de produtos. A plataforma permite que você adicione novos itens ao seu estoque com facilidade, preenchendo informações essenciais como nome do produto, quantidade disponível, descrição detalhada e o horário exato da última atualização. Além disso, é possível atualizar rapidamente a quantidade de qualquer produto existente, refletindo em tempo real as movimentações do seu estoque. Caso algum item precise ser removido, o sistema também disponibiliza a função de exclusão com segurança, mantendo o histórico organizado e livre de informações desnecessárias. Com uma interface intuitiva e totalmente responsiva, o sistema se adapta a diferentes dispositivos, permitindo que você gerencie seu estoque de qualquer lugar. <strong>O ESTOQUE AQUI</strong> é a ferramenta ideal para empresas que buscam controle preciso, agilidade nas operações e um ambiente profissional para monitoramento contínuo dos seus produtos.</p>
                         </div>
                     </div>
                 </div>

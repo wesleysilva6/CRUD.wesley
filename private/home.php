@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
@@ -21,7 +20,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-        background:  #00b894;
+        background:  #0B5ED7;
         }
 
         .navbar {
@@ -89,27 +88,28 @@
         </div>
 
         <div class="btn-produto">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"></i> Adicionar Tópico</button>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalProduto"><i class="bi bi-plus-circle"></i> Adicionar Produto</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"></i> Adicionar Tópico</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProduto"><i class="bi bi-plus-circle"></i> Adicionar Produto</button>
         </div>
 
-        <div class="modal fade" id="modalTopico" tabiindex="-1">
+        <div class="modal fade" id="modalTopico" tabindex="-1">
             <div class="modal-dialog">
-                <form action="../src/adicionar_topico.php" method="POST" class="modal-content">
+                <form action="../add_topico.php" method="POST" class="modal-content">
                     <div class="modal-header text-white">
                         <h5 class="modal-tittle text-white">Adicionar Tópico :</h5>
                         <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
                     </div>
                         <div class="modal-body text-white">
                             <div class="mb-3">
-                                <label for="form-label">Nome do Tópico :</label>
+                                <label for="nome_topico">Nome do Tópico :</label>
                                 <input type="text" class="form-control" name="nome_topico" placeholder="Nome do Tópico" required>
                             </div>
-                                    <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
+                                <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
                         </div>
                 </form>
             </div>
         </div>
+        
 
         <div class="modal fade" id="modalProduto" tabindex="-1">
             <div class="modal-dialog">
@@ -133,7 +133,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label">Descrição :</label>
-                                            <textarea class="form-control" style="resize:none" placeholder="Descrição do Produto" required></textarea>
+                                            <textarea class="form-control" name="descricao_produto" style="resize:none"  placeholder="Descrição do Produto" required></textarea>
                                         </div>
                                         
                                     <button type="submit" class="btn btn-primary w-100">Adicionar Produto</button>

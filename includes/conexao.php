@@ -2,10 +2,10 @@
 $host = "localhost";
 $usuario = "root";
 $senha = "";
-$banco = "crud_login";
+$dbname = "crud_login";
 
 // Cria a conexão
-$conn = new mysqli($host, $usuario, $senha, $banco);
+$conn = new mysqli($host, $usuario, $senha, $dbname);
 
 // Verifica a conexão
 if ($conn->connect_error) {
