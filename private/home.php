@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include '../includes/conexao.php';
     date_default_timezone_set('America/Sao_Paulo');
 ?>
 
@@ -31,6 +32,11 @@
         margin:7rem 19.4rem 0 0;
         text-align:end;
         }
+
+        .container {
+        border:1px solid red
+        }
+
 
         .modal-content {
         border-radius:4rem;
@@ -71,7 +77,7 @@
 
     </style>
 </head>
-    <body style="background:#000">
+    <body style="background:#fff">
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
                 <a href="home.php" class="navbar-brand">
@@ -89,7 +95,7 @@
 
         <div class="btn-produto">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"></i> Adicionar Tópico</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProduto"><i class="bi bi-plus-circle"></i> Adicionar Produto</button>
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProduto"><i class="bi bi-plus-circle"></i> Adicionar Produto</button> -->
         </div>
 
         <div class="modal fade" id="modalTopico" tabindex="-1">
@@ -115,6 +121,7 @@
             <div class="modal-dialog">
 
                 <form action="../src/adicionar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
+                    <input type="hidden" name="id_topico">
                         <div class="modal-header text-white">
                             <h5 class="modal-tittle text-white">Adicionar Produto</h5>
                             <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
@@ -128,12 +135,12 @@
 
                                         <div class="mb-3">
                                             <label class="form-label">Quantidade :</label>
-                                            <input type="number" class="form-control" name="quantidade_produto" placeholder="Quantidade" required>
+                                            <input type="number" class="form-control" name="quantidade" placeholder="Quantidade" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label">Descrição :</label>
-                                            <textarea class="form-control" name="descricao_produto" style="resize:none"  placeholder="Descrição do Produto" required></textarea>
+                                            <textarea class="form-control" name="descricao" style="resize:none"  placeholder="Descrição do Produto" required></textarea>
                                         </div>
                                         
                                     <button type="submit" class="btn btn-primary w-100">Adicionar Produto</button>
@@ -142,10 +149,56 @@
             </div>
         </div>
 
+                <?php 
+                $result = $conn->query("SELECT id_topico, nome_topico FROM topicos");
+                    while ($topico = $result->fetch_assoc()) {
+                        $produtos = $conn->query("SELECT * FROM produtos WHERE topico_id = " . intval($topico['id_topico']));
+                    ?>
+
+    <div class="container pb-5 mt-3" style="background: #161A1F">
+        
+            <h4 class="mb-3"><?php echo htmlspecialchars($topico['nome_topico']); ?></h4>
+            <div class="card-body">
+            <table class="table table-striped mb-0" style="background:  #0B5ED7">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Descrição</th>
+                        <th>Última atualização</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($produto = $produtos->fetch_assoc()) { ?>
+                        <tr>
+                            <td><?php echo ($produto['nome_produto']); ?></td>
+                            <td><?php echo $produto['quantidade']; ?></td>
+                            <td><?php echo ($produto['descricao']); ?></td>
+                            <td><?php echo $produto['atualizado_em']; ?></td>
+                            <td><button class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                            <td><button class="btn"><i class="bi bi-trash3"></i></button></td
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)">Adicionar Produto</button>
+        </div>
+    </div>
+<?php } ?>
+
             <footer>
                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
             </footer>
 
+    <script>
+        function setIdTopico(id) {
+        document.querySelector('input[name="id_topico"]').value = id;
+    }
+    </script>
+
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
     </body>
 </html>

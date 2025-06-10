@@ -74,7 +74,7 @@
     </style>
 </head>
 
-    <body style="background:#000">
+    <body style="background:#001">
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
                 <a href="../public/index.php" class="navbar-brand">
