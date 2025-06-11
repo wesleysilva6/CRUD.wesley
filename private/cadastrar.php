@@ -12,7 +12,7 @@
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['nome'] = $nome;
-        header('location: cadastrado.php');
+        header('location: login.php');
         exit();
     } else {
         echo "Erro: " . $conn->error;

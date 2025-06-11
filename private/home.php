@@ -34,9 +34,9 @@
         }
 
         .container {
-        border:1px solid red
+        border:1px solid;
+        border-radius:0.5rem;
         }
-
 
         .modal-content {
         border-radius:4rem;
@@ -69,6 +69,33 @@
         outline: none;
         }
 
+        .icon {
+        color:#fff;
+        }
+
+        .table.table-striped {
+        background: #20252A;
+        border:2px solid  #0B5ED7;
+        border-radius: 0.4rem;
+        overflow: hidden;
+        }
+
+        .table.table-striped thead th {
+        border-bottom: 2px solid #0B5ED7;
+        background:#0B5ED7;
+        color:#fff;
+        }
+
+        .table.table-striped tbody tr:nth-of-type(odd) td {
+        background: #20252a; 
+        color: #fff;     
+    }
+
+        .table.table-striped tbody tr:nth-of-type(even) td {
+        background: #161A1F; 
+        color: #fff;     
+    }
+
         footer {
         background: #0C0F16;
         padding: 1rem 4%;
@@ -77,7 +104,7 @@
 
     </style>
 </head>
-    <body style="background:#fff">
+    <body style="background:#000">
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
                 <a href="home.php" class="navbar-brand">
@@ -89,13 +116,12 @@
             </div>
         </nav>
 
-        <div class="container mt-5">
-            <div class="alert alert-success text-center"> Seja Muito Bem-Vindo(a) <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !</div>
+        <div class="container mt-5" style="border:none;">
+            <div class="alert alert-primary text-center"> Seja Muito Bem-Vindo(a) <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !</div>
         </div>
 
         <div class="btn-produto">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"></i> Adicionar Tópico</button>
-            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProduto"><i class="bi bi-plus-circle"></i> Adicionar Produto</button> -->
         </div>
 
         <div class="modal fade" id="modalTopico" tabindex="-1">
@@ -157,9 +183,9 @@
 
     <div class="container pb-5 mt-3" style="background: #161A1F">
         
-            <h4 class="mb-3"><?php echo htmlspecialchars($topico['nome_topico']); ?></h4>
+            <h4 class="my-3" style="color:#fff"> <?php echo htmlspecialchars($topico['nome_topico']); ?> </h4>
             <div class="card-body">
-            <table class="table table-striped mb-0" style="background:  #0B5ED7">
+            <table class="table table-striped mb-0">
                 <thead>
                     <tr>
                         <th>Produto</th>
@@ -173,17 +199,18 @@
                 <tbody>
                     <?php while ($produto = $produtos->fetch_assoc()) { ?>
                         <tr>
-                            <td><?php echo ($produto['nome_produto']); ?></td>
-                            <td><?php echo $produto['quantidade']; ?></td>
-                            <td><?php echo ($produto['descricao']); ?></td>
-                            <td><?php echo $produto['atualizado_em']; ?></td>
-                            <td><button class="btn"><i class="bi bi-pencil-square"></i></button></td>
-                            <td><button class="btn"><i class="bi bi-trash3"></i></button></td
+                            <td> <?php echo ($produto['nome_produto']); ?> </td>
+                            <td> <?php echo $produto['quantidade']; ?> </td>
+                            <td> <?php echo ($produto['descricao']); ?> </td>
+                            <td> <?php echo $produto['atualizado_em']; ?> </td>
+                            <td> <button class="btn"> <span class="icon"><i class="bi bi-pencil-square"></i></span> </button></td>
+                            <td> <button class="btn"> <span class="icon"><i class="bi bi-trash3"></i></span> </button></td
                         </tr>
                         <?php } ?>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)">Adicionar Produto</button>
+                <button type="button" class="btn btn-primary mt-5" onclick="return(confirm('Você ira fazer a exclusão desse Tópico juntamente com seus produtos, não será possível recuperar os dados após a exclusão.'))"><i class="bi bi-trash3"> Excluir Tópico </i></button>
+                <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)"><i class="bi bi-plus-circle"> Adicionar Produto </i></button>
         </div>
     </div>
 <?php } ?>
@@ -192,11 +219,12 @@
                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
             </footer>
 
-    <script>
-        function setIdTopico(id) {
-        document.querySelector('input[name="id_topico"]').value = id;
-    }
-    </script>
+            <script>
+                function setIdTopico(id) {
+                document.querySelector('input[name="id_topico"]').value = id;
+            }
+
+            </script>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
