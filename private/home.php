@@ -204,13 +204,17 @@
                             <td> <?php echo ($produto['descricao']); ?> </td>
                             <td> <?php echo $produto['atualizado_em']; ?> </td>
                             <td> <button class="btn"> <span class="icon"><i class="bi bi-pencil-square"></i></span> </button></td>
-                            <td> <button class="btn"> <span class="icon"><i class="bi bi-trash3"></i></span> </button></td
+                            <td> <button class="btn"> <span class="icon"><i class="bi bi-trash3"></i></span> </button></td>
                         </tr>
                         <?php } ?>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-primary mt-5" onclick="return(confirm('Você ira fazer a exclusão desse Tópico juntamente com seus produtos, não será possível recuperar os dados após a exclusão.'))"><i class="bi bi-trash3"> Excluir Tópico </i></button>
+
+                    <a href="../excluir_topico.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"
+                    onclick="return removerTopico()"> <i class="bi bi-trash3"> Excluir Tópico </i> </a>
+
                 <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)"><i class="bi bi-plus-circle"> Adicionar Produto </i></button>
+
         </div>
     </div>
 <?php } ?>
@@ -224,6 +228,9 @@
                 document.querySelector('input[name="id_topico"]').value = id;
             }
 
+                function removerTopico() {
+                return confirm('Você ira fazer a exclusão desse Tópico juntamente com seus produtos, não será possível recuperar os dados após a exclusão.')
+                }
             </script>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
