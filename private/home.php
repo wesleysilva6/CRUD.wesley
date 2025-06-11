@@ -160,6 +160,11 @@
                                         </div>
 
                                         <div class="mb-3">
+                                            <label class="form-label">Preço :</label>
+                                            <input type="text" class="form-control" name="preco" placeholder="Preço" required>
+                                        </div>
+
+                                        <div class="mb-3">
                                             <label class="form-label">Quantidade :</label>
                                             <input type="number" class="form-control" name="quantidade" placeholder="Quantidade" required>
                                         </div>
@@ -182,13 +187,13 @@
                     ?>
 
     <div class="container pb-5 mt-3" style="background: #161A1F">
-        
             <h4 class="my-3" style="color:#fff"> <?php echo htmlspecialchars($topico['nome_topico']); ?> </h4>
             <div class="card-body">
             <table class="table table-striped mb-0">
                 <thead>
                     <tr>
                         <th>Produto</th>
+                        <th>Preço</th>
                         <th>Quantidade</th>
                         <th>Descrição</th>
                         <th>Última atualização</th>
@@ -200,6 +205,7 @@
                     <?php while ($produto = $produtos->fetch_assoc()) { ?>
                         <tr>
                             <td> <?php echo ($produto['nome_produto']); ?> </td>
+                            <td> <?php echo 'R$ '. number_format($produto['preco'], 2, ',', '.'); ?> </td>
                             <td> <?php echo $produto['quantidade']; ?> </td>
                             <td> <?php echo ($produto['descricao']); ?> </td>
                             <td> <?php echo $produto['atualizado_em']; ?> </td>
