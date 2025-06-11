@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/06/2025 às 16:53
+-- Tempo de geração: 11/06/2025 às 17:06
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -33,19 +33,9 @@ CREATE TABLE `produtos` (
   `quantidade` int(11) DEFAULT NULL,
   `descricao` text DEFAULT NULL,
   `atualizado_em` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `topico_id` int(11) DEFAULT NULL
+  `topico_id` int(11) DEFAULT NULL,
+  `preco` float(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `produtos`
---
-
-INSERT INTO `produtos` (`id`, `nome_produto`, `quantidade`, `descricao`, `atualizado_em`, `topico_id`) VALUES
-(1, 'Teclado', 4, 'Teclado Mêcanico 65%', '2025-06-09 11:06:41', NULL),
-(2, 'Teclado', 4, 'Teclado Mêcanico 65%', '2025-06-09 11:09:22', NULL),
-(3, 'Mouse Logitech P34', 10, 'Mouse Gamer com desempenho eficiente para jogos.', '2025-06-09 11:10:52', NULL),
-(4, 'Produto', 2, 'dads', '2025-06-09 11:13:16', NULL),
-(5, 'Processador Ryzen5 4600G', 10, 'Processador com Vídeo-Integrado', '2025-06-09 11:22:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -54,25 +44,10 @@ INSERT INTO `produtos` (`id`, `nome_produto`, `quantidade`, `descricao`, `atuali
 --
 
 CREATE TABLE `topicos` (
-  `id` int(11) NOT NULL,
+  `id_topico` int(11) NOT NULL,
   `nome_topico` varchar(100) NOT NULL,
   `criado_em` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `topicos`
---
-
-INSERT INTO `topicos` (`id`, `nome_topico`, `criado_em`) VALUES
-(1, 'Teclados', '2025-06-09 09:36:11'),
-(2, 'Teclados', '2025-06-09 09:36:16'),
-(3, 'Teclados', '2025-06-09 09:40:38'),
-(4, 'Teclados', '2025-06-09 09:44:37'),
-(5, 'Teclados', '2025-06-09 09:44:48'),
-(6, 'Teclados', '2025-06-09 09:45:38'),
-(7, 'Teclados', '2025-06-09 09:46:02'),
-(8, 'mouse', '2025-06-09 10:55:09'),
-(9, 'MOUSE', '2025-06-09 11:09:31');
 
 -- --------------------------------------------------------
 
@@ -104,7 +79,9 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
 (11, 'LOJA', 'loja33@gmail.com', '$2y$10$2RumU55k6TRrRbNF0JWTxuxm/Fsq0bEs6HEvRwOib928d/kJ3.vea'),
 (12, 'Administrador', 'administrador@gmail.com', '$2y$10$ltzft07ql6XFrzfQ0cmn4OGr66.aYUsDDj.LFremG0G6P7kzu5Wyu'),
 (13, 'Wear Companyy', 'wear@gmail.com', '$2y$10$QlAB0OrA14mlNVCLp6O1u.WerVO7CrIr8XHd20TJkxm4QMAuhxocK'),
-(14, 'Shop Perfumes', 'shopperfumes@gmail.com', '$2y$10$w6tPKuefE709R5yJvxdxmeudUdXNleNqNI3KStdq6DW2led1mcy6G');
+(14, 'Shop Perfumes', 'shopperfumes@gmail.com', '$2y$10$w6tPKuefE709R5yJvxdxmeudUdXNleNqNI3KStdq6DW2led1mcy6G'),
+(15, 'wesley', 'wesley29999@gmail.com', '$2y$10$p8bm7zMgrMeKKrj6sf0R1u3zFvvEEs79HTdsMEWmCIC2MB0.quHXK'),
+(16, 'Sr.Admin', 'senhoradmin@gmail.com', '$2y$10$q1MNstwwEmsyIB3YUM8DtelRjYQwbwKpV4RZ.jE9Mg3VZlySJ1Mdi');
 
 --
 -- Índices para tabelas despejadas
@@ -121,7 +98,7 @@ ALTER TABLE `produtos`
 -- Índices de tabela `topicos`
 --
 ALTER TABLE `topicos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_topico`);
 
 --
 -- Índices de tabela `usuarios`
@@ -138,19 +115,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de tabela `topicos`
 --
 ALTER TABLE `topicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_topico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restrições para tabelas despejadas
@@ -160,7 +137,7 @@ ALTER TABLE `usuarios`
 -- Restrições para tabelas `produtos`
 --
 ALTER TABLE `produtos`
-  ADD CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`topico_id`) REFERENCES `topicos` (`id`);
+  ADD CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`topico_id`) REFERENCES `topicos` (`id_topico`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
