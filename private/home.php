@@ -205,7 +205,7 @@
                     <?php while ($produto = $produtos->fetch_assoc()) { ?>
                         <tr>
                             <td> <?php echo ($produto['nome_produto']); ?> </td>
-                            <td> <?php echo 'R$ '. number_format($produto['preco'], 2, ',', '.'); ?> </td>
+                            <td> <?php echo 'R$ '. number_format($produto['preco'], 2, '.'); ?> </td>
                             <td> <?php echo $produto['quantidade']; ?> </td>
                             <td> <?php echo ($produto['descricao']); ?> </td>
                             <td> <?php echo $produto['atualizado_em']; ?> </td>
