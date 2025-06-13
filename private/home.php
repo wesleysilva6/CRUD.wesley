@@ -2,6 +2,11 @@
     session_start();
     include '../includes/conexao.php';
     date_default_timezone_set('America/Sao_Paulo');
+
+    if (!isset($_SESSION['id'])) {
+    header('Location: ../public/login.php?erro=acesso_negado');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,97 +17,11 @@
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <script src="../assets/javascript/index.js"></script>
 
     <title>Estoque Aqui - Dashboard</title>
 
-    <style>
-        ::-webkit-scrollbar {
-        width: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-        background:  #0B5ED7;
-        }
-
-        .navbar {
-        background-color: #0C0F16;
-        }
-
-        .btn-produto {
-        margin:7rem 19.4rem 0 0;
-        text-align:end;
-        }
-
-        .container {
-        border:1px solid;
-        border-radius:0.5rem;
-        }
-
-        .modal-content {
-        border-radius:4rem;
-        }
-
-        .modal-header {
-        background-color: #161A1F;
-        border-bottom:1px solid #000;
-        }
-
-        .modal-body {
-        background-color: #161A1F;
-        }
-
-        .form-control {
-        color: #fff;
-        background-color: #20252A;
-        border: 1px solid #393E42;
-        }
-
-        .form-control::placeholder {
-        color:rgba(255, 255, 255, 0.76); 
-        }
-
-        .form-control:focus {
-        background-color: #20252A;
-        color:#fff;
-        border-color: #393E42;
-        box-shadow: none;
-        outline: none;
-        }
-
-        .icon {
-        color:#fff;
-        }
-
-        .table.table-striped {
-        background: #20252A;
-        border:2px solid  #0B5ED7;
-        border-radius: 0.4rem;
-        overflow: hidden;
-        }
-
-        .table.table-striped thead th {
-        border-bottom: 2px solid #0B5ED7;
-        background:#0B5ED7;
-        color:#fff;
-        }
-
-        .table.table-striped tbody tr:nth-of-type(odd) td {
-        background: #20252a; 
-        color: #fff;     
-    }
-
-        .table.table-striped tbody tr:nth-of-type(even) td {
-        background: #161A1F; 
-        color: #fff;     
-    }
-
-        footer {
-        background: #0C0F16;
-        padding: 1rem 4%;
-        margin: 50rem 0 0 0;
-        }
-
-    </style>
 </head>
     <body style="background:#000">
         <nav class="navbar" data-bs-theme="dark">
@@ -154,25 +73,31 @@
                         </div>
                             <div class="modal-body text-white">
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Nome do Produto :</label>
-                                            <input type="text" class="form-control" name="nome_produto" placeholder="Nome do Produto" required>
-                                        </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Imagem do Produto:</label>
+                                        <input type="file" class="form-control" name="imagem" id="inputImagem" accept="image/*" required>
+                                        <img id="previewImagem" src="#" alt="Preview da Imagem" style="display:none; margin-top: 10px; max-width: 100%; border-radius: 8px;" />
+                                    </div>
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Preço :</label>
-                                            <input type="text" class="form-control" name="preco" placeholder="Preço" required>
-                                        </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nome do Produto :</label>
+                                        <input type="text" class="form-control" name="nome_produto" placeholder="Nome do Produto" required>
+                                    </div>
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Quantidade :</label>
-                                            <input type="number" class="form-control" name="quantidade" placeholder="Quantidade" required>
-                                        </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Preço :</label>
+                                        <input type="text" class="form-control" name="preco" placeholder="Preço" required>
+                                    </div>
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Descrição :</label>
-                                            <textarea class="form-control" name="descricao" style="resize:none"  placeholder="Descrição do Produto" required></textarea>
-                                        </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Quantidade :</label>
+                                        <input type="number" class="form-control" name="quantidade" placeholder="Quantidade" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Descrição :</label>
+                                        <textarea class="form-control" name="descricao" style="resize:none"  placeholder="Descrição do Produto" required></textarea>
+                                    </div>
                                         
                                     <button type="submit" class="btn btn-primary w-100">Adicionar Produto</button>
                             </div>
@@ -181,7 +106,12 @@
         </div>
 
                 <?php 
-                $result = $conn->query("SELECT id_topico, nome_topico FROM topicos");
+                $usuario_id = $_SESSION['id'];
+                $stmt = $conn->prepare("SELECT id_topico, nome_topico FROM topicos WHERE usuario_id = ?");
+                $stmt->bind_param("i", $usuario_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
                     while ($topico = $result->fetch_assoc()) {
                         $produtos = $conn->query("SELECT * FROM produtos WHERE topico_id = " . intval($topico['id_topico']));
                     ?>
@@ -192,6 +122,7 @@
             <table class="table table-striped mb-0">
                 <thead>
                     <tr>
+                        <th>Imagem do Produto</th>
                         <th>Produto</th>
                         <th>Preço</th>
                         <th>Quantidade</th>
@@ -204,12 +135,39 @@
                 <tbody>
                     <?php while ($produto = $produtos->fetch_assoc()) { ?>
                         <tr>
+                            <td>
+                            <?php if (!empty($produto['imagem'])): ?>
+                                <img src="<?php echo $produto['imagem']; ?>"
+                                    width="60"
+                                    height="60"
+                                    style="object-fit:cover; border-radius:8px; cursor: pointer;"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalImagem"
+                                    onclick="mostrarImagem('<?php echo $produto['imagem']; ?>')"
+                                >
+                            <?php else: ?>
+                                <span class="text-muted">Sem imagem</span>
+                            <?php endif; ?>
+                            </td>
                             <td> <?php echo ($produto['nome_produto']); ?> </td>
                             <td> <?php echo 'R$ '. number_format($produto['preco'], 2, '.'); ?> </td>
                             <td> <?php echo $produto['quantidade']; ?> </td>
                             <td> <?php echo ($produto['descricao']); ?> </td>
                             <td> <?php echo $produto['atualizado_em']; ?> </td>
-                            <td> <button class="btn"> <span class="icon"><i class="bi bi-pencil-square"></i></span> </button></td>
+
+                                <td> <button class="btn"
+                                data-id="<?php echo $produto['id']; ?>"
+                                data-id-topico="<?php echo $topico['id_topico']; ?>"
+                                data-produto="<?php echo htmlspecialchars($produto['nome_produto']); ?>"
+                                data-preco="<?php echo $produto['preco']; ?>"
+                                data-quantidade="<?php echo $produto['quantidade']; ?>"
+                                data-desc="<?php echo htmlspecialchars($produto['descricao']); ?>"
+                                data-bs-toggle="modal"
+                                data-bs-target="#editarModal"
+                                onclick="preencherModalEditar(this)">
+                                <span class="icon"><i class="bi bi-pencil-square"></i></span>
+                            </button></td>
+                            
                             <td> <button class="btn"> <span class="icon"><i class="bi bi-trash3"></i></span> </button></td>
                         </tr>
                         <?php } ?>
@@ -223,21 +181,72 @@
 
         </div>
     </div>
+
+                    <!-- Modal de Preview da Imagem -->
+                <div class="modal fade" id="modalImagem" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img id="imagemModal" src="#" alt="Imagem do produto" style="max-width: 100%; border-radius: 10px;">
+                    </div>
+                    </div>
+                </div>
+                </div>
 <?php } ?>
+
+                <div class="modal fade" id="editarModal" tabindex="-1">
+                <div class="modal-dialog">
+                    
+                    <form action="../src/editar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
+                    <div class="modal-header text-white">
+                        <h5 class="modal-title text-white">Editar Produto</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body text-white">
+                        <input type="hidden" name="id" id="editar_id_produto">
+                        <input type="hidden" name="id_topico" id="editar_id_topico">
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Nova Imagem (opcional):</label>
+                            <input type="file" class="form-control" name="imagem" accept="image/*">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Nome do Produto:</label>
+                            <input type="text" class="form-control" name="nome_produto" id="editar_nome_produto" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Preço:</label>
+                            <input type="text" class="form-control" name="preco" id="editar_preco" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Quantidade:</label>
+                            <input type="number" class="form-control" name="quantidade" id="editar_quantidade" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Descrição:</label>
+                            <textarea style="resize:none;" class="form-control" name="descricao" id="editar_descricao" rows="3" required></textarea>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary w-100">Atualizar Produto</button>
+                    </div>
+
+                    </form>
+                </div>
+                </div>
+
 
             <footer>
                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
             </footer>
-
-            <script>
-                function setIdTopico(id) {
-                document.querySelector('input[name="id_topico"]').value = id;
-            }
-
-                function removerTopico() {
-                return confirm('Você ira fazer a exclusão desse Tópico juntamente com seus produtos, não será possível recuperar os dados após a exclusão.')
-                }
-            </script>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 

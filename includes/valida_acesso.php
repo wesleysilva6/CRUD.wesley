@@ -2,6 +2,7 @@
 include '../includes/conexao.php';
 session_start();
 
+
 $email = $_POST['email'] ?? '';
 $senha = $_POST['senha'] ?? '';
 
@@ -17,14 +18,15 @@ if ($result->num_rows == 1) {
 
     // Verifica a senha
     if (password_verify($senha, $usuario['senha'])) {
+        $_SESSION['id'] = $usuario['id'];
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['nome'] = $usuario['nome'];
         header('Location: ../private/home.php');
         exit();
     } else {
-        header('location: ../private/login.php?erro');
+        header('location: ../public/login.php?erro');
     }
     } else {
-    header('location: ../private/login.php?erro=login');
+    header('location: ../public/login.php?erro=login');
 }
 ?>

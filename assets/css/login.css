@@ -1,0 +1,50 @@
+::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:  #0B5ED7;
+        }
+
+        .navbar {
+        background-color: #0C0F16;
+        }
+
+        .card-login {
+        padding: 13rem 0 0 0;
+        width: 28rem;
+        margin: 0 auto;
+        }
+
+        .card {
+        background-color: #0C0F16;
+        }
+
+        .input-group-text {
+        background-color: #20252A;
+        border: 1px solid #393E42;
+        }
+
+        .form-control {
+        color: #fff;
+        background-color: #20252A;
+        border: 1px solid #393E42;
+        }
+
+        .form-control:focus {
+        box-shadow: none;
+        outline: none;
+        background-color: #20252A;
+        color:#fff;
+        border-color: #393E42;
+        }
+
+        .form-control::placeholder {
+        color:rgba(255, 255, 255, 0.76); 
+        }
+
+        footer {
+        background: #0C0F16;
+        padding: 1rem 4%;
+        margin: 14.19rem 0 0 0;
+        }

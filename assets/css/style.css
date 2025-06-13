@@ -1,0 +1,55 @@
+::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:  #0B5ED7;
+        }
+
+        .navbar {
+        background-color: #0C0F16;
+        }
+
+        h3 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: #0B5ED7;
+        letter-spacing: 0.5px;
+        }
+
+        p {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: #e0e0e0;
+        line-height: 1.6;
+        text-align:left;
+        }
+
+        .container {
+        margin: 16rem 0 0 12rem; 
+        color: #fff;
+        }
+
+        .container2 {
+        justify-content:left;
+        color: #fff;
+        padding:15rem;
+        }
+
+        .btn {
+        background-color:#0B5ED7;
+        color:#fff;
+        }
+
+        .btn:focus, .btn:active, .btn:focus:active, .btn:visited, .btn:hover {
+        background-color:rgb(6, 53, 124);
+        color:#fff;
+        }
+
+        footer {
+        background: #0C0F16;
+        padding: 1rem 4%;
+        margin: 14.19rem 0 0 0;
+        }

@@ -11,67 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
     
     <title>Estoque Aqui - System</title>
 
-    <style>
-        ::-webkit-scrollbar {
-        width: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-        background:  #0B5ED7;
-        }
-
-        .navbar {
-        background-color: #0C0F16;
-        }
-
-        h3 {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        font-size: 2.5rem;
-        color: #0B5ED7;
-        letter-spacing: 0.5px;
-        }
-
-        p {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-        font-size: 1rem;
-        color: #e0e0e0;
-        line-height: 1.6;
-        text-align:left;
-        }
-
-        .container {
-        margin: 16rem 0 0 12rem; 
-        color: #fff;
-        }
-
-        .container2 {
-        justify-content:left;
-        color: #fff;
-        padding:15rem;
-        }
-
-        .btn {
-        background-color:#0B5ED7;
-        color:#fff;
-        }
-
-        .btn:focus, .btn:active, .btn:focus:active, .btn:visited, .btn:hover {
-        background-color:rgb(6, 53, 124);
-        color:#fff;
-        }
-
-        footer {
-        background: #0C0F16;
-        padding: 1rem 4%;
-        margin: 14.19rem 0 0 0;
-        }
-
-    </style>
 </head>
 
     <body style="background:#000">
@@ -87,8 +30,8 @@
                 
                 <div class="navbar-collapse" id="navbarToggleExternalContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="../private/login.php" class="nav-link">Entrar</a></li>
-                        <li class="nav-item"><a href="../private/cadastrar.php" class="nav-link">Cadastrar</a></li>
+                        <li class="nav-item"><a href="../public/login.php" class="nav-link">Entrar</a></li>
+                        <li class="nav-item"><a href="../public/cadastrar.php" class="nav-link">Cadastrar</a></li>
                         <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
                     </ul>
                 </div>
@@ -106,8 +49,8 @@
                             Ideal para empresas que buscam precisão e praticidade, nossa ferramenta oferece uma interface intuitiva e responsiva, que se adapta a diferentes dispositivos e usuários.
                             Nosso compromisso é proporcionar uma experiência moderna e confiável, ajudando você a evitar perdas, controlar quantidades, e manter o seu estoque sempre atualizado com rapidez e segurança.
                             </p>
-                            <a href="../private/login.php"><button class="btn">Login</button></a>
-                            <a href="../private/cadastrar.php"><button class="btn">Cadastre-se</button></a>
+                            <a href="../public/login.php"><button class="btn">Login</button></a>
+                            <a href="../public/cadastrar.php"><button class="btn">Cadastre-se</button></a>
                         </div>
                         
                         <div class="col-md-4 d-flex justify-content-end" id="logo">

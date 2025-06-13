@@ -1,0 +1,85 @@
+::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:  #0B5ED7;
+        }
+
+        .navbar {
+        background-color: #0C0F16;
+        }
+
+        .btn-produto {
+        margin:7rem 19.4rem 0 0;
+        text-align:end;
+        }
+
+        .container {
+        border:1px solid;
+        border-radius:0.5rem;
+        }
+
+        .modal-content {
+        border-radius:4rem;
+        }
+
+        .modal-header {
+        background-color: #161A1F;
+        border-bottom:1px solid #000;
+        }
+
+        .modal-body {
+        background-color: #161A1F;
+        }
+
+        .form-control {
+        color: #fff;
+        background-color: #20252A;
+        border: 1px solid #393E42;
+        }
+
+        .form-control::placeholder {
+        color:rgba(255, 255, 255, 0.76); 
+        }
+
+        .form-control:focus {
+        background-color: #20252A;
+        color:#fff;
+        border-color: #393E42;
+        box-shadow: none;
+        outline: none;
+        }
+
+        .icon {
+        color:#fff;
+        }
+
+        .table.table-striped {
+        background: #20252A;
+        border:2px solid  #0B5ED7;
+        border-radius: 0.4rem;
+        overflow: hidden;
+        }
+
+        .table.table-striped thead th {
+        border-bottom: 2px solid #0B5ED7;
+        background:#0B5ED7;
+        color:#fff;
+        }
+
+        .table.table-striped tbody tr:nth-of-type(odd) td {
+        background: #20252a; 
+        color: #fff;     
+    }
+
+        .table.table-striped tbody tr:nth-of-type(even) td {
+        background: #161A1F; 
+        color: #fff;     
+    }
+
+        footer {
+        background: #0C0F16;
+        padding: 1rem 4%;
+        margin: 50rem 0 0 0;
+        }

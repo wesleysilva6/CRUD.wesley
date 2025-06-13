@@ -11,62 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/login.css">
 
     <title>Estoque Aqui - System</title>
-
-    <style>
-        ::-webkit-scrollbar {
-        width: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-        background:  #0B5ED7;
-        }
-
-        .navbar {
-        background-color: #0C0F16;
-        }
-
-        .card-login {
-        padding: 13rem 0 0 0;
-        width: 28rem;
-        margin: 0 auto;
-        }
-
-        .card {
-        background-color: #0C0F16;
-        }
-
-        .input-group-text {
-        background-color: #20252A;
-        border: 1px solid #393E42;
-        }
-
-        .form-control {
-        color: #fff;
-        background-color: #20252A;
-        border: 1px solid #393E42;
-        }
-
-        .form-control:focus {
-        box-shadow: none;
-        outline: none;
-        background-color: #20252A;
-        color:#fff;
-        border-color: #393E42;
-        }
-
-        .form-control::placeholder {
-        color:rgba(255, 255, 255, 0.76); 
-        }
-
-        footer {
-        background: #0C0F16;
-        padding: 1rem 4%;
-        margin: 14.19rem 0 0 0;
-        }
-    </style>
-
 
 </head>
     <body style="background:#000">
@@ -102,7 +49,7 @@
                                     </div>
                                     
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Entrar</button>
-                                    <div class="text-end mt-2"><a href="../private/cadastrar.php">Cadastrar-se</a></div>
+                                    <div class="text-end mt-2"><a href="../public/cadastrar.php">Cadastrar-se</a></div>
                                 </form>
                             </div>
                         </div>  

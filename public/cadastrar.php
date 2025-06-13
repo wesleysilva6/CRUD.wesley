@@ -29,62 +29,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../assets/css/cadastro.css">
 
     <title>Estoque Aqui - System</title>
-
-    <style>
-        ::-webkit-scrollbar {
-        width: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-        background:  #0B5ED7;
-        }
-
-        .card-login {
-        padding: 13rem 0 0 0;
-        width: 28rem;
-        margin: 0 auto;
-        }
-
-        .navbar {
-        background-color: #0C0F16;
-        }
-
-        .card {
-        background-color: #0C0F16;
-        }
-
-        .input-group-text {
-        background-color: #20252A;
-        border: 1px solid #393E42;
-        }
-
-        .form-control {
-        color: #fff;
-        background-color: #20252A;
-        border: 1px solid #393E42;
-        }
-
-        .form-control:focus {
-        box-shadow: none;
-        outline: none;
-        background-color: #20252A;
-        color:#fff;
-        border-color: #393E42;
-        }
-
-        .form-control::placeholder {
-        color:rgba(255, 255, 255, 0.76); 
-        }
-
-        footer {
-        background: #0C0F16;
-        padding: 1rem 4%;
-        margin: 14.19rem 0 0 0;
-        }
-    </style>
-
 
 </head>
     <body style="background:#000">
@@ -126,7 +73,7 @@
                                     </div>
                                     
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Cadastrar</button>
-                                    <div class="text-end mt-2"><a href="../private/login.php">Já possui login?</a></div>
+                                    <div class="text-end mt-2"><a href="../public/login.php">Já possui login?</a></div>
                                 </form>
                             </div>
                         </div>
