@@ -45,7 +45,7 @@
 
         <div class="modal fade" id="modalTopico" tabindex="-1">
             <div class="modal-dialog">
-                <form action="../add_topico.php" method="POST" class="modal-content">
+                <form action="../src/topicos/add_topico.php" method="POST" class="modal-content">
                     <div class="modal-header text-white">
                         <h5 class="modal-tittle text-white">Adicionar Tópico :</h5>
                         <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
@@ -65,7 +65,7 @@
         <div class="modal fade" id="modalProduto" tabindex="-1">
             <div class="modal-dialog">
 
-                <form action="../src/adicionar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
+                <form action="../src/produtos/adicionar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
                     <input type="hidden" name="id_topico">
                         <div class="modal-header text-white">
                             <h5 class="modal-tittle text-white">Adicionar Produto</h5>
@@ -174,7 +174,7 @@
                     </tbody>
                 </table>
 
-                    <a href="../excluir_topico.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"
+                    <a href="../src/topicos/excluir_topico.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"
                     onclick="return removerTopico()"> <i class="bi bi-trash3"> Excluir Tópico </i> </a>
 
                 <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)"><i class="bi bi-plus-circle"> Adicionar Produto </i></button>
@@ -200,7 +200,7 @@
                 <div class="modal fade" id="editarModal" tabindex="-1">
                 <div class="modal-dialog">
                     
-                    <form action="../src/editar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
+                    <form action="../src/produtos/editar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
                     <div class="modal-header text-white">
                         <h5 class="modal-title text-white">Editar Produto</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>

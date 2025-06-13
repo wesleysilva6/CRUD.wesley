@@ -1,5 +1,5 @@
 <?php 
-include '../includes/conexao.php';
+include '../../includes/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome_produto'];
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($imagem['error'] === 0) {
         $nomeImagem = uniqid('produto_') . "." . pathinfo($imagem['name'], PATHINFO_EXTENSION);
-        $caminhoImagem = '../uploads/' . $nomeImagem;
+        $caminhoImagem = '../../uploads/' . $nomeImagem;
         move_uploaded_file($imagem['tmp_name'], $caminhoImagem);
     }
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if($stmt->execute()) {
             $stmt->close();
-            header('Location: ../private/home.php?produto=adicionado');
+            header('Location: ../../private/home.php?produto=adicionado');
             exit;
         }
     }

@@ -1,5 +1,5 @@
 <?php
-include '../includes/conexao.php';
+include '../../includes/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'] ?? null;
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt->execute()) {
             $stmt->close();
-            header("Location: ../private/home.php?produto=editado");
+            header("Location: ../../private/home.php?produto=editado");
             exit;
         }
     }

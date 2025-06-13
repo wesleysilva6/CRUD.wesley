@@ -25,7 +25,7 @@
         }
 
         function removerTopico() {
-        return confirm('Você ira fazer a exclusão desse Tópico juntamente com seus produtos, não será possível recuperar os dados após a exclusão.')
+        return confirm('Você ira fazer a exclusão desse TÓPICO juntamente com seus PRODUTOS, não será possível recuperar os dados após a exclusão.')
         }
 
         function preencherModalEditar(botao) {
