@@ -12,7 +12,7 @@
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['nome'] = $nome;
-        header('location: login.php');
+        header('location: login.php?cadastro=realizado');
         exit();
     } else {
         echo "Erro: " . $conn->error;
@@ -38,7 +38,7 @@
 
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
-                <a href="../private/cadastrar.php" class="navbar-brand">
+                <a href="../public/cadastrar.php" class="navbar-brand">
                 <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
                 <ul class="navbar-nav">
