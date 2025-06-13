@@ -75,7 +75,7 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">Imagem do Produto:</label>
-                                        <input type="file" class="form-control" name="imagem" id="inputImagem" accept="image/*" required>
+                                        <input type="file" class="form-control" name="imagem" id="inputImagem" accept="image/*">
                                         <img id="previewImagem" src="#" alt="Preview da Imagem" style="display:none; margin-top: 10px; max-width: 100%; border-radius: 8px;" />
                                     </div>
 
@@ -122,11 +122,12 @@
             <table class="table table-striped mb-0">
                 <thead>
                     <tr>
-                        <th>Imagem do Produto</th>
+                        <th>Imagem</th>
                         <th>Produto</th>
                         <th>Preço</th>
                         <th>Quantidade</th>
                         <th>Descrição</th>
+                        <th>Data de Criação</th>
                         <th>Última atualização</th>
                         <th>Editar</th>
                         <th>Deletar</th>
@@ -153,6 +154,7 @@
                             <td> <?php echo 'R$ '. number_format($produto['preco'], 2, '.'); ?> </td>
                             <td> <?php echo $produto['quantidade']; ?> </td>
                             <td> <?php echo ($produto['descricao']); ?> </td>
+                            <td> <?php echo $produto['criado_em']; ?></td>
                             <td> <?php echo $produto['atualizado_em']; ?> </td>
 
                                 <td> <button class="btn"

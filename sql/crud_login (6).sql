@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/06/2025 às 16:31
+-- Tempo de geração: 13/06/2025 às 17:19
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -35,8 +35,20 @@ CREATE TABLE `produtos` (
   `atualizado_em` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `topico_id` int(11) DEFAULT NULL,
   `preco` float(10,2) DEFAULT NULL,
-  `imagem` varchar(255) DEFAULT NULL
+  `imagem` varchar(255) DEFAULT NULL,
+  `criado_em` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome_produto`, `quantidade`, `descricao`, `atualizado_em`, `topico_id`, `preco`, `imagem`, `criado_em`) VALUES
+(91, 'Mouse Logitech P34', 2, 'ddsc', '2025-06-13 11:57:45', 57, 10.00, '../../uploads/produto_684c3c61bc074.webp', '2025-06-13 11:57:37'),
+(92, 'Mouse Logitech P34', 33, 'e', '2025-06-13 11:58:06', 57, 87.94, '../../uploads/produto_684c3c7766464.webp', '2025-06-13 11:57:59'),
+(93, 'Mouse Logitech P34', 2, 'desc', '2025-06-13 12:04:54', 57, 2.00, '../../uploads/produto_684c3e16cd389.webp', '2025-06-13 12:04:54'),
+(94, 'Mouse Logitech P34', 22, 'wesley', '2025-06-13 12:16:05', 57, 22.00, '', '2025-06-13 12:16:05'),
+(95, 'DSDSA', 2, 'dedsc', '2025-06-13 12:17:40', 57, 22.00, '../../uploads/produto_684c41143cb51.webp', '2025-06-13 12:17:40');
 
 -- --------------------------------------------------------
 
@@ -50,6 +62,14 @@ CREATE TABLE `topicos` (
   `criado_em` datetime DEFAULT current_timestamp(),
   `usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `topicos`
+--
+
+INSERT INTO `topicos` (`id_topico`, `nome_topico`, `criado_em`, `usuario_id`) VALUES
+(56, 'Teclados', '2025-06-13 11:50:06', 9),
+(57, 'Teclados', '2025-06-13 11:57:05', 10);
 
 -- --------------------------------------------------------
 
@@ -84,7 +104,8 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
 (14, 'Shop Perfumes', 'shopperfumes@gmail.com', '$2y$10$w6tPKuefE709R5yJvxdxmeudUdXNleNqNI3KStdq6DW2led1mcy6G'),
 (15, 'wesley', 'wesley29999@gmail.com', '$2y$10$p8bm7zMgrMeKKrj6sf0R1u3zFvvEEs79HTdsMEWmCIC2MB0.quHXK'),
 (16, 'Sr.Admin', 'senhoradmin@gmail.com', '$2y$10$q1MNstwwEmsyIB3YUM8DtelRjYQwbwKpV4RZ.jE9Mg3VZlySJ1Mdi'),
-(17, 'wesley', 'wesleyadmin@gmail.com', '$2y$10$NdHSlwmrTIRL8oWw5SSNR.5t5DYbBqHyAk4341pVUfBEQz25dp8d6');
+(17, 'wesley', 'wesleyadmin@gmail.com', '$2y$10$NdHSlwmrTIRL8oWw5SSNR.5t5DYbBqHyAk4341pVUfBEQz25dp8d6'),
+(18, 'TESTE00', 'teste00@gmail.com', '$2y$10$ST0vPhlT1bfK5YOu8eS9vec3WeZKD9KKivOrp2qo2N0c9qP0M8O3y');
 
 --
 -- Índices para tabelas despejadas
@@ -119,19 +140,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT de tabela `topicos`
 --
 ALTER TABLE `topicos`
-  MODIFY `id_topico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_topico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restrições para tabelas despejadas
