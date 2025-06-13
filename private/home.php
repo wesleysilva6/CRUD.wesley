@@ -18,7 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/css/home.css">
-    <script src="../assets/javascript/index.js"></script>
+    <script src="../assets/javascript/main.js"></script>
 
     <title>Estoque Aqui - Dashboard</title>
 
@@ -168,7 +168,7 @@
                                 <span class="icon"><i class="bi bi-pencil-square"></i></span>
                             </button></td>
                             
-                            <td> <button class="btn"> <span class="icon"><i class="bi bi-trash3"></i></span> </button></td>
+                            <td> <a href="../src/produtos/excluir_produto.php?id=<?php echo $produto['id']; ?>" id="deletar" class="btn" onclick="return deletarProduto()"> <span class="icon"><i class="bi bi-trash3"></i></span> </a></td>
                         </tr>
                         <?php } ?>
                     </tbody>
