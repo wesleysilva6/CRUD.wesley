@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Se enviou uma nova imagem, atualiza o caminho
     if ($imagem && $imagem['error'] === 0) {
         $nomeImagem = uniqid('produto_') . '.' . pathinfo($imagem['name'], PATHINFO_EXTENSION);
-        $caminhoImagem = '../uploads/' . $nomeImagem;
-        move_uploaded_file($imagem['tmp_name'], $caminhoImagem);
+        $caminhoImagem = 'uploads/' . $nomeImagem;
+        move_uploaded_file($_FILES['imagem']['tmp_name'], '../../uploads/' . $nomeImagem);
     }
 
     if ($id && $nome && $preco && $quantidade && $descricao && $id_topico) {

@@ -22,7 +22,7 @@
 
     <title>Estoque Aqui - Dashboard</title>
 
-</head>
+    </head>
     <body style="background:#000">
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
@@ -60,7 +60,6 @@
                 </form>
             </div>
         </div>
-        
 
         <div class="modal fade" id="modalProduto" tabindex="-1">
             <div class="modal-dialog">
@@ -138,7 +137,7 @@
                         <tr>
                             <td>
                             <?php if (!empty($produto['imagem'])): ?>
-                                <img src="<?php echo $produto['imagem']; ?>"
+                                <img src="/<?php echo $produto['imagem']; ?>"
                                     width="60"
                                     height="60"
                                     style="object-fit:cover; border-radius:8px; cursor: pointer;"
@@ -147,7 +146,7 @@
                                     onclick="mostrarImagem('<?php echo $produto['imagem']; ?>')"
                                 >
                             <?php else: ?>
-                                <span class="text-muted">Sem imagem</span>
+                                <span class="text-muted"></span>
                             <?php endif; ?>
                             </td>
                             <td> <?php echo ($produto['nome_produto']); ?> </td>
@@ -180,7 +179,6 @@
                     onclick="return removerTopico()"> <i class="bi bi-trash3"> Excluir Tópico </i> </a>
 
                 <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)"><i class="bi bi-plus-circle"> Adicionar Produto </i></button>
-
         </div>
     </div>
 
@@ -192,12 +190,12 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body text-center">
-                        <img id="imagemModal" src="#" alt="Imagem do produto" style="max-width: 100%; border-radius: 10px;">
+                        <img id="imagemModal" src="#" alt="Imagem do produto" style="max-width: 100%; border-radius: 20px;">
                     </div>
                     </div>
                 </div>
                 </div>
-<?php } ?>
+        <?php } ?>
 
                 <div class="modal fade" id="editarModal" tabindex="-1">
                 <div class="modal-dialog">
@@ -211,7 +209,6 @@
                     <div class="modal-body text-white">
                         <input type="hidden" name="id" id="editar_id_produto">
                         <input type="hidden" name="id_topico" id="editar_id_topico">
-                        
                         <div class="mb-3">
                             <label class="form-label">Nova Imagem (opcional):</label>
                             <input type="file" class="form-control" name="imagem" accept="image/*">
