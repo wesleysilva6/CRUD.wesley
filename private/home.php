@@ -182,7 +182,7 @@
         </div>
     </div>
 
-                    <!-- Modal de Preview da Imagem -->
+                <!-- Modal de Preview da Imagem -->
                 <div class="modal fade" id="modalImagem" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark">
@@ -190,16 +190,17 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body text-center">
-                        <img id="imagemModal" src="#" alt="Imagem do produto" style="max-width: 100%; border-radius: 20px;">
+                        <img id="imagemModal" src="" alt="Imagem do produto" style="max-width: 100%; border-radius: 20px;">
                     </div>
                     </div>
                 </div>
                 </div>
+                
         <?php } ?>
 
+                <!-- MODAL de EDITAR PRODUTO -->
                 <div class="modal fade" id="editarModal" tabindex="-1">
                 <div class="modal-dialog">
-                    
                     <form action="../src/produtos/editar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
                     <div class="modal-header text-white">
                         <h5 class="modal-title text-white">Editar Produto</h5>
@@ -234,14 +235,12 @@
                             <textarea style="resize:none;" class="form-control" name="descricao" id="editar_descricao" rows="3" required></textarea>
                         </div>
 
-
                         <button type="submit" class="btn btn-primary w-100">Atualizar Produto</button>
                     </div>
 
                     </form>
                 </div>
                 </div>
-
 
             <footer>
                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>

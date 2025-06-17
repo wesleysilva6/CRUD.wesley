@@ -1,3 +1,7 @@
+<?php 
+    include '../includes/conexao.php'
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,31 +37,21 @@
                 <div class="card-login">
                     <div class="card">
                         
-                        <div class="card-header" style="color:#fff">Entrar</div>
+                        <div class="card-header" style="color:#fff">Verificar e-mail</div>
                         <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
                             <div class="card-body">
-                                <form action="../includes/valida_acesso.php" method="POST">
+                                <form action="../includes/check_email.php" method="POST">
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>
-                                        <input type="email" class="form-control" name="email" placeholder="E-mail">
+                                        <input type="email" class="form-control" name="email" placeholder="E-mail" required>
                                     </div>
-
-                                    <div class="input-group mt-2">
-                                        <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
-                                        <input type="password" class="form-control" name="senha" placeholder="Senha">
-                                    </div>
-
-                                    <?php if(isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
-                                        <div class="text-danger">Email ou Senha inválido(s)</div>
-                                    <?php } ?>
-
-                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Entrar</button>
                                     
-                                    <div class="d-flex justify-content-between">
-                                        <a href="../public/check.php">Esqueceu a Senha?</a>
-                                        <a href="../public/cadastrar.php">Cadastrar-se</a>
-                                    </div>
+                                    <?php if (isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
+                                        <div class="text-danger">E-mail inválido. Verifique e tente novamente.</div>
+                                    <?php } ?>
+                                            
+                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Verificar</button>
                                 </form>
                             </div>
                         </div>  

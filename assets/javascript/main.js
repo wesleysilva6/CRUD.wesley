@@ -1,6 +1,7 @@
         const inputImagem = document.getElementById('inputImagem');
         const previewImagem = document.getElementById('previewImagem');
 
+        if (previewImagem && inputImagem) {
         inputImagem.addEventListener('change', function () {
             const arquivo = this.files[0];
             if (arquivo) {
@@ -14,6 +15,7 @@
             previewImagem.style.display = 'none';
             }
         });
+        }
 
         function mostrarImagem(src) {
         const img = document.getElementById('imagemModal');
@@ -27,7 +29,6 @@
         function deletarProduto() {
         return confirm('Você ira deletar permanente esse PRODUTO, tem certeza que deseja realizar essa ação ?')
         }
-
 
         function removerTopico() {
         return confirm('Você ira fazer a exclusão desse TÓPICO juntamente com seus PRODUTOS, não será possível recuperar os dados após a exclusão.')
