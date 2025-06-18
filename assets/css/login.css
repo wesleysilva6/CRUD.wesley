@@ -1,13 +1,20 @@
+:root {
+        --color--primary:#0B5ED7;
+        --color--border:#393E42;
+        --color--background:#0C0F16;
+        --color--input:#20252A;
+}
+
 ::-webkit-scrollbar {
         width: 8px;
         }
 
         ::-webkit-scrollbar-thumb {
-        background:  #0B5ED7;
+        background:var(--color--primary);
         }
 
         .navbar {
-        background-color: #0C0F16;
+        background: var(--color--background);
         }
 
         .card-login {
@@ -17,26 +24,26 @@
         }
 
         .card {
-        background-color: #0C0F16;
+        background: var(--color--background);
         }
 
         .input-group-text {
-        background-color: #20252A;
-        border: 1px solid #393E42;
+        background-color: var(--color--input);
+        border: 1px solid var(--color--border);
         }
 
         .form-control {
         color: #fff;
-        background-color: #20252A;
-        border: 1px solid #393E42;
+        background-color: var(--color--input);
+        border: 1px solid var(--color--border);
         }
 
         .form-control:focus {
         box-shadow: none;
         outline: none;
-        background-color: #20252A;
+        background-color: var(--color--input);
         color:#fff;
-        border-color: #393E42;
+        border-color: var(--color--border);
         }
 
         .form-control::placeholder {

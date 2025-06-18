@@ -44,7 +44,7 @@
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>
-                                        <input type="email" class="form-control" name="email" placeholder="E-mail" required>
+                                        <input type="email" class="form-control" name="email" placeholder="E-mail">
                                     </div>
                                     
                                     <?php if (isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
