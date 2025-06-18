@@ -1,16 +1,16 @@
 <?php
-include '../includes/conexao.php';
-session_start();
+    include '../includes/conexao.php';
+    session_start();
 
-$acesso_invalido = false;
-$email = $_POST['email'] ?? '';
-$senha = $_POST['senha'] ?? '';
+    $acesso_invalido = false;
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
 
-// Evita SQL Injection usando prepared statement
-$stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
+    // Evita SQL Injection usando prepared statement
+    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
 if ($result->num_rows == 1) {
     $usuario = $result->fetch_assoc();
@@ -22,7 +22,10 @@ if ($result->num_rows == 1) {
         exit();
     } else {
         $acesso_invalido = true;
-        header('location: ../public/login.php?erro=email');
-}   
-}
+        header('location: ../public/login.php?erro=senha');
+    }
+    } else {
+        $acesso_invalido = true;
+        header('location: ../public/login.php?erro=email&senha');
+    }
 ?>

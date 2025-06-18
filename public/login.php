@@ -49,7 +49,11 @@
                                     </div>
 
                                     <?php if(isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
-                                        <div class="text-danger">Email ou Senha inválido(s)</div>
+                                        <div class="text-danger">Email e Senha inválidos</div>
+                                    <?php } ?>
+
+                                    <?php if(isset($_GET['erro']) && $_GET['erro'] == 'senha') { ?>
+                                        <div class="text-danger">Senha inválida</div>
                                     <?php } ?>
 
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Entrar</button>

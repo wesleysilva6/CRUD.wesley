@@ -14,8 +14,9 @@
         header('location: ../../public/check.php?erro=email');
         $email_invalido = true;
     } else {
-        $email = $result->fetch_assoc();
-        $_SESSION['email_redefinir'] = '';
-        header('location: ../../public/redefinir.php');
+        $dados = $result->fetch_assoc();
+        $_SESSION['nome'] = $dados['nome'];
+        $_SESSION['email_redefinir'] = $dados['email'];
+        header('location: ../includes/enviar_email.php');
     }
 ?>

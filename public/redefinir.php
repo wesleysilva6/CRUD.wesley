@@ -29,7 +29,7 @@
             </div>
         </nav>
 
-        <div class="container"> 
+        <div class="container">
             <div class="row">
                 <div class="card-login">
                         <div class="card">
@@ -37,17 +37,25 @@
                                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
                                 
                             <div class="card-body">
-                                <form action="" method="POST">
+                                <form action="../includes/redefinir_senha.php" method="POST">
 
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock-fill" style="color:#fff"></i></span>
-                                        <input type="email" class="form-control" name="email" id="" placeholder="Digite uma Senha" required>
+                                        <input type="password" class="form-control" name="senha" id="" placeholder="Digite uma Senha">
                                     </div>
                                     
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-unlock-fill" style="color:#fff"></i></span>
-                                        <input type="password" class="form-control" name="senha" id="" placeholder="Confirme a Senha" required>
+                                        <input type="password" class="form-control" name="confirmar_senha" id="" placeholder="Confirme a Senha">
                                     </div>
+
+                                    <?php if (isset($_GET['erro']) && $_GET['erro'] == 'preencher') { ?>
+                                        <div class="text-danger">Por favor, preencha todos os campos obrigatórios</div>
+                                    <?php } ?>
+
+                                    <?php if (isset($_GET['erro']) && $_GET['erro'] == 'senhas_diferentes') { ?>
+                                        <div class="text-danger">As senhas informadas não coincidem. Por favor, verifique e tente novamente.</div>
+                                    <?php } ?>
                                     
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Redefinir Senha</button>
                                 </form>
