@@ -14,7 +14,8 @@
             header('location: ../../private/home.php?topico=adicionado');
             exit;
         } else {
-            echo "Erro ao inserir tópico.";
+            header('location: ../../private/home.php?erro=adicionar_topico');
+            exit;
         }
     }
 }

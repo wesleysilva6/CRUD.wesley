@@ -2,7 +2,6 @@
     include '../includes/conexao.php';
     session_start();
 
-    $acesso_invalido = false;
     $email = $_POST['email'] ?? '';
     $senha = $_POST['senha'] ?? '';
 
@@ -19,13 +18,13 @@ if ($result->num_rows == 1) {
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['nome'] = $usuario['nome'];
         header('Location: ../private/home.php');
-        exit();
+        exit;
     } else {
-        $acesso_invalido = true;
         header('location: ../public/login.php?erro=senha');
+        exit;
     }
     } else {
-        $acesso_invalido = true;
         header('location: ../public/login.php?erro=email&senha');
+        exit;
     }
 ?>

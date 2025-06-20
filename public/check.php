@@ -1,5 +1,6 @@
 <?php 
-    include '../includes/conexao.php'
+    include '../includes/conexao.php';
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/check.css">
 
     <title>Estoque Aqui - System</title>
 
@@ -44,14 +45,14 @@
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>
-                                        <input type="email" class="form-control" name="email" placeholder="E-mail">
+                                        <input type="email" class="form-control" name="email_redefinir" placeholder="E-mail">
                                     </div>
                                     
                                     <?php if (isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
                                         <div class="text-danger">E-mail inválido. Verifique e tente novamente.</div>
                                     <?php } ?>
-                                            
-                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Verificar</button>
+                                    
+                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Enviar E-mail</button>
                                 </form>
                             </div>
                         </div>  
@@ -59,10 +60,41 @@
             </div>
         </div>
 
+            <!-- MODAL de EMAIL ENVIADO -->
+            <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title" id="emailModalLabel">E-mail enviado com sucesso!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body text-white">
+                    <p>E-mail de redefinição de senha enviado para: <strong id="usuarioEmail"></strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
             <footer>
                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
             </footer>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
+
+    <?php 
+    if (isset($_GET['email']) && $_GET['email'] == 'enviado' && isset($_SESSION['email_redefinir'])) {
+        $usuario = htmlspecialchars($_SESSION['email_redefinir']); ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var usuario = "<?php echo $usuario; ?>";
+            document.getElementById('usuarioEmail').innerText = usuario;
+            var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
+            emailModal.show();
+        });
+    </script>
+    <?php } ?>
 </html>

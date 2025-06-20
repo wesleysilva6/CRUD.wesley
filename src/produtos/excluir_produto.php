@@ -2,7 +2,7 @@
     include '../../includes/conexao.php';
     session_start();
     $id = $_SESSION['id'];
-    $deletar = $_GET['id'];
+    $deletar = $_GET['id_produto'];
 
     if(!empty($deletar) && is_numeric($deletar) && !empty($id) && is_numeric($id)) {
         $busca = $conn->prepare("SELECT imagem FROM produtos WHERE id = ? AND topico_id IN (SELECT id_topico FROM topicos WHERE usuario_id = ?)");

@@ -150,13 +150,13 @@
                             <?php endif; ?>
                             </td>
                             <td> <?php echo ($produto['nome_produto']); ?> </td>
-                            <td> <?php echo 'R$ '. number_format($produto['preco'], 2, '.'); ?> </td>
+                            <td> <?php echo 'R$ '. number_format($produto['preco'], 2, ',', '.'); ?> </td>
                             <td> <?php echo $produto['quantidade']; ?> </td>
                             <td> <?php echo ($produto['descricao']); ?> </td>
                             <td> <?php echo $produto['criado_em']; ?></td>
                             <td> <?php echo $produto['atualizado_em']; ?> </td>
 
-                                <td> <button class="btn"
+                            <td> <button class="btn"
                                 data-id="<?php echo $produto['id']; ?>"
                                 data-id-topico="<?php echo $topico['id_topico']; ?>"
                                 data-produto="<?php echo htmlspecialchars($produto['nome_produto']); ?>"
@@ -169,20 +169,33 @@
                                 <span class="icon"><i class="bi bi-pencil-square"></i></span>
                             </button></td>
                             
-                            <td> <a href="../src/produtos/excluir_produto.php?id=<?php echo $produto['id']; ?>" id="deletar" class="btn" onclick="return deletarProduto()"> <span class="icon"><i class="bi bi-trash3"></i></span> </a></td>
+                            <td> <button class="btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#removerProduto"
+                            data-id-produto="<?php echo $produto['id'] ?>"> 
+                            <span class="icon"><i class="bi bi-trash3"></i></span> </button> 
+                            </td>
+
                         </tr>
                         <?php } ?>
                     </tbody>
                 </table>
 
-                    <a href="../src/topicos/excluir_topico.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"
-                    onclick="return removerTopico()"> <i class="bi bi-trash3"> Excluir Tópico </i> </a>
+                        <button 
+                            class="btn btn-primary mt-5"
+                            data-bs-toggle="modal"
+                            data-bs-target="#removerTopico"
+                            data-id-topico="<?php echo $topico['id_topico']; ?>"
+                        >
+                            <i class="bi bi-trash3"></i> Excluir Tópico
+                        </button>
+
 
                 <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)"><i class="bi bi-plus-circle"> Adicionar Produto </i></button>
         </div>
     </div>
 
-                <!-- Modal de Preview da Imagem -->
+                <!-- MODAL de PREVIEW da IMAGEM -->
                 <div class="modal fade" id="modalImagem" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark">
@@ -241,6 +254,51 @@
                     </form>
                 </div>
                 </div>
+
+
+        <!-- MODAL de EXCLUIR TÓPICO -->
+        <div class="modal fade" id="removerTopico" tabindex="-1" aria-labelledby="removerTopicoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                
+                <div class="modal-content">
+                    <div class="modal-header text-white">
+                    <h5 class="modal-title">Remover Tópico</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+
+                <div class="modal-body text-white">
+                    <p>Você tem certeza que deseja excluir esse Tópico? Todos os produtos dele também serão excluídos.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <a id="confirmarExclusao" href="#" class="btn btn-primary">Sim</a>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL DE EXCLUIR PRODUTO -->
+        <div class="modal fade" id="removerProduto" tabindex="-1" aria-labelledby="removerProdutoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-white">
+                        <h5 class="modal-title">Deletar Produto</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="modal-body text-white">
+                        <p>Você tem certeza que deseja excluir esse Produto ?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a id="deletarProduto" href="#" class="btn btn-primary">Sim</a>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
             <footer>
                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>

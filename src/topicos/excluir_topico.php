@@ -11,5 +11,6 @@
         $stmt2->bind_param("i", $id);
         $stmt2->execute();
         header('location: ../../private/home.php?topico=removido');
+        exit;
         }
 ?>

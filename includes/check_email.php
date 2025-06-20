@@ -1,9 +1,7 @@
 <?php 
     include 'conexao.php';
     session_start();
-
-    $email_invalido = false;
-    $email = $_POST['email'] ?? '';
+    $email = $_POST['email_redefinir'] ?? '';
 
     $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
     $stmt->bind_param("s", $email);
@@ -12,11 +10,12 @@
 
     if ($result->num_rows == 0) {
         header('location: ../../public/check.php?erro=email');
-        $email_invalido = true;
+        exit;
     } else {
         $dados = $result->fetch_assoc();
         $_SESSION['nome'] = $dados['nome'];
         $_SESSION['email_redefinir'] = $dados['email'];
         header('location: ../includes/enviar_email.php');
+        exit;
     }
 ?>

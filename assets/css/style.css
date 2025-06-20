@@ -37,9 +37,9 @@
         }
 
         .container2 {
-        justify-content:left;
+        text-align:left;
         color: #fff;
-        padding:15rem;
+        margin:15rem;
         }
 
         .btn {
@@ -48,7 +48,7 @@
         }
 
         .btn:focus, .btn:active, .btn:focus:active, .btn:visited, .btn:hover {
-        background-color:rgb(6, 53, 124);
+        background:var(--color--primary);
         color:#fff;
         }
 
@@ -57,4 +57,40 @@
         padding: 1rem 4%;
         margin: 14.19rem 0 0 0;
         }
+
+        @media screen and (max-width: 365px) {
+
+        .navbar-brand img {
+        width: 3rem;
+        height: 3rem;
+        }
+
+        h3 {
+        text-align: left;
+        font-size: 1.1rem;
+        }
+
+        p {
+        font-size: 0.68rem;
+        }
+
+        .container {
+        margin: 12rem 0.5rem 0.5rem 0.2rem; 
+        color: #fff;
+        }
+
+        .container2 {
+        margin: 0 0.5rem 0 1.2rem ;
+        }
+
+        .btn {
+        padding: 0.4rem;
+        font-size: 0.7rem;
+        }
+
+        .img-sobre {
+        width: 14rem;
+        align-items: left;
+        }
+}
 

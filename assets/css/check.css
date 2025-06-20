@@ -3,6 +3,7 @@
         --color--border:#393E42;
         --color--background:#0C0F16;
         --color--input:#20252A;
+        --color--background-modal:#161A1F;
 }
 
 ::-webkit-scrollbar {
@@ -48,6 +49,23 @@
 
         .form-control::placeholder {
         color:rgba(255, 255, 255, 0.76); 
+        }
+
+        .modal-content {
+        border-radius:4rem;
+        }
+
+        .modal-header {
+        background: var(--color--background-modal);
+        border-bottom:1px solid #000;
+        }
+
+        .modal-body {
+        background: var(--color--background-modal);
+        }
+
+        .modal-footer {
+        background: var(--color--background-modal);
         }
 
         footer {
