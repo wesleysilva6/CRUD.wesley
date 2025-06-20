@@ -61,15 +61,12 @@ try {
     </html>
     ';
 
-    // Envia o e-mail
     $mail->send();
-
-    // Redireciona com alerta de sucesso
     header('Location: ../public/check.php?email=enviado');
+    exit;
 
-} catch (Exception $e) {
-    // Redireciona com erro
+    } catch (Exception $e) {
     header('Location: ../public/check.php?email=nao&enviado');
     exit;
-}
+    }
 ?>

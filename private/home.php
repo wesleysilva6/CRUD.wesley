@@ -52,7 +52,7 @@
                     </div>
                         <div class="modal-body text-white">
                             <div class="mb-3">
-                                <label for="nome_topico">Nome do Tópico :</label>
+                                <label class="form-label">Nome do Tópico :</label>
                                 <input type="text" class="form-control" name="nome_topico" placeholder="Nome do Tópico" required>
                             </div>
                                 <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
