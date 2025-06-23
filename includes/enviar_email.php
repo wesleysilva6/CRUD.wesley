@@ -24,7 +24,7 @@ try {
     $mail->addAddress($_SESSION['email_redefinir']);  // Email do usuário que pediu a redefinição
 
     // Monta o link de redefinição
-    $link = 'http://localhost:3000/public/redefinir.php?email=' . urlencode($_SESSION['email_redefinir']);
+    $link = 'http://localhost:3000/private/redefinir.php?email=' . urlencode($_SESSION['email_redefinir']);
 
     // Conteúdo do e-mail (HTML)
     $mail->isHTML(true);

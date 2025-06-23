@@ -1,5 +1,10 @@
 <?php 
     include '../includes/conexao.php';
+
+    if (!isset($_SESSION['id'])) {
+    header('Location: ../public/check.php?erro=acesso_negado');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

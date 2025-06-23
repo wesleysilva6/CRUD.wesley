@@ -39,7 +39,7 @@
             <div class="alert alert-primary text-center"> Seja Muito Bem-Vindo(a) <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !</div>
         </div>
 
-        <div class="btn-produto">
+        <div class="btn-topico">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"></i> Adicionar Tópico</button>
         </div>
 
@@ -118,7 +118,7 @@
     <div class="container pb-5 mt-3" style="background: #161A1F">
             <h4 class="my-3" style="color:#fff"> <?php echo htmlspecialchars($topico['nome_topico']); ?> </h4>
             <div class="card-body">
-            <table class="table table-striped mb-0">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Imagem</th>
@@ -129,7 +129,7 @@
                         <th>Data de Criação</th>
                         <th>Última atualização</th>
                         <th>Editar</th>
-                        <th>Deletar</th>
+                        <th>Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -153,10 +153,11 @@
                             <td> <?php echo 'R$ '. number_format($produto['preco'], 2, ',', '.'); ?> </td>
                             <td> <?php echo $produto['quantidade']; ?> </td>
                             <td> <?php echo ($produto['descricao']); ?> </td>
-                            <td> <?php echo $produto['criado_em']; ?></td>
+                            <td> <?php echo $produto['criado_em']; ?> </td>
                             <td> <?php echo $produto['atualizado_em']; ?> </td>
 
-                            <td> <button class="btn"
+                            <td> 
+                                <button class="btn"
                                 data-id="<?php echo $produto['id']; ?>"
                                 data-id-topico="<?php echo $topico['id_topico']; ?>"
                                 data-produto="<?php echo htmlspecialchars($produto['nome_produto']); ?>"
@@ -167,13 +168,16 @@
                                 data-bs-target="#editarModal"
                                 onclick="preencherModalEditar(this)">
                                 <span class="icon"><i class="bi bi-pencil-square"></i></span>
-                            </button></td>
-                            
-                            <td> <button class="btn"
-                            data-bs-toggle="modal"
-                            data-bs-target="#removerProduto"
-                            data-id-produto="<?php echo $produto['id'] ?>"> 
-                            <span class="icon"><i class="bi bi-trash3"></i></span> </button> 
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#removerProduto"
+                                data-id-produto="<?php echo $produto['id'] ?>"> 
+                                <span class="icon"><i class="bi bi-trash3"></i></span> 
+                                </button> 
                             </td>
 
                         </tr>
@@ -262,12 +266,12 @@
                 
                 <div class="modal-content">
                     <div class="modal-header text-white">
-                    <h5 class="modal-title">Remover Tópico</h5>
+                    <h5 class="modal-title">Excluir Tópico</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
 
                 <div class="modal-body text-white">
-                    <p>Você tem certeza que deseja excluir esse Tópico? Todos os produtos dele também serão excluídos.</p>
+                    <p><strong>Tem certeza de que deseja excluir este tópico? Ao prosseguir, todos os produtos vinculados a ele também serão permanentemente removidos.</strong></p>
                 </div>
 
                 <div class="modal-footer">
@@ -284,12 +288,12 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header text-white">
-                        <h5 class="modal-title">Deletar Produto</h5>
+                        <h5 class="modal-title">Excluir Produto</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
 
                     <div class="modal-body text-white">
-                        <p>Você tem certeza que deseja excluir esse Produto ?</p>
+                        <p><strong>Tem certeza de que deseja excluir este produto? Esta ação é irreversível.</strong></p>
                     </div>
 
                     <div class="modal-footer">
