@@ -1,8 +1,8 @@
 <?php
-        include '../includes/conexao.php';
+        include '../../includes/conexao.php';
         session_start();
 
-        require __DIR__ . '/../vendor/autoload.php';
+        require __DIR__ . '/../../vendor/autoload.php';
 
         use PhpOffice\PhpSpreadsheet\Spreadsheet;
         use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -85,7 +85,7 @@
         $writer = new Xlsx($spreadsheet);
 
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="produtos_por_topico.xlsx"');
+        header('Content-Disposition: attachment; filename="tabela.xlsx"');
 
         $writer->save('php://output');
         exit;
