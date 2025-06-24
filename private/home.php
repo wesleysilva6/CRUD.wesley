@@ -41,8 +41,7 @@
 
         <div class="btn-topico">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"> Adicionar Tópico</i></button>
-            <a href="../includes/exportar_produtos.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabela</i></a>
-
+            <a href="../includes/exportar_produtos.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabelas</i></a>
         </div>
 
         <!-- MODAL de ADICIONAR TÓPICO -->
@@ -196,8 +195,9 @@
                             <i class="bi bi-trash3"> Excluir Tópico</i>
                         </button>
 
-
                 <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)"><i class="bi bi-plus-circle"> Adicionar Produto </i></button>
+                <a href="../includes/exportar_tabela.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"><i class="bi bi-box-arrow-in-up-right"> 
+                Exportar Tabela </i></a>
         </div>
     </div>
 

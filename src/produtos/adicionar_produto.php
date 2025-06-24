@@ -1,7 +1,5 @@
 <?php 
 include '../../includes/conexao.php';
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome_produto'];
