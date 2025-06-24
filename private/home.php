@@ -40,9 +40,12 @@
         </div>
 
         <div class="btn-topico">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"></i> Adicionar Tópico</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"> Adicionar Tópico</i></button>
+            <a href="../includes/exportar_produtos.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabela</i></a>
+
         </div>
 
+        <!-- MODAL de ADICIONAR TÓPICO -->
         <div class="modal fade" id="modalTopico" tabindex="-1">
             <div class="modal-dialog">
                 <form action="../src/topicos/add_topico.php" method="POST" class="modal-content">
@@ -56,8 +59,8 @@
                                 <input type="text" class="form-control" name="nome_topico" placeholder="Nome do Tópico" required>
                             </div>
                                 <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
-                        </div>
-                </form>
+                            </div>
+                        </form>
             </div>
         </div>
 
@@ -189,9 +192,8 @@
                             class="btn btn-primary mt-5"
                             data-bs-toggle="modal"
                             data-bs-target="#removerTopico"
-                            data-id-topico="<?php echo $topico['id_topico']; ?>"
-                        >
-                            <i class="bi bi-trash3"></i> Excluir Tópico
+                            data-id-topico="<?php echo $topico['id_topico']; ?>">
+                            <i class="bi bi-trash3"> Excluir Tópico</i>
                         </button>
 
 
@@ -259,7 +261,6 @@
                 </div>
                 </div>
 
-
         <!-- MODAL de EXCLUIR TÓPICO -->
         <div class="modal fade" id="removerTopico" tabindex="-1" aria-labelledby="removerTopicoLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -303,11 +304,6 @@
                 </div>
             </div>
         </div>
-
-            <footer>
-                <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
-            </footer>
-
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
     </body>

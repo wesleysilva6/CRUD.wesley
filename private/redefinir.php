@@ -1,10 +1,5 @@
 <?php 
     include '../includes/conexao.php';
-
-    if (!isset($_SESSION['id'])) {
-    header('Location: ../public/check.php?erro=acesso_negado');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -70,10 +65,9 @@
             </div>
         </div>
 
-            <footer>
-                <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
-            </footer>
-
+                <?php 
+                    include '../includes/x/footer.php'
+                ?>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

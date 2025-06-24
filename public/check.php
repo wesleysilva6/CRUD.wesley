@@ -1,5 +1,6 @@
 <?php 
     include '../includes/conexao.php';
+    include '../includes/x/header.php';
     session_start();
 ?>
 
@@ -22,17 +23,7 @@
 
 </head>
     <body style="background:#000">
-        <nav class="navbar" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a href="../public/login.php" class="navbar-brand">
-                <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
-                </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="../includes/deslogar.php" class="nav-link">Voltar</a></li>
-                </ul>
-            </div>
-        </nav>
-        
+
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
@@ -78,11 +69,8 @@
             </div>
             </div>
 
-            <footer>
-                <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
-            </footer>
-
     <?php 
+    include '../includes/x/footer.php';
     if (isset($_GET['email']) && $_GET['email'] == 'enviado' && isset($_SESSION['email_redefinir'])) {
         $usuario = htmlspecialchars($_SESSION['email_redefinir']); ?>
     <script>

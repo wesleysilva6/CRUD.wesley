@@ -16,7 +16,7 @@
         }
         });
     }
-    
+
         function preencherModalEditar(botao) {
         document.getElementById('editar_id_produto').value = botao.dataset.id;
         document.getElementById('editar_id_topico').value = botao.dataset.idTopico;
@@ -25,7 +25,7 @@
         document.getElementById('editar_quantidade').value = botao.dataset.quantidade;
         document.getElementById('editar_descricao').value = botao.dataset.desc;
         }
-    
+
         function mostrarImagem(src) {
         const img = document.getElementById('imagemModal');
         img.src = src;

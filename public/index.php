@@ -16,7 +16,6 @@
     <title>Estoque Aqui - System</title>
 
 </head>
-
     <body style="background:#000">
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
@@ -28,7 +27,7 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                <div class="navbar-collapse" id="navbarToggleExternalContent">
+                <div class="navbar-collapse expand-lg" id="navbarToggleExternalContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="../public/login.php" class="nav-link">Entrar</a></li>
                         <li class="nav-item"><a href="../public/cadastrar.php" class="nav-link">Cadastrar</a></li>
@@ -73,9 +72,9 @@
                 </div>
             </section>
 
-            <footer>
-                <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
-            </footer>
+                <?php 
+                    include '../includes/x/footer.php'
+                ?>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

@@ -1,5 +1,6 @@
 <?php
     include '../includes/conexao.php';
+    include '../includes/x/header.php';
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -36,17 +37,6 @@
 </head>
     <body style="background:#000">
 
-        <nav class="navbar" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a href="../public/cadastrar.php" class="navbar-brand">
-                <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
-                </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="../includes/deslogar.php" class="nav-link">Voltar</a></li>
-                </ul>
-            </div>
-        </nav>
-
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
@@ -81,10 +71,9 @@
             </div>
         </div>
 
-            <footer>
-                <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
-            </footer>
-
+                <?php 
+                    include '../includes/x/footer.php'
+                ?>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
