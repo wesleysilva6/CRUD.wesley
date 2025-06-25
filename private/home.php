@@ -39,6 +39,7 @@
         </div>
 
         <div class="btn-topico">
+            <a href="../private/simular_venda.php" class="btn btn-primary"><i class="bi bi-cart-plus"> Simular Vendas</i></a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"> Adicionar Tópico</i></button>
             <a href="../src/tabelas/exportar_tabelas.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabelas</i></a>
         </div>
