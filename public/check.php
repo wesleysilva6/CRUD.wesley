@@ -38,11 +38,11 @@
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>
                                         <input type="email" class="form-control" name="email_redefinir" placeholder="E-mail">
                                     </div>
-                                    
+
                                     <?php if (isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
                                         <div class="text-danger">E-mail inválido. Verifique e tente novamente.</div>
                                     <?php } ?>
-                                    
+
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Enviar E-mail</button>
                                 </form>
                             </div>
@@ -75,9 +75,9 @@
         $usuario = htmlspecialchars($_SESSION['email_redefinir']); ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var usuario = "<?php echo $usuario; ?>";
+            const usuario = "<?php echo $usuario; ?>";
             document.getElementById('usuarioEmail').innerText = usuario;
-            var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
+            const emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
             emailModal.show();
         });
     </script>

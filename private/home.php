@@ -58,14 +58,13 @@
                                 <input type="text" class="form-control" name="nome_topico" placeholder="Nome do Tópico" required>
                             </div>
                                 <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
-                            </div>
-                        </form>
+                        </div>
+                </form>
             </div>
         </div>
 
         <div class="modal fade" id="modalProduto" tabindex="-1">
             <div class="modal-dialog">
-
                 <form action="../src/produtos/adicionar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
                     <input type="hidden" name="id_topico">
                         <div class="modal-header text-white">
@@ -73,7 +72,6 @@
                             <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
                         </div>
                             <div class="modal-body text-white">
-
                                     <div class="mb-3">
                                         <label class="form-label">Imagem do Produto:</label>
                                         <input type="file" class="form-control" name="imagem" id="inputImagem" accept="image/*">
@@ -112,12 +110,11 @@
                 $stmt->bind_param("i", $usuario_id);
                 $stmt->execute();
                 $result = $stmt->get_result();
-
                     while ($topico = $result->fetch_assoc()) {
                         $produtos = $conn->query("SELECT * FROM produtos WHERE topico_id = " . intval($topico['id_topico']));
                     ?>
 
-    <div class="container pb-5 mt-3" style="background: #161A1F">
+    <div class="container pb-5 mb-4 mt-3" style="background: #161A1F">
             <h4 class="my-3" style="color:#fff"> <?php echo htmlspecialchars($topico['nome_topico']); ?> </h4>
             <div class="card-body">
             <table class="table table-striped">
