@@ -44,7 +44,7 @@
                     const idTopico = button.getAttribute('data-id-topico')
                     const confirmarBtn = document.getElementById('confirmarExclusao')
                     if (confirmarBtn) {
-                        confirmarBtn.href = `../src/topicos/excluir_topico.php?id_topico=${idTopico}`
+                        confirmarBtn.href = `../modules/topicos/excluir_topico.php?id_topico=${idTopico}`
                     }
                 })
             }
@@ -59,7 +59,7 @@
                     const deletar = button.getAttribute('data-id-produto')
                     const confirmarBtn = document.getElementById('deletarProduto')
                     if (confirmarBtn) {
-                        confirmarBtn.href = `../src/produtos/excluir_produto.php?id_produto=${deletar}`
+                        confirmarBtn.href = `../modules/produtos/excluir_produto.php?id_produto=${deletar}`
                     }
                 })
             }

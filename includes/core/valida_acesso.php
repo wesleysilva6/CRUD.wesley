@@ -1,5 +1,5 @@
 <?php
-    include '../includes/conexao.php';
+    include 'conexao.php';
     session_start();
 
     $email = $_POST['email'] ?? '';
@@ -17,14 +17,14 @@ if ($result->num_rows == 1) {
         $_SESSION['id'] = $usuario['id'];
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['nome'] = $usuario['nome'];
-        header('Location: ../private/home.php');
+        header('Location: ../../private/home.php');
         exit;
     } else {
-        header('location: ../public/login.php?erro=senha');
+        header('location: ../../public/login.php?erro=senha');
         exit;
     }
     } else {
-        header('location: ../public/login.php?erro=email&senha');
+        header('location: ../../public/login.php?erro=email&senha');
         exit;
     }
 ?>

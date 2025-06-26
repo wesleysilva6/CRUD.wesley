@@ -1,5 +1,5 @@
 <?php
-        include '../../includes/conexao.php';
+        include '../../includes/core/conexao.php';
         session_start();
 
         require __DIR__ . '/../../vendor/autoload.php';

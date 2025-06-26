@@ -24,7 +24,7 @@
                         <div class="card-header" style="color:#fff">Entrar</div>
                         <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
                             <div class="card-body">
-                                <form action="../includes/valida_acesso.php" method="POST">
+                                <form action="../includes/core/valida_acesso.php" method="POST">
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>

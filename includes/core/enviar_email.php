@@ -4,7 +4,7 @@ session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
@@ -24,7 +24,7 @@ try {
     $mail->addAddress($_SESSION['email_redefinir']);  // Email do usuário que pediu a redefinição
 
     // Monta o link de redefinição
-    $link = 'http://localhost:3000/includes/redefinir.php?email=' . urlencode($_SESSION['email_redefinir']);
+    $link = 'http://localhost:3000/public/redefinir.php?email=' . urlencode($_SESSION['email_redefinir']);
 
     // Conteúdo do e-mail (HTML)
     $mail->isHTML(true);
@@ -62,11 +62,11 @@ try {
     ';
 
     $mail->send();
-    header('Location: ../public/check.php?email=enviado');
+    header('Location: ../../public/check.php?email=enviado');
     exit;
 
     } catch (Exception $e) {
-    header('Location: ../public/check.php?email=nao&enviado');
+    header('Location: ../../public/check.php?email=nao&enviado');
     exit;
     }
 ?>

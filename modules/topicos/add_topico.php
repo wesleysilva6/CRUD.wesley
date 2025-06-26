@@ -1,6 +1,6 @@
 <?php 
+    include '../../includes/core/conexao.php';
     session_start();
-    include '../../includes/conexao.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome_topico'];

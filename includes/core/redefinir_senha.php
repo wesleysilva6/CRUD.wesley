@@ -10,13 +10,13 @@
     $confirmar_senha = $_POST['confirmar_senha'];
 
     if (empty($senha) || empty($confirmar_senha)) {
-        header('Location: ../public/redefinir.php?erro=preencher&campos');
+        header('Location: ../../public/redefinir.php?erro=preencher&campos');
         exit;
     }
 
     // Verifica se as senhas coincidem
     if ($senha !== $confirmar_senha) {
-        header('Location: ../public/redefinir.php?erro=senhas_diferentes');
+        header('Location: ../../public/redefinir.php?erro=senhas_diferentes');
         exit;
     }
 
@@ -37,7 +37,7 @@
     mail($email, $assunto, $mensagem, $headers);
 
     // Redireciona com sucesso
-    header('Location: ../public/login.php?sucesso=senha_alterada');
+    header('Location: ../../public/login.php?sucesso=senha_alterada');
     exit;
     ?>
 

@@ -1,5 +1,5 @@
 <?php 
-    include '../includes/conexao.php';
+    include '../includes/core/conexao.php';
     include '../includes/components/header.php';
     session_start();
 ?>
@@ -27,7 +27,7 @@
                         <div class="card-header" style="color:#fff">Verificar e-mail</div>
                         <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
                             <div class="card-body">
-                                <form action="../includes/check_email.php" method="POST">
+                                <form action="../includes/core/check_email.php" method="POST">
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>

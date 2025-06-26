@@ -7,7 +7,7 @@
         <!-- MODAL de ADICIONAR TÓPICO -->
         <div class="modal fade" id="modalTopico" tabindex="-1">
             <div class="modal-dialog">
-                <form action="../src/topicos/add_topico.php" method="POST" class="modal-content">
+                <form action="../modules/topicos/add_topico.php" method="POST" class="modal-content">
                     <div class="modal-header text-white">
                         <h5 class="modal-tittle text-white">Adicionar Tópico :</h5>
                         <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
@@ -26,7 +26,7 @@
         <!-- MODAL de ADICIONAR PRODUTO -->
         <div class="modal fade" id="modalProduto" tabindex="-1">
             <div class="modal-dialog">
-                <form action="../src/produtos/adicionar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
+                <form action="../modules/produtos/adicionar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
                     <input type="hidden" name="id_topico">
                         <div class="modal-header text-white">
                             <h5 class="modal-tittle text-white">Adicionar Produto</h5>
@@ -81,7 +81,7 @@
                 <!-- MODAL de EDITAR PRODUTO -->
                 <div class="modal fade" id="editarModal" tabindex="-1">
                 <div class="modal-dialog">
-                    <form action="../src/produtos/editar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
+                    <form action="../modules/produtos/editar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
                     <div class="modal-header text-white">
                         <h5 class="modal-title text-white">Editar Produto</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>

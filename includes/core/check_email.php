@@ -15,7 +15,7 @@
         $dados = $result->fetch_assoc();
         $_SESSION['nome'] = $dados['nome'];
         $_SESSION['email_redefinir'] = $dados['email'];
-        header('location: ../includes/enviar_email.php');
+        header('location: enviar_email.php');
         exit;
     }
 ?>

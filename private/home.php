@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include '../includes/conexao.php';
+    include '../includes/core/conexao.php';
     include '../includes/components/modals.php';
     date_default_timezone_set('America/Sao_Paulo');
 
@@ -29,7 +29,7 @@
                 <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="../includes/deslogar.php" class="nav-link">Sair</a></li>
+                    <li class="nav-item"><a href="../includes/core/deslogar.php" class="nav-link">Sair</a></li>
                 </ul>
             </div>
         </nav>
