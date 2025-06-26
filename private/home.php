@@ -1,7 +1,7 @@
 <?php
     session_start();
     include '../includes/conexao.php';
-    include '../includes/partials/modals.php';
+    include '../includes/components/modals.php';
     date_default_timezone_set('America/Sao_Paulo');
 
     if (!isset($_SESSION['id'])) {
@@ -41,7 +41,7 @@
         <div class="btn-topico">
             <a href="../private/simular_venda.php" class="btn btn-primary"><i class="bi bi-cart-plus"> Simular Vendas</i></a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"> Adicionar Tópico</i></button>
-            <a href="../src/tabelas/exportar_tabelas.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabelas</i></a>
+            <a href="../modules/tabelas/exportar_tabelas.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabelas</i></a>
         </div>
 
                 <?php 
@@ -53,7 +53,7 @@
                     while ($topico = $result->fetch_assoc()) {
                         $produtos = $conn->query("SELECT * FROM produtos WHERE topico_id = " . intval($topico['id_topico'])); ?>
 
-    <div class="container pb-5 mb-4 mt-3" style="background: #161A1F">
+    <div class="container pb-5 mb-5 mt-3" style="background: #161A1F">
             <h4 class="my-3" style="color:#fff"> <?php echo htmlspecialchars($topico['nome_topico']); ?> </h4>
             <div class="card-body">
             <table class="table table-striped">
@@ -132,12 +132,18 @@
                         </button>
 
                 <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)"><i class="bi bi-plus-circle"> Adicionar Produto </i></button>
-                <a href="../src/tabelas/exportar_tabela.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"><i class="bi bi-box-arrow-in-up-right"> 
+                <a href="../modules/tabelas/exportar_tabela.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"><i class="bi bi-box-arrow-in-up-right"> 
                 Exportar Tabela </i></a>
         </div>
     </div>
         <?php } ?>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
+        <script>
+            setTimeout(() => {
+                history.replaceState(null, '', 'http://localhost:3000/private/home.php')
+            }, 3000);
+        </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -18,7 +18,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/css/simular.css">
-    <script src="../assets/javascript/simulacao.js"></script>
     <title>Estoque Aqui - Dashboard</title>
 </head>
     <body style=background:#000;>
@@ -33,13 +32,25 @@
             </div>
         </nav>
 
-
         <div class="card">
             <div class="card-header text-white">
-                <h5 class="card-title mt-2">Simulação de Venda</h5>
-            </div>
+                
+                <?php if (isset($_GET['erro']) == 'quantidade') { ?>
+                    <div id="" class="alert alert-danger m-3">Quantidade do produto inválida</div>
+                <?php } ?>
 
-        <form action="../src/simulacao/adicionar_simulacao.php" method="POST">
+                <?php if(isset($_GET['quantidade']) == 'limite') { ?>
+                    <div class="alert alert-danger m-3">A quantidade adicionada excete o limite disponível no estoque</div>
+                <?php } ?>
+
+                <?php if(isset($_GET['simulacao']) == 'limpa') { ?>
+                    <div class="alert alert-success m-3">Simulação limpa com sucesso</div>
+                <?php } ?>
+
+            <h5 class="card-title mt-2">Simulação de Venda</h5>
+        </div>
+
+        <form action="../modules/simulacao/adicionar_simulacao.php" method="POST">
             <div class="card-body text-white">
                 <div class="mb-3 d-flex align-items-center gap-3 flex-wrap">
                     <div class="prod">
@@ -87,27 +98,57 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                            </tr>
-
-                            <tr>
-                            </tr>
-
+                            <?php 
+                                $total = 0;
+                                if (isset($_SESSION['simulacao']) && count($_SESSION['simulacao']) > 0) {
+                                foreach ($_SESSION['simulacao'] as $id => $item) {
+                                    $stmt = $conn->prepare('SELECT nome_produto, preco FROM produtos WHERE id = ?');
+                                    $stmt->bind_param('i', $id);
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+                                    if ($result && $result->num_rows > 0) {
+                                    $produto = $result->fetch_assoc();
+                                        $quantidade = $item['quantidade'];
+                                        $subtotal = $produto['preco'] * $quantidade;
+                                        $total += $subtotal;
+                                        echo "<tr>
+                                            <td>{$produto['nome_produto']}</td>
+                                            <td>{$quantidade}</td>
+                                            <td>R$ " . number_format($produto['preco'], 2, ',', '.') . "</td>
+                                            <td>R$ " . number_format($subtotal, 2, ',', '.') . "</td>
+                                        </tr>";
+                                    }
+                                    $stmt->close();
+                                }
+                            } 
+                            ?>
                         </tbody>
+
+                        <tfoot>
+                            <tr class="table-dark">
+                                <th colspan="3" class="text-end text-white">Subtotal Geral:</th>
+                                <th>R$ <?php echo number_format($total, 2, ',', '.'); ?></th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
         </div>
 
             <div class="card-footer d-flex justify-content-center gap-3 mb-4">
                 <a href="" class="btn btn-primary">Confirmar Venda</a>
-                <a href="" class="btn btn-primary">Limpar Simulação</a>
+                <a href="../modules/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
                 <a href="" class="btn btn-primary">Gerar PDF/Excel</a>
             </div>
         </div>
 
-    <?php 
-    //include '../includes/partials/footer.php';
-    ?>
+    <script>
+        setTimeout(() => {
+            document.querySelectorAll('.alert').forEach(al => {
+                al.style.display = 'none'
+            })
+            history.replaceState(null, '', 'http://localhost:3000/private/simular_venda.php')
+        }, 5000);
+    </script>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>

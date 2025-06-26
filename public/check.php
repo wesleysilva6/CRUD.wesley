@@ -1,6 +1,6 @@
 <?php 
     include '../includes/conexao.php';
-    include '../includes/partials/header.php';
+    include '../includes/components/header.php';
     session_start();
 ?>
 
@@ -65,7 +65,7 @@
             </div>
 
     <?php 
-    include '../includes/partials/footer.php';
+    include '../includes/components/footer.php';
     if (isset($_GET['email']) && $_GET['email'] == 'enviado' && isset($_SESSION['email_redefinir'])) {
         $usuario = htmlspecialchars($_SESSION['email_redefinir']); ?>
     <script>
