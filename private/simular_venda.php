@@ -34,6 +34,10 @@
 
         <div class="card">
             <div class="card-header text-white">
+
+                <?php if (isset($_GET['produto']) == 'adicionado') { ?>
+                    <div class="alert alert-success">Produto adicionado com sucesso</div>
+                <?php } ?>
                 
                 <?php if (isset($_GET['erro']) == 'quantidade') { ?>
                     <div id="" class="alert alert-danger m-3">Quantidade do produto inválida</div>
