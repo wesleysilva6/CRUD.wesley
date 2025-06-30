@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['simulacao'][$produto_id]['quantidade'] += $quantidade;
             } else {
                 $_SESSION['simulacao'][$produto_id] = [
-                    'nome' => $produto['nome_produto'],
+                    'nome_produto' => $produto['nome_produto'],
                     'preco' => $produto['preco'],
                     'quantidade' => $quantidade
                 ];
