@@ -130,11 +130,13 @@
                 </div>
             </div>
 
-            <div class="card-footer d-flex justify-content-center gap-3 mb-4">
-                <a href="../modules/vendas/finalizar_venda.php" class="btn btn-primary">Confirmar Venda</a>
-                <a href="../modules/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
-                <a href="" class="btn btn-primary">Gerar PDF/Excel</a>
-            </div>
+            <form action="../modules/vendas/finalizar_venda.php" method="POST">
+                <div class="card-footer d-flex justify-content-center gap-3 mb-4">
+                    <button type="submit" class="btn btn-primary">Confirmar Venda</button>
+                    <a href="../modules/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
+                    <a href="" class="btn btn-primary">Gerar PDF/Excel</a>
+                </div>
+            </form>
         </div>
 
     <script>

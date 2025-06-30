@@ -22,5 +22,6 @@
     <title>Estoque Aqui - Histórico</title>
 </head>
     <body style=background:#000;>
-        
+        <?php echo $nome_cliente;
+?>
     </body>
