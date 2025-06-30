@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
     <body style="background:#000">
-        <nav class="navbar" data-bs-theme="dark">
+        <nav class="navbar">
             <div class="container-fluid">
                 <a href="../public/login.php" class="navbar-brand">
                 <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">

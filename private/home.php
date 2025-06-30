@@ -23,23 +23,12 @@
     <title>Estoque Aqui - Dashboard</title>
 </head>
     <body style="background:#000">
-        <nav class="navbar" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a href="home.php" class="navbar-brand">
-                <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
-                </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="../includes/core/deslogar.php" class="nav-link">Sair</a></li>
-                </ul>
-            </div>
-        </nav>
+        <?php include '../includes/components/sidebar.php' ?>
 
         <div class="container mt-5" style="border:none;">
             <div class="alert alert-primary text-center"> Seja Muito Bem-Vindo(a) <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !</div>
         </div>
-
         <div class="btn-topico">
-            <a href="../private/simular_venda.php" class="btn btn-primary"><i class="bi bi-cart-plus"> Simular Vendas</i></a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"> Adicionar Tópico</i></button>
             <a href="../modules/tabelas/exportar_tabelas.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabelas</i></a>
         </div>
@@ -74,7 +63,7 @@
                     <?php while ($produto = $produtos->fetch_assoc()) { ?>
                         <tr>
                             <td>
-                            <?php if (!empty($produto['imagem'])): ?>
+                            <?php if (!empty($produto['imagem'])) { ?>
                                 <img src="/<?php echo $produto['imagem']; ?>"
                                     width="60"
                                     height="60"
@@ -83,9 +72,9 @@
                                     data-bs-target="#modalImagem"
                                     onclick="mostrarImagem('<?php echo $produto['imagem']; ?>')"
                                 >
-                            <?php else: ?>
+                            <?php } else { ?>
                                 <span class="text-muted"></span>
-                            <?php endif; ?>
+                            <?php } ?>
                             </td>
                             <td> <?php echo ($produto['nome_produto']); ?> </td>
                             <td> <?php echo 'R$ '. number_format($produto['preco'], 2, ',', '.'); ?> </td>

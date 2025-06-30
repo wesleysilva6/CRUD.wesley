@@ -3,6 +3,7 @@ include '../../includes/core/conexao.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nome_cliente = $_POST['nome_cliente'];
     $produto_id = intval($_POST['produto_id']);
     $quantidade = intval($_POST['quantidade']);
 
