@@ -64,3 +64,18 @@
                 })
             }
         })
+
+        // MODAL PARA REMOVER SIMULAÇÃO
+        document.addEventListener('DOMContentLoaded', function() {
+            const removerSimulacao = document.getElementById('removerSimulacao');
+            if(removerSimulacao) {
+                removerSimulacao.addEventListener('show.bs.modal', function (event) {
+                    const button = event.relatedTarget;
+                    const idItem = button.getAttribute('data-id-item')
+                    const confirmarBtn = document.getElementById('deletarSimulacao')
+                    if (confirmarBtn) {
+                        confirmarBtn.href = `../modules/historico/deletar_simulacao.php?id_item=${idItem}`
+                    }
+                })
+            }
+        })

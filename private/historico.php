@@ -1,5 +1,6 @@
 <?php 
     include '../includes/core/conexao.php';
+
     date_default_timezone_set('America/Sao_Paulo');
     session_start();
 
@@ -21,10 +22,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/css/historico.css">
+    <script src="../assets/javascript/main.js"></script>
 </head>
 <body style="background:#000;">
 
     <?php include '../includes/components/sidebar.php'; ?>
+    <?php include '../includes/components/modals.php'; ?>
 
     <div class="card">
         <div class="card-header text-white">
@@ -63,9 +66,14 @@
                                 <td> <?php echo $linha['quantidade'] ?></td>
                                 <td> <?php echo 'R$ '. number_format($linha['preco'], 2, ',', '.'); ?> </td>
                                 <td> <?php echo 'R$ '. number_format($linha['subtotal'], 2, ',', '.'); ?> </td>
-                                <td> <a href="../modules/historico/deletar_simulacao.php?id_item=<?php echo $linha['id_item']; ?>" class="btn">
-                                    <span class="icon"><i class="bi bi-trash3"></i></span>
-                                </a> </td>
+                            <td>
+                                <button class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#removerSimulacao"
+                                data-id-item="<?php echo $linha['id_item'] ?>"> 
+                                <span class="icon"><i class="bi bi-trash3"></i></span> 
+                                </button>
+                            </td>
 
                             </tr>
                         <?php } ?>

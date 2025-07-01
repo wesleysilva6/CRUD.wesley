@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     unset($_SESSION['simulacao']);
     unset($_SESSION['cliente']);
-}
+} 
     header('Location: ../../private/simular_venda.php?adicionado=historico');
     exit;
 ?>

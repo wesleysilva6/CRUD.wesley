@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/home.css">
 </head>
 
     <body>
@@ -160,6 +161,27 @@
 
                     <div class="modal-footer">
                         <a id="deletarProduto" href="#" class="btn btn-primary">Sim</a>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL DE EXCLUIR SIMULAÇÃO -->
+        <div class="modal fade" id="removerSimulacao" tabindex="-1" aria-labelledby="removerProdutoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-white">
+                        <h5 class="modal-title">Excluir Simulação</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="modal-body text-white">
+                        <p><strong>Tem certeza de que deseja excluir esta Simulação? Esta ação é irreversível.</strong></p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a id="deletarSimulacao" href="" class="btn btn-primary">Sim</a>
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
                     </div>
                 </div>
