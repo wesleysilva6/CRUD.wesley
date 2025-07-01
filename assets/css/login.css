@@ -49,22 +49,3 @@
         .form-control::placeholder {
         color:rgba(255, 255, 255, 0.76); 
         }
-
-        footer {
-        background: #0C0F16;
-        padding: 1rem 4%;
-        margin: 14.19rem 0 0 0;
-        }
-
-        @media screen and (max-width: 365px) {
-        .navbar-brand img {
-        width: 3rem;
-        height: 3rem;
-        }
-
-        .card-login {
-        padding:13rem 0 0 0;
-        width: 18rem;
-        margin: 0 4rem 0 2.5rem;
-        }
-}

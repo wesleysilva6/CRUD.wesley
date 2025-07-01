@@ -21,7 +21,7 @@
 
         $busca->close();
         $stmt = $conn->prepare("DELETE FROM produtos WHERE id = ? AND topico_id IN (SELECT id_topico FROM topicos WHERE usuario_id = ?)");
-        $stmt->bind_param('ii', $deletar, $id);
+        $stmt->bind_param('ii', $deletar, $id); 
         $stmt->execute();
         $stmt->close();
         header ('location: ../../private/home.php?produto=removido');

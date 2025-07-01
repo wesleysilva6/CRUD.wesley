@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_topico = $_POST['id_topico'];
     $imagem = $_FILES['imagem'] ?? null;
 
-    // Primeiro, busca o caminho da imagem atual (caso o usuário não envie uma nova)
     $caminhoImagem = null;
     if ($id) {
         $busca = $conn->prepare("SELECT imagem FROM produtos WHERE id = ?");
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Se enviou uma nova imagem, atualiza o caminho
     if ($imagem && $imagem['error'] === 0) {
         $nomeImagem = uniqid('produto_') . '.' . pathinfo($imagem['name'], PATHINFO_EXTENSION);
         $caminhoImagem = '../../uploads/' . $nomeImagem;

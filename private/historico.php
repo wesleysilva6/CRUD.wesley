@@ -20,12 +20,68 @@
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/css/simular.css">
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/historico.css">
 </head>
 <body style="background:#000;">
 
     <?php include '../includes/components/sidebar.php'; ?>
 
+    <div class="card">
+        <div class="card-header text-white">
+            
+            <?php if (isset($_GET['produto']) == 'removido') { ?>
+                <div class="alert alert-danger">Produto removido com sucesso</div>
+            <?php } ?>
+
+            <h5 class="card-title mt-2">Histórico de Simulações</h5>
+        </div>
+
+        <div class="card-body text-white">
+            <div class="mb-3">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome Cliente</th>
+                            <th>Produto</th>
+                            <th>Criada Em</th>
+                            <th>Preço</th>
+                            <th>Total</th>
+                            <th>Subtotal</th>
+                            <th>Deletar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $stmt = $conn->prepare("SELECT i.id AS id_item, s.cliente, s.criada_em, i.nome_produto, i.quantidade, i.preco, i.subtotal FROM simulacoes s INNER JOIN itens_simulacao i ON s.id = i.id_simulacao WHERE s.usuario_id = ? ORDER BY s.criada_em DESC ");
+                            $stmt->bind_param('i', $usuario_id);
+                            $stmt->execute();
+                            $result = $stmt->get_result() ?>
+                        <?php while($linha = $result->fetch_assoc()) { ?>
+                            <tr>
+                                <td> <?php echo $linha['cliente'] ?></td>
+                                <td> <?php echo $linha['nome_produto'] ?></td>
+                                <td> <?php echo $linha['criada_em'] ?></td>
+                                <td> <?php echo $linha['quantidade'] ?></td>
+                                <td> <?php echo 'R$ '. number_format($linha['preco'], 2, ',', '.'); ?> </td>
+                                <td> <?php echo 'R$ '. number_format($linha['subtotal'], 2, ',', '.'); ?> </td>
+                                <td> <a href="../modules/historico/deletar_simulacao.php?id_item=<?php echo $linha['id_item']; ?>" class="btn">
+                                    <span class="icon"><i class="bi bi-trash3"></i></span>
+                                </a> </td>
+
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+        <script>
+        setTimeout(() => {
+            document.querySelectorAll('.alert').forEach(al => {
+                al.style.display = 'none'
+            })
+            history.replaceState(null, '', 'http://localhost:3000/private/historico.php')
+        }, 3000);
+        </script>
 </body>
 </html>

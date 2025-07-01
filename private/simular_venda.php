@@ -37,9 +37,13 @@
                 <?php if(isset($_GET['quantidade']) == 'limite') { ?>
                     <div class="alert alert-danger m-3">A quantidade adicionada excete o limite disponível no estoque</div>
                 <?php } ?>
+                
+                <?php if(isset($_GET['adicionado']) == 'historico') { ?>
+                    <div class="alert alert-success m-3">Simulação concluida com sucesso</div>
+                <?php } ?>
 
                 <?php if(isset($_GET['simulacao']) == 'limpa') { ?>
-                    <div class="alert alert-success m-3">Simulação limpa com sucesso</div>
+                    <div class="alert alert-danger m-3">Simulação limpa com sucesso</div>
                 <?php } ?>
             <h5 class="card-title mt-2">Simulação de Venda</h5>
         </div>
@@ -49,18 +53,15 @@
                 <label class="form-label">Cliente</label>
                 <input type="text" name="nome_cliente" class="form-control w-25 mb-3" placeholder="Nome do Cliente" required>
                 <div class="mb-3 d-flex align-items-center gap-3 flex-wrap">
-                    <div class="prod">
+                    <div class="prod">  
                         <label class="form-label">Produto</label>
                         <select name="produto_id" class="form-select" required>
                             <option value="">Selecione um produto</option>
                             <?php
-                                $sql = "
-                                    SELECT p.id, p.nome_produto 
-                                    FROM produtos p
-                                    INNER JOIN topicos t ON p.topico_id = t.id_topico
-                                    WHERE t.usuario_id = ?
-                                ";
-                                $stmt = $conn->prepare($sql);
+                                $stmt = $conn->prepare("SELECT p.id, p.nome_produto 
+                                FROM produtos p
+                                INNER JOIN topicos t ON p.topico_id = t.id_topico
+                                WHERE t.usuario_id = ?");
                                 $stmt->bind_param("i", $usuario_id);
                                 $stmt->execute();
                                 $result = $stmt->get_result();
@@ -134,7 +135,6 @@
                 <div class="card-footer d-flex justify-content-center gap-3 mb-4">
                     <button type="submit" class="btn btn-primary">Confirmar Venda</button>
                     <a href="../modules/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
-                    <a href="" class="btn btn-primary">Gerar PDF/Excel</a>
                 </div>
             </form>
         </div>
@@ -145,7 +145,7 @@
                 al.style.display = 'none'
             })
             history.replaceState(null, '', 'http://localhost:3000/private/simular_venda.php')
-        }, 5000);
+        }, 3000);
     </script>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

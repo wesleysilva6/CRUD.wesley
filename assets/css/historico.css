@@ -1,0 +1,57 @@
+:root {
+        --color--primary:#0B5ED7;
+        --color--border:#393E42;
+        --color--input:#20252A;
+        --color--background-modal:#161A1F;
+        --color--background-card:#0a0c0f;
+        --color-text: #fff;
+}
+
+::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:var(--color--primary);
+        }
+
+        .navbar {
+        background: #0C0F16;
+        }
+
+        .card {
+        background: var(--color--background-card);
+        margin: 10rem 10rem 10rem 10rem;
+        border-radius: 0.7rem;
+        }
+
+        .card-header {
+        border-bottom:1px solid var(--color--primary);
+        }
+
+        .icon {
+        color: var(--color-text);
+        }
+
+        .table.table-striped {
+        background: var(--color--input);
+        border:2px solid var(--color--primary);
+        border-radius: 0.4rem;
+        overflow: hidden;
+        }
+
+        .table.table-striped thead th {
+        border-bottom: 2px solid var(--color--primary);
+        background:var(--color--primary);
+        color:#fff;
+        }
+
+        .table.table-striped tbody tr:nth-of-type(odd) td {
+        background: #20252a; 
+        color: #fff;     
+    }
+
+        .table.table-striped tbody tr:nth-of-type(even) td {
+        background: #161A1F; 
+        color: #fff;     
+    }

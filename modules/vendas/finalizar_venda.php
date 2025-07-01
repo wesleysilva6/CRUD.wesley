@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Agora insere na tabela simulacoes com o total correto
     $stmt = $conn->prepare("INSERT INTO simulacoes (usuario_id, cliente, criada_em, total) VALUES (?, ?, ?, ?)");
     $stmt->bind_param('issd', $usuario_id, $nome_cliente, $criada_em, $total);
     $stmt->execute();
@@ -29,17 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($_SESSION['simulacao'] as $produto_id => $item) {
             $quantidade = $item['quantidade'];
             $preco = $item['preco'];
-            $nome_produto = $item['nome_produto'] ?? ''; // garanta que está passando o nome
+            $nome_produto = $item['nome_produto'] ?? '';
             $subtotal = $quantidade * $preco;
             $stmt1->bind_param('iisidd', $simulacao_id, $produto_id, $nome_produto, $quantidade, $preco, $subtotal);
             $stmt1->execute();
         }
     }
-
     unset($_SESSION['simulacao']);
     unset($_SESSION['cliente']);
 }
-
-header('Location: ../../private/simular_venda.php?status=sucesso');
-exit;
+    header('Location: ../../private/simular_venda.php?adicionado=historico');
+    exit;
 ?>
