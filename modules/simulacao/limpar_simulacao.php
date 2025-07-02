@@ -6,5 +6,8 @@
         unset($_SESSION['simulacao']);
         header('location: ../../private/simular_venda.php?simulacao=limpa');
         exit;
+    } else {
+        header('location: ../../private/simular_venda.php?produtos=inexistentes');
+        exit;
     }
 ?>

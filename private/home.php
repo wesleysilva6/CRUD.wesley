@@ -2,6 +2,7 @@
     session_start();
     include '../includes/core/conexao.php';
     include '../includes/components/modals.php';
+
     date_default_timezone_set('America/Sao_Paulo');
 
     if (!isset($_SESSION['id'])) {

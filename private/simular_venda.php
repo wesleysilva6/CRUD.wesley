@@ -44,9 +44,13 @@
                 <?php } ?>
 
                 <?php if(isset($_GET['simulacao']) == 'limpa') { ?>
-                    <div class="alert alert-danger m-3">Simulação limpa com sucesso</div>
+                    <div class="alert alert-success m-3">Simulação limpa com sucesso</div>
                 <?php } ?>
-            <h5 class="card-title mt-2">Simulação de Venda</h5>
+
+                <?php if(isset($_GET['produtos']) == 'inexistentes') { ?>
+                    <div class="alert alert-danger m-3">Adicione produtos a está simulação para ela ser limpa</div>
+                <?php } ?>
+                <h5 class="card-title mt-2">Simulação de Venda</h5>
         </div>
 
         <form action="../modules/simulacao/adicionar_simulacao.php" method="POST">

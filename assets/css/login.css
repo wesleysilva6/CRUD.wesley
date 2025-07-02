@@ -49,3 +49,9 @@
         .form-control::placeholder {
         color:rgba(255, 255, 255, 0.76); 
         }
+
+        footer {
+        background: #0C0F16;
+        padding: 1rem 4%;
+        margin: 14.9rem 0 0 0;
+        }
