@@ -1,12 +1,12 @@
 <?php
-session_start();
+    session_start();
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
 
-require '../../vendor/autoload.php';
+    require '../../vendor/autoload.php';
 
-$mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
 
 try {
     // Configuração do servidor SMTP

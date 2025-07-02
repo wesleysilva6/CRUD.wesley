@@ -20,7 +20,7 @@
                 <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="../includes/deslogar.php" class="nav-link">Voltar</a></li>
+                    <li class="nav-item"><a href="../includes/core/deslogar.php" class="nav-link">Voltar</a></li>
                 </ul>
             </div>
         </nav>
@@ -33,16 +33,22 @@
                                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
                                 
                             <div class="card-body">
-                                <form action="../includes/redefinir_senha.php" method="POST">
+                                <form action="../includes/core/redefinir_senha.php" method="POST">
 
                                     <div class="input-group mt-2">
-                                        <span class="input-group-text"><i class="bi bi-lock-fill" style="color:#fff"></i></span>
-                                        <input type="password" class="form-control" name="senha" id="" placeholder="Digite uma Senha">
+                                        <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
+                                        <input type="password" class="form-control" name="senha" id="senhaInput" placeholder="Digite uma Senha" required>
+                                        <button type="button" class="eyes btn btn-dark" id="toggleSenha">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
                                     </div>
-                                    
+
                                     <div class="input-group mt-2">
-                                        <span class="input-group-text"><i class="bi bi-unlock-fill" style="color:#fff"></i></span>
-                                        <input type="password" class="form-control" name="confirmar_senha" id="" placeholder="Confirme a Senha">
+                                        <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
+                                        <input type="password" class="form-control" name="confirmar_senha" id="confirmarSenha" placeholder="Confirme a Senha" required>
+                                        <button type="button" class="eyes btn btn-dark" id="toggleSenha2">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
                                     </div>
 
                                     <?php if (isset($_GET['erro']) && $_GET['erro'] == 'preencher') { ?>
@@ -65,6 +71,40 @@
                     include '../includes/components/footer.php'
                 ?>
 
+                <script>
+                    const senhaInput = document.getElementById('senhaInput');
+                    const toggleSenha = document.getElementById('toggleSenha');
+                    const icon = toggleSenha.querySelector('i');
+
+                    toggleSenha.addEventListener('click', () => {
+                        if (senhaInput.type === 'password') {
+                            senhaInput.type = 'text';
+                            icon.classList.remove('bi-eye');
+                            icon.classList.add('bi-eye-slash');
+                        } else {
+                            senhaInput.type = 'password';
+                            icon.classList.remove('bi-eye-slash');
+                            icon.classList.add('bi-eye');
+                        }
+                    });
+
+                    const confirmarSenha = document.getElementById('confirmarSenha');
+                    const toggleSenha2 = document.getElementById('toggleSenha2');
+                    const icon2 = toggleSenha2.querySelector('i');
+
+                    toggleSenha2.addEventListener('click', () => {
+                        if (confirmarSenha.type === 'password') {
+                            confirmarSenha.type = 'text';
+                            icon2.classList.remove('bi-eye');
+                            icon2.classList.add('bi-eye-slash');
+                        } else {
+                            confirmarSenha.type = 'password';
+                            icon2.classList.remove('bi-eye-slash');
+                            icon2.classList.add('bi-eye');
+                        }
+                    });
+
+                </script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>

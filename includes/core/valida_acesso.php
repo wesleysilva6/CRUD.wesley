@@ -10,7 +10,7 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
-if ($result->num_rows == 1) {
+    if ($result->num_rows == 1) {
     $usuario = $result->fetch_assoc();
         if (password_verify($senha, $usuario['senha'])) {
         $_SESSION['id'] = $usuario['id'];

@@ -17,9 +17,16 @@
     <title>Estoque Aqui - System</title>
 </head>
     <body style="background:#000">
+
+        
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
+                    <div class="m-auto text-center">
+                        <?php if (isset($_GET['sucesso']) == 'senha') { ?>
+                            <div class="alert alert-success">Senha alterada com sucesso.</div>
+                        <?php } ?>
+                    </div>
                     <div class="card">
                         <div class="card-header" style="color:#fff">Entrar</div>
                         <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
@@ -33,7 +40,10 @@
 
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
-                                        <input type="password" class="form-control" name="senha" placeholder="Senha">
+                                        <input type="password" class="form-control" name="senha" id="senhaInput" placeholder="Senha" required>
+                                        <button type="button" class="eyes btn btn-dark" id="toggleSenha">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
                                     </div>
 
                                     <?php if(isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
@@ -61,6 +71,30 @@
                     include '../includes/components/footer.php'
                 ?>
 
+    <script>
+        setTimeout(() => {
+            document.querySelectorAll('.alert').forEach(al => {
+                al.style.display = 'none'
+            })
+            history.replaceState(null, '', 'http://localhost:3000/private/historico.php')
+        }, 3000);
+
+        const senhaInput = document.getElementById('senhaInput');
+        const toggleSenha = document.getElementById('toggleSenha');
+        const icon = toggleSenha.querySelector('i');
+
+        toggleSenha.addEventListener('click', () => {
+            if (senhaInput.type === 'password') {
+                senhaInput.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                senhaInput.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        });
+    </script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>

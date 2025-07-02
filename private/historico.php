@@ -31,7 +31,7 @@
 
     <div class="card">
         <div class="card-header text-white">
-            
+
             <?php if (isset($_GET['produto']) == 'removido') { ?>
                 <div class="alert alert-danger">Produto removido com sucesso</div>
             <?php } ?>

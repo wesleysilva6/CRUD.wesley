@@ -1,10 +1,10 @@
 <?php 
-include '../../includes/core/conexao.php';
-session_start();
+    include '../../includes/core/conexao.php';
+    session_start();
 
-$criada_em = date('Y-m-d H:i:s');
+    $criada_em = date('Y-m-d H:i:s');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario_id = $_SESSION['id'];
     $nome_cliente = $_SESSION['cliente'] ?? 'Cliente não informado';
 
