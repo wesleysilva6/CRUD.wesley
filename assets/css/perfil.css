@@ -1,0 +1,111 @@
+:root {
+        --color--primary:#0B5ED7;
+        --color--border:#393E42;
+        --color--input:#20252A;
+        --color--background-modal:#161A1F;
+        --color---text:#fff;
+        --color--background-card:#0a0c0f;
+}
+
+::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:var(--color--primary);
+        }
+
+        .navbar {
+        background: #0C0F16;
+        }
+
+        .perfil {
+        font-size: 3rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        letter-spacing: 0.5px;
+        }
+
+        .img-preview {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ccc;
+        }
+
+        .file-input {
+        display: none;
+        }
+
+        .upload-label {
+        background-color: #007bff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 8.5rem;
+        color: var(--color---text);
+        padding: 0.5rem 0.8rem;
+        border-radius: 0.4rem;
+        margin-top: 0.5rem;
+        cursor: pointer;
+        }
+
+        .nome {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        color: var(--color---text);
+        }
+
+        .email {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-align: center;
+        color: var(--color---text);
+        }
+
+        .card {
+        background: var(--color--background-card);
+        margin: 4rem 10rem 10rem 10rem;
+        border: 0.5rem;
+        }
+
+        .card-header {
+        border-bottom:1px solid var(--color--primary);
+        }
+
+        .card-body {
+        padding: 1.9rem;
+        }
+
+        label {
+        color: var(--color---text);
+        }
+
+        .form-control {
+        color: var(--color---text);
+        background-color: var(--color--input);
+        border: 1px solid var(--color--border);
+        }
+
+        .form-control::placeholder {
+        color:rgba(255, 255, 255, 0.76); 
+        }
+
+        .form-control:focus {
+        background-color: var(--color--input);
+        color: var(--color---text);
+        border-color: var(--color--border);
+        box-shadow: none;
+        outline: none;
+        }
+
+        .eyes {
+        color: #fff;
+        background-color: var(--color--input);
+        border: 1px solid var(--color--border);
+        }

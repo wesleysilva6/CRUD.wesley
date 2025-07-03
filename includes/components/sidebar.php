@@ -23,6 +23,7 @@
 
             <div class="offcanvas-body d-flex flex-column align-items-start">
                 <h5 class="text-white w-100 text-center mb-4">Dashboard ESTOQUE AQUI</h5>
+                <li><a href="../private/perfil.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-person-circle"></i>Meu Perfil</a></li>
                 <li><a href="../private/home.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-house-door-fill"></i>Dashboard</a></li>
                 <li><a href="../private/simulacao.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-box-seam-fill"></i>Simular Venda</a></li>
                 <li><a href="../private/historico.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-clipboard-data-fill"></i>Histórico</a></li>
