@@ -4,10 +4,10 @@
 
     if ($_SESSION['simulacao'] == TRUE) {
         unset($_SESSION['simulacao']);
-        header('location: ../../private/simular_venda.php?simulacao=limpa');
+        header('location: ../../private/simulacao.php?simulacao=limpa');
         exit;
     } else {
-        header('location: ../../private/simular_venda.php?produtos=inexistentes');
+        header('location: ../../private/simulacao.php?produtos=inexistentes');
         exit;
     }
 ?>

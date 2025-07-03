@@ -36,7 +36,7 @@
     }
     unset($_SESSION['simulacao']);
     unset($_SESSION['cliente']);
-} 
-    header('Location: ../../private/simular_venda.php?adicionado=historico');
+}
+    header('Location: ../../private/simulacao.php?adicionado=historico');
     exit;
 ?>

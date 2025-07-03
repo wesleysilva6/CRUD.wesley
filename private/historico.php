@@ -46,10 +46,10 @@
                         <tr>
                             <th>Nome Cliente</th>
                             <th>Produto</th>
-                            <th>Criada Em</th>
+                            <th>Quantidade</th>
                             <th>Preço</th>
-                            <th>Total</th>
                             <th>Subtotal</th>
+                            <th>Criada em</th>
                             <th>Deletar</th>
                         </tr>
                     </thead>
@@ -62,10 +62,10 @@
                             <tr>
                                 <td> <?php echo $linha['cliente'] ?></td>
                                 <td> <?php echo $linha['nome_produto'] ?></td>
-                                <td> <?php echo $linha['criada_em'] ?></td>
                                 <td> <?php echo $linha['quantidade'] ?></td>
                                 <td> <?php echo 'R$ '. number_format($linha['preco'], 2, ',', '.'); ?> </td>
                                 <td> <?php echo 'R$ '. number_format($linha['subtotal'], 2, ',', '.'); ?> </td>
+                                <td> <?php echo $linha['criada_em'] ?></td>
                             <td>
                                 <button class="btn"
                                 data-bs-toggle="modal"

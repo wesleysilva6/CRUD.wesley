@@ -136,9 +136,9 @@
                 </div>
             </div>
 
-            <form action="../modules/vendas/finalizar_venda.php" method="POST">
+            <form action="../modules/simulacao/finalizar_simulacao.php" method="POST">
                 <div class="card-footer d-flex justify-content-center gap-3 mb-4">
-                    <button type="submit" class="btn btn-primary">Confirmar Venda</button>
+                    <button type="submit" class="btn btn-primary">Confirmar Simulação</button>
                     <a href="../modules/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
                 </div>
             </form>

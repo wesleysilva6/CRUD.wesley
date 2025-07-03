@@ -18,43 +18,29 @@
                 <a href="../public/index.php" class="navbar-brand">
                 <img src="../assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="navbar-collapse expand-lg" id="navbarToggleExternalContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="../public/login.php" class="nav-link">Entrar</a></li>
-                        <li class="nav-item"><a href="../public/cadastrar.php" class="nav-link">Cadastrar</a></li>
-                        <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
-                    </ul>
-                </div>
             </div>
         </nav>
 
             <section id="inicio">
                 <div class="container">
                     <div class="row align-items-center justify-content-between">
-                        
                         <div class="col-md-8">
                             <h3>Seja Bem-Vindo a ESTOQUE AQUI !</h3>
                             <p>Seja bem-vindo ao nosso Sistema de Controle de Estoque, uma plataforma completa, segura e eficiente, desenvolvida para facilitar a gestão de produtos e  materiais da sua empresa.
-                            Com este sistema, você pode cadastrar, atualizar, excluir e acompanhar em tempo real todas as movimentações do seu estoque, garantindo organização, agilidade e total controle sobre suas   operações.
+                            Com este sistema, você pode cadastrar, atualizar, excluir e acompanhar em tempo real todas as movimentações do seu estoque, garantindo organização, agilidade e total controle sobre suas operações.
                             Ideal para empresas que buscam precisão e praticidade, nossa ferramenta oferece uma interface simples e fácil de usar, ajudando você a evitar perdas, controlar quantidades e manter seu    estoque sempre atualizado com rapidez e segurança.
                             Agora, além de todas essas funcionalidades, o sistema conta também com a opção de exportar os dados do estoque para planilhas Excel, seja de um tópico específico ou de toda a base de dados, facilitando ainda mais a análise, controle e geração de relatórios personalizados.</p>
                             <a href="../public/login.php" class="btn">Login</a>
                             <a href="../public/cadastrar.php" class="btn">Cadastre-se</a>
                         </div>  
-                        
+
                         <div class="col-md-4 d-flex justify-content-end" id="logo">
                             <img src="../assets/img/caixa_fundop.png" alt="" class="postion-absolute d-none d-md-block" width="250rem" style="margin-right: -10rem;">
                         </div>
-                        
                     </div>
                 </div>
             </section>
-            
+
             <section id="sobre">
                 <div class="container2">
                     <div class="row align-items-center">
@@ -67,9 +53,9 @@
                 </div>
             </section>
 
-                <?php 
-                    include '../includes/components/footer.php'
-                ?>
+            <?php 
+                include '../includes/components/footer.php'
+            ?>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $quantidade = intval($_POST['quantidade']);
 
     if ($produto_id <= 0 || $quantidade <= 0) {
-        header('Location: ../../private/simular_venda.php?erro=quantidade_produto');
+        header('Location: ../../private/simulacao.php?erro=quantidade_produto');
         exit;
     }
 
@@ -46,11 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ];
             }
         } else {
-            header('location: ../../private/simular_venda.php?quantidade=limite_excedida');
+            header('location: ../../private/simulacao.php?quantidade=limite_excedida');
             exit;
         } 
     }
-        header('Location: ../../private/simular_venda.php?produto=adicionado');
+        header('Location: ../../private/simulacao.php?produto=adicionado');
         exit;
     }
 ?>
