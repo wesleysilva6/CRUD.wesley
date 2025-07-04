@@ -16,6 +16,7 @@
         $_SESSION['id'] = $usuario['id'];
         $_SESSION['email'] = $usuario['email'];
         $_SESSION['nome'] = $usuario['nome'];
+        $_SESSION['foto'] = $usuario['foto'];
         header('Location: ../../private/home.php');
         exit;
     } else {

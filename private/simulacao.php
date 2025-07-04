@@ -1,13 +1,13 @@
 <?php 
-    include '../includes/core/conexao.php';
-    date_default_timezone_set('America/Sao_Paulo');
-    session_start();
+        session_start();
+        include '../includes/core/conexao.php';
+        date_default_timezone_set('America/Sao_Paulo');
 
-    $usuario_id = $_SESSION['id'];
-    if (!isset($_SESSION['id'])) {
-    header('Location: ../public/login.php?erro=acesso_negado');
-    exit;
-    }
+        $usuario_id = $_SESSION['id'];
+        if (!isset($_SESSION['id'])) {
+        header('Location: ../public/login.php?erro=acesso_negado');
+        exit;
+        }
 ?>
 
 <!DOCTYPE html>

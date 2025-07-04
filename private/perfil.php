@@ -1,15 +1,14 @@
 <?php 
-    include '../includes/core/conexao.php';
+        session_start();
+        include '../includes/core/conexao.php';
+        date_default_timezone_set('America/Sao_Paulo');
 
-    date_default_timezone_set('America/Sao_Paulo');
-    session_start();
+        $usuario_id = $_SESSION['id'];
 
-    if (!isset($_SESSION['id'])) {
+        if (!isset($_SESSION['id'])) {
         header('Location: ../public/login.php?erro=acesso_negado');
         exit;
-    }
-
-    $usuario_id = $_SESSION['id'];
+        }
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +19,7 @@
     <title>Estoque Aqui - Histórico</title>
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/perfil.css">
@@ -33,16 +33,18 @@
         </div>
     <div class="perfil text-center text-white mt-2">Meu Perfil</div>
 
-        <form enctype="multipart/form-data" class="text-center">
+        <form action="../modules/perfil/atualizar_foto.php" method="POST" enctype="multipart/form-data" class="text-center">
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <img src="../assets/img/default.png" id="preview" class="img-preview mt-2" alt="Foto de Perfil">
-                <label for="foto" class="upload-label mt-4 mb-3">Selecionar Foto</label>
-                <input type="file" name="foto" id="foto" class="file-input" accept="image/*" onchange="mostrarPreview(this)">
-            </div>
+                <img src="../uploads/<?php echo $_SESSION['foto'] ?? 'default.png'; ?>" id="preview" class="img-preview mt-2" alt="Foto de Perfil">
+                    <label for="inputFoto" class="custom-file-label mt-3">Escolher arquivo</label>
+                    <input type="file" class="mt-3" id="inputFoto" accept="image/*">
+                    <span id="file-name"></span>
+                    <img id="imagemCrop" style="max-width: 100%; display: none;"></div>
+            <button id="btnCortar" class="btn btn-primary mt-2" style="display: none;">Cortar e Salvar</button>
         </form>
-        
+
         <div class="text-center text-white">
-            <div class="nome"> <?php echo $_SESSION['nome']; ?> </div>
+            <div class="nome mt-3"> <?php echo $_SESSION['nome']; ?> </div>
             <div class="email"> <?php echo $_SESSION['email']; ?> </div>
         </div>
         
@@ -119,6 +121,8 @@
             history.replaceState(null, '', 'http://localhost:3000/private/perfil.php')
         }, 3500);
         </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
     <script src="../assets/javascript/perfil.js"></script>
 </body>
 </html>

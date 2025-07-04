@@ -1,20 +1,20 @@
 <?php
-    include '../../includes/core/conexao.php';
-    session_start();
+        include '../../includes/core/conexao.php';
+        session_start();
 
-    require __DIR__ . '/../../vendor/autoload.php';
+        require __DIR__ . '/../../vendor/autoload.php';
 
-    use PhpOffice\PhpSpreadsheet\Spreadsheet;
-    use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-    use PhpOffice\PhpSpreadsheet\Style\Border;
-    use PhpOffice\PhpSpreadsheet\Style\Fill;
+        use PhpOffice\PhpSpreadsheet\Spreadsheet;
+        use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+        use PhpOffice\PhpSpreadsheet\Style\Border;
+        use PhpOffice\PhpSpreadsheet\Style\Fill;
 
-    $usuario_id = $_SESSION['id'] ?? null;
-    $spreadsheet = new Spreadsheet();
-    $sheet = $spreadsheet->getActiveSheet();
-    $row = 1;
+        $usuario_id = $_SESSION['id'] ?? null;
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $row = 1;
 
-    $topicos = $conn->query("SELECT id_topico, nome_topico FROM topicos WHERE usuario_id = $usuario_id");
+        $topicos = $conn->query("SELECT id_topico, nome_topico FROM topicos WHERE usuario_id = $usuario_id");
         while ($topico = $topicos->fetch_assoc()) {
         $topico_nome = $topico['nome_topico'];
         $topico_id = $topico['id_topico'];

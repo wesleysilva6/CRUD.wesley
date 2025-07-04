@@ -19,7 +19,6 @@
         $result = $stmt->get_result();
         $usuario = $result->fetch_assoc();
 
-
         if (!$usuario || !password_verify($senha_atual, $usuario['senha'])) {
             header('Location: ../../private/perfil.php?senha=incorreta');
             exit;
