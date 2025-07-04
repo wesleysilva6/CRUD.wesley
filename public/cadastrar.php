@@ -1,7 +1,7 @@
 <?php
+    session_start();
     include '../includes/core/conexao.php';
     include '../includes/components/header.php';
-    session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'] ?? '';
