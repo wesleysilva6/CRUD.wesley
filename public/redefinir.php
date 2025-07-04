@@ -72,6 +72,13 @@
                 ?>
 
                 <script>
+                    setTimeout(() => {
+                        document.querySelectorAll('.text-danger').forEach(al => {
+                            al.style.display = 'none'
+                        })
+                        history.replaceState(null, '', 'http://localhost:3000/public/redefinir.php')
+                    }, 3500);
+
                     const senhaInput = document.getElementById('senhaInput');
                     const toggleSenha = document.getElementById('toggleSenha');
                     const icon = toggleSenha.querySelector('i');

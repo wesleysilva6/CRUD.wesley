@@ -34,7 +34,7 @@
                                         <input type="email" class="form-control" name="email_redefinir" placeholder="E-mail">
                                     </div>
 
-                                    <?php if (isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
+                                    <?php if (isset($_GET['erro']) == 'email') { ?>
                                         <div class="text-danger">E-mail inválido. Verifique e tente novamente.</div>
                                     <?php } ?>
 
@@ -76,7 +76,16 @@
             emailModal.show();
         });
     </script>
-    <?php } ?>
+        <?php } ?>
+
+        <script>
+            setTimeout(() => {
+                document.querySelectorAll('.text-danger').forEach(al => {
+                    al.style.display = 'none'
+                })
+                history.replaceState(null, '', 'http://localhost:3000/public/check.php')
+            }, 3500);
+        </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

@@ -50,14 +50,23 @@
             <form action="../modules/perfil/atualizar_nome.php" method="POST">
                 <div class="mb-3 text-start">
                     <label class="form-label text-white">Editar Nome</label>
-                    <input type="text" name="novo_nome" class="form-control" placeholder="Nome do Usuário" required>
+                    <input type="text" name="novo_nome" class="form-control" placeholder="Nome do Usuário">
+
+                <?php if(isset($_GET['status']) == 'nome') { ?>
+                    <div class="text-success">Nome atualizado com sucesso!</div>
+                <?php } ?>
+
+                <?php if(isset($_GET['nome']) == 'vazio') { ?>
+                    <div class="text-danger">O nome não pode estar em branco.</div>
+                <?php } ?>
+
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Atualizar Nome</button>
             </form>
-            
+
             <hr class="text-primary my-4">
             <form action="../modules/perfil/atualizar_senha.php" method="POST">
-                
+
                 <label class="form-label">Senha Atual</label>
                 <div class="input-group mb-2">
                     <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Digite uma Senha" required>
@@ -81,10 +90,35 @@
                         <i class="bi bi-eye"></i>
                     </button>
                 </div>
+
+                <?php if (isset($_GET['senha']) == 'incorreta') { ?>
+                    <div class="text-danger">A senha atual informada está incorreta.</div>
+                <?php } ?>
+
+                <?php if (isset($_GET['campos']) == 'vazios') { ?>
+                    <div class="text-danger">Preencha todos os campos para atualizar sua senha.</div>
+                <?php } ?>
+
+                <?php if (isset($_GET['erro']) == 'senhas') { ?>
+                    <div class="text-danger">As novas senhas digitadas não coincidem.</div>
+                <?php } ?>
+
+                <?php if (isset($_GET['alterada']) == 'sucesso') { ?>
+                    <div class="text-success">Senha Alterada com sucesso</div>
+                <?php } ?>
+
                 <button type="submit" class="btn btn-primary w-100 mt-4">Atualizar Senha</button>
             </form>
         </div>
     </div>
+        <script>
+        setTimeout(() => {
+            document.querySelectorAll('.text-danger, .text-success').forEach(al => {
+                al.style.display = 'none'
+            })
+            history.replaceState(null, '', 'http://localhost:3000/private/perfil.php')
+        }, 3500);
+        </script>
     <script src="../assets/javascript/perfil.js"></script>
 </body>
 </html>
