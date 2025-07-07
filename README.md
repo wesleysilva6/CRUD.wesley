@@ -75,9 +75,9 @@ Oferece cadastro, edição, exclusão e visualização de produtos, simulação 
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="assets/img/imagem_index.png" width="350">
-  <img src="assets/img/imagem_home.png" width="350">
-  <img src="assets/img/imagem_perfil.png" width="350">
+  <img src="assets/img/screenshots/imagem_index.png" width="350">
+  <img src="assets/img/screenshots/imagem_home.png" width="350">
+  <img src="assets/img/screenshots/imagem_perfil.png" width="350">
 </p>
 
 ---
