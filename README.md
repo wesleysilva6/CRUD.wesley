@@ -16,15 +16,13 @@
   <a href="#roadmap"><img alt="Roadmap" src="https://img.shields.io/badge/-Roadmap-00d2ff?style=for-the-badge&logo=gitbook&logoColor=white" /></a>
   <a href="#como-executar"><img alt="Run" src="https://img.shields.io/badge/-Como%20Executar-00d2ff?style=for-the-badge&logo=github-actions&logoColor=white" /></a>
   <a href="#contato"><img alt="Contact" src="https://img.shields.io/badge/-Contato-00d2ff?style=for-the-badge&logo=telegram&logoColor=white" /></a>
-  <a href="#licenca"><img alt="License" src="https://img.shields.io/badge/-Licença-00d2ff?style=for-the-badge&logo=creative-commons&logoColor=white" /></a>
 </p>
 
 ---
 
 ## 📌 Sobre o projeto
 
-**Estoque Aqui** é um sistema web moderno para gerenciamento completo de estoque, focado em simplicidade, agilidade e eficiência.  
-Oferece cadastro, edição, exclusão e visualização de produtos, simulação de vendas, gerenciamento de usuários e controle de perfil com upload e remoção de fotos. Ideal para pequenas e médias empresas que desejam controle eficaz e acessível de seus produtos.
+**Estoque Aqui** é um sistema web moderno para gerenciamento completo de estoque, focado em simplicidade, agilidade e eficiência. Oferece cadastro, edição, exclusão e visualização de produtos, simulação de vendas, gerenciamento de usuários e controle de perfil com upload e remoção de fotos. Ideal para pequenas e médias empresas que desejam controle eficaz e acessível de seus produtos.
 
 ---
 
