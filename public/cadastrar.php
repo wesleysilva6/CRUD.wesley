@@ -53,7 +53,7 @@
                                     
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
-                                        <input type="password" class="form-control" name="senha" id="senhaInput" placeholder="Senha" required>
+                                        <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Senha" required>
                                         <button type="button" class="eyes btn btn-dark" id="toggleSenha">
                                             <i class="bi bi-eye"></i>
                                         </button>
@@ -72,24 +72,7 @@
                     include '../includes/components/footer.php'
                 ?>
 
-                <script>
-                    const senhaInput = document.getElementById('senhaInput');
-                    const toggleSenha = document.getElementById('toggleSenha');
-                    const icon = toggleSenha.querySelector('i');
-
-                    toggleSenha.addEventListener('click', () => {
-                        if (senhaInput.type === 'password') {
-                            senhaInput.type = 'text';
-                            icon.classList.remove('bi-eye');
-                            icon.classList.add('bi-eye-slash');
-                        } else {
-                            senhaInput.type = 'password';
-                            icon.classList.remove('bi-eye-slash');
-                            icon.classList.add('bi-eye');
-                        }
-                    });
-                </script>
-
+            <script src="../assets/javascript/perfil.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>

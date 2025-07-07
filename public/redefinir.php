@@ -37,7 +37,7 @@
 
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
-                                        <input type="password" class="form-control" name="senha" id="senhaInput" placeholder="Digite uma Senha" required>
+                                        <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Digite uma Senha" required>
                                         <button type="button" class="eyes btn btn-dark" id="toggleSenha">
                                             <i class="bi bi-eye"></i>
                                         </button>
@@ -45,7 +45,7 @@
 
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
-                                        <input type="password" class="form-control" name="confirmar_senha" id="confirmarSenha" placeholder="Confirme a Senha" required>
+                                        <input type="password" class="form-control" name="confirmar_senha" id="novaSenha" placeholder="Confirme a Senha" required>
                                         <button type="button" class="eyes btn btn-dark" id="toggleSenha2">
                                             <i class="bi bi-eye"></i>
                                         </button>
@@ -78,39 +78,8 @@
                         })
                         history.replaceState(null, '', 'http://localhost:3000/public/redefinir.php')
                     }, 3500);
-
-                    const senhaInput = document.getElementById('senhaInput');
-                    const toggleSenha = document.getElementById('toggleSenha');
-                    const icon = toggleSenha.querySelector('i');
-
-                    toggleSenha.addEventListener('click', () => {
-                        if (senhaInput.type === 'password') {
-                            senhaInput.type = 'text';
-                            icon.classList.remove('bi-eye');
-                            icon.classList.add('bi-eye-slash');
-                        } else {
-                            senhaInput.type = 'password';
-                            icon.classList.remove('bi-eye-slash');
-                            icon.classList.add('bi-eye');
-                        }
-                    });
-
-                    const confirmarSenha = document.getElementById('confirmarSenha');
-                    const toggleSenha2 = document.getElementById('toggleSenha2');
-                    const icon2 = toggleSenha2.querySelector('i');
-
-                    toggleSenha2.addEventListener('click', () => {
-                        if (confirmarSenha.type === 'password') {
-                            confirmarSenha.type = 'text';
-                            icon2.classList.remove('bi-eye');
-                            icon2.classList.add('bi-eye-slash');
-                        } else {
-                            confirmarSenha.type = 'password';
-                            icon2.classList.remove('bi-eye-slash');
-                            icon2.classList.add('bi-eye');
-                        }
-                    });
                 </script>
+            <script src="../assets/javascript/perfil.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>

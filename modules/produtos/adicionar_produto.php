@@ -19,7 +19,7 @@ include '../../includes/core/conexao.php';
 
         if(!empty($nome) && !empty($preco) && !empty($quantidade) && !empty($descricao) && !empty($id_topico)) {
         if (!$caminhoImagem) {
-        $caminhoImagem = ''; // define como vazio se não tiver imagem
+        $caminhoImagem = '';
         }
 
         $stmt = $conn->prepare("INSERT INTO produtos (nome_produto, preco, quantidade, descricao, topico_id, imagem) VALUES (?, ?, ?, ?, ?, ?)");

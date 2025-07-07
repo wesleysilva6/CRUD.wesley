@@ -7,11 +7,12 @@
         exit;
         }
 
+        $usuario_id = $_SESSION['id'];  
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $senha_atual = $_POST['senha'];
         $senha_nova = $_POST['nova_senha'];
         $confirmar_senha = $_POST['confirmar_senha'];
-        $usuario_id = $_SESSION['id'];
 
         $stmt = $conn->prepare("SELECT senha FROM usuarios WHERE id = ?");
         $stmt->bind_param('i', $usuario_id);

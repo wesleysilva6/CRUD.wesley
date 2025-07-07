@@ -7,9 +7,10 @@
         exit;
         }
 
+        $usuario_id = $_SESSION['id'];
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $novo_nome = $_POST['novo_nome'];
-        $usuario_id = $_SESSION['id'];
 
         if (!empty($novo_nome)) {
         $stmt = $conn->prepare('UPDATE usuarios SET nome = ? WHERE id = ?');
