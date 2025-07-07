@@ -1,5 +1,5 @@
 <?php 
-    include '../includes/components/header.php'
+    include '../includes/components/header.php';
 ?>
 
 <!DOCTYPE html>

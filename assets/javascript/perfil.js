@@ -56,48 +56,58 @@
             }
         });
 
+
         let cropper;
+        const inputFoto = document.getElementById('inputFoto');
+        const imagemCrop = document.getElementById('imagemCrop');
+        const btnCortar = document.getElementById('btnCortar');
+        const form = document.getElementById('formFoto');
 
-        document.getElementById('inputFoto').addEventListener('change', function(e) {
-        const file = e.target.files[0]
-        if (!file) return
+        inputFoto.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
 
-        const reader = new FileReader()
-        reader.onload = function(event) {
-        const img = document.getElementById('imagemCrop')
-        img.src = event.target.result
-        img.style.display = 'block'
+                reader.onload = function (event) {
+                    imagemCrop.src = event.target.result;
+                    imagemCrop.style.display = 'block';
 
-        if (cropper) cropper.destroy();
+                    if (cropper) {
+                        cropper.destroy();
+                    }
 
-        cropper = new Cropper(img, {
-            aspectRatio: 1,
-            viewMode: 1,
-            dragMode: 'move',
-            preview: '.img-preview'
-        })
+                    cropper = new Cropper(imagemCrop, {
+                        aspectRatio: 1,
+                        viewMode: 1
+                    });
 
-        document.getElementById('btnCortar').style.display = 'inline-block'
-        };
-        reader.readAsDataURL(file)
-        })
+                    btnCortar.style.display = 'inline-block';
+                };
 
-        document.getElementById('btnCortar').addEventListener('click', function() {
-        const canvas = cropper.getCroppedCanvas({
-        width: 300,
-        height: 300,
-        imageSmoothingQuality: 'high'
-        })
+                reader.readAsDataURL(file);
+            }
+        });
 
-        canvas.toBlob(function(blob) {
-        const formData = new FormData();
-        formData.append('foto', blob, 'foto.png')
+        btnCortar.addEventListener('click', function () {
+            const canvas = cropper.getCroppedCanvas({
+                width: 300,
+                height: 300
+            });
 
-        fetch('../modules/perfil/atualizar_foto.php', {
-        method: 'POST',
-        body: formData
-        })
-        .then(res => window.location.href = '../../private/perfil.php?foto=sucesso')
-        .catch(err => console.error(err))
-        })
-        })
+            canvas.toBlob(function (blob) {
+                const formData = new FormData();
+                formData.append('foto', blob, 'cortada.png');
+
+                fetch('../modules/perfil/atualizar_foto.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    } else {
+                        alert('Erro ao enviar imagem.');
+                    }
+                });
+            }, 'image/png');
+        });

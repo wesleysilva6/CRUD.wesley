@@ -58,7 +58,6 @@
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
-
                                     
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Cadastrar</button>
                                     <div class="text-end mt-2"><a href="../public/login.php">Já possui login?</a></div>

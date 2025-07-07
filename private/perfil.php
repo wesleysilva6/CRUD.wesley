@@ -26,28 +26,40 @@
 </head>
 <body style="background:#000;">
     <?php include '../includes/components/sidebar.php' ?>
-    
+
     <div class="card mx-auto" style="max-width: 700px;">
         <div class="card-header text-center">
             <h5 class="card-title mt-2 text-white">Atualizar Perfil</h5>
         </div>
     <div class="perfil text-center text-white mt-2">Meu Perfil</div>
 
-        <form action="../modules/perfil/atualizar_foto.php" method="POST" enctype="multipart/form-data" class="text-center">
+        <form id="formFoto" action="../modules/perfil/atualizar_foto.php" method="POST" enctype="multipart/form-data" class="text-center">
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <img src="../uploads/<?php echo $_SESSION['foto'] ?? 'default.png'; ?>" id="preview" class="img-preview mt-2" alt="Foto de Perfil">
-                    <label for="inputFoto" class="custom-file-label mt-3">Escolher arquivo</label>
-                    <input type="file" class="mt-3" id="inputFoto" accept="image/*">
-                    <span id="file-name"></span>
-                    <img id="imagemCrop" style="max-width: 100%; display: none;"></div>
-            <button id="btnCortar" class="btn btn-primary mt-2" style="display: none;">Cortar e Salvar</button>
+                <?php
+                $foto = isset($_SESSION['foto']) && $_SESSION['foto'] !== '' ? $_SESSION['foto'] : 'default.png';
+                $caminho = file_exists("../uploads/" . $foto) ? "../uploads/" . $foto : "../uploads/default.png";
+                ?>
+                <img src="<?php echo $caminho; ?>" id="preview" class="img-preview mb-3" alt="Foto de Perfil" style="max-width: 200px; border-radius: 50%;">
+
+                <div class="d-flex align-items-center gap-2">
+                    <label for="inputFoto" class="btn btn-primary">Escolher arquivo</label>
+                    <a href="../modules/perfil/deletar_foto.php" class="btn btn-danger" title="Remover Foto">
+                        <i class="bi bi-trash3"></i>
+                    </a>
+                </div>
+
+                <input type="file" name="foto" id="inputFoto" accept="image/*" style="display: none;">
+                <canvas id="canvas" style="display: none;"></canvas>
+                <img id="imagemCrop" style="max-width: 100%; display: none; margin-top: 15px;">
+                <button id="btnCortar" type="button" class="btn btn-primary mt-3" style="display: none;">Salvar Foto</button>
+            </div>
         </form>
 
         <div class="text-center text-white">
             <div class="nome mt-3"> <?php echo $_SESSION['nome']; ?> </div>
             <div class="email"> <?php echo $_SESSION['email']; ?> </div>
         </div>
-        
+
         <div class="card-body">
             <form action="../modules/perfil/atualizar_nome.php" method="POST">
                 <div class="mb-3 text-start">
@@ -76,7 +88,7 @@
                         <i class="bi bi-eye"></i>
                     </button>
                 </div>
-                
+
                 <label class="form-label mt-2">Digite uma nova Senha</label>
                 <div class="input-group mb-2">
                     <input type="password" class="form-control" name="nova_senha" id="novaSenha" placeholder="Confirme a Senha" required>
@@ -109,7 +121,10 @@
                     <div class="text-success">Senha Alterada com sucesso</div>
                 <?php } ?>
 
-                <button type="submit" class="btn btn-primary w-100 mt-4">Atualizar Senha</button>
+                <div class="mt-2">
+                    <a href="../public/check.php">Esqueceu a Senha?</a>
+                    <button type="submit" class="btn btn-primary w-100 mt-1">Atualizar Senha</button>
+                </div>
             </form>
         </div>
     </div>

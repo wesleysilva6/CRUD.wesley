@@ -1,6 +1,6 @@
 <?php
-include '../../includes/core/conexao.php';
-session_start();
+        include '../../includes/core/conexao.php';
+        session_start();
 
         if (!isset($_SESSION['id'])) {
         header('Location: ../../public/login.php?erro=acesso_negado');
@@ -31,8 +31,8 @@ session_start();
 
         $stmt = $conn->prepare("UPDATE usuarios SET foto = ? WHERE id = ?");
         $stmt->bind_param('si', $nome_arquivo, $usuario_id);
-        if ($stmt->execute()) {
-        $_SESSION['foto'] = $nome_arquivo;
+            if ($stmt->execute()) {
+            $_SESSION['foto'] = $nome_arquivo;
             }
         }
     } 
