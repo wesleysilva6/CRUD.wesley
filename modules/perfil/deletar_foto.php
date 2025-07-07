@@ -15,17 +15,17 @@
         $resultado = $stmt->get_result();
         $usuario = $resultado->fetch_assoc();
 
-        if ($usuario && $usuario['foto'] != 'default.png') {
+        if ($usuario && $usuario['foto'] != 'img_preview.jpeg') {
         $caminho_foto = '../../uploads/' . $usuario['foto'];
         if (file_exists($caminho_foto)) {
             unlink($caminho_foto);
         }
 
-        $stmt = $conn->prepare("UPDATE usuarios SET foto = 'default.png' WHERE id = ?");
+        $stmt = $conn->prepare("UPDATE usuarios SET foto = 'img_preview.jpeg' WHERE id = ?");
         $stmt->bind_param('i', $usuario_id);
         $stmt->execute();
 
-        $_SESSION['foto'] = 'default.png';
+        $_SESSION['foto'] = 'img_preview.jpeg';
         }
 
         header('Location: ../../private/perfil.php?foto=removida');
