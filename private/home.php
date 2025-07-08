@@ -25,7 +25,7 @@
     <body style="background:#000">
         <?php include '../includes/components/sidebar.php' ?>
 
-        <div class="container mt-5" style="border:none;">
+        <div class="container-txt mt-5 d-flex justify-content-center" style="border:none;">
             <div class="alert alert-primary text-center"> Seja Muito Bem-Vindo(a) <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !</div>
         </div>
 

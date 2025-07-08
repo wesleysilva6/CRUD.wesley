@@ -34,6 +34,6 @@
         unset($_SESSION['simulacao']);
         unset($_SESSION['cliente']);
     }
-        header('Location: ../../private/simulacao.php?adicionado=historico');
+        header('Location: ../../private/historico.php?adicionado=historico');
         exit;
 ?>

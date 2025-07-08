@@ -22,7 +22,7 @@
         $resultado = $stmt->get_result();
         $usuario = $resultado->fetch_assoc();
 
-        if ($usuario && $usuario['foto'] != 'img_preview.jpeg') {
+        if ($usuario && $usuario['foto'] != 'user.png') {
         $caminho_antigo = '../../uploads/' . $usuario['foto'];
             if (file_exists($caminho_antigo)) {
                 unlink($caminho_antigo);

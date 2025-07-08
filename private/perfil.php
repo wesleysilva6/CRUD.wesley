@@ -36,8 +36,8 @@
         <form id="formFoto" action="../modules/perfil/atualizar_foto.php" method="POST" enctype="multipart/form-data" class="text-center">
             <div class="d-flex flex-column align-items-center justify-content-center">
                 <?php
-                $foto = isset($_SESSION['foto']) && $_SESSION['foto'] !== '' ? $_SESSION['foto'] : 'img_preview.jpeg';
-                $caminho = file_exists("../uploads/" . $foto) ? "../uploads/" . $foto : "../uploads/img_preview.jpeg";
+                $foto = isset($_SESSION['foto']) && $_SESSION['foto'] !== '' ? $_SESSION['foto'] : 'user.png';
+                $caminho = file_exists("../uploads/" . $foto) ? "../uploads/" . $foto : "../uploads/user.png";
                 ?>
                 <img src="<?php echo $caminho; ?>" id="preview" class="img-preview mb-3" alt="Foto de Perfil" style="max-width: 200px; border-radius: 50%;">
 

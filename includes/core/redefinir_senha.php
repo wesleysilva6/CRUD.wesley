@@ -24,11 +24,8 @@
         $stmt ->bind_param('ss', $senha_hash, $email);
         $stmt->execute();
 
-        $assunto = "Redefinição de senha - Estoque Aqui";
-        $mensagem = "Olá, sua senha foi redefinida com sucesso!";
-        $headers = "From: no-reply@estoqueaqui.com\r\n";
-
-        mail($email, $assunto, $mensagem, $headers);
+        require '../../includes/core/senha_redefinida.php';
+        enviarConfirmacaoSenhaRedefinida($email, $_SESSION['nome']);
 
         header('Location: ../../public/login.php?sucesso=senha_alterada');
         exit;
