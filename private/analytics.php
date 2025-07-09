@@ -1,13 +1,13 @@
 <?php
         session_start();
         include '../includes/core/conexao.php';
+        $usuario_id = $_SESSION['id'];
 
         if (!isset($_SESSION['id'])) {
         header('Location: ../public/login.php');
         exit;
         }
 
-        $usuario_id = $_SESSION['id'];
         // Consulta resumo para os charts
         $resumo = $conn->prepare("SELECT COUNT(*) AS total, SUM(preco*quantidade) AS valor FROM itens_simulacao it JOIN simulacoes s ON it.id_simulacao = s.id WHERE s.usuario_id = ? ");
         $resumo->bind_param('i',$usuario_id);
@@ -54,7 +54,7 @@
         <?php include '../includes/components/sidebar.php'; ?>
 
     <div class="container dashboard-container">
-        <h2 class="dashboard-title">📊 Dashboard Geral</h2>
+        <h2 class="dashboard-title">📊 Analytics Geral</h2>
 
         <div class="row g-4">
             <div class="col-md-6">

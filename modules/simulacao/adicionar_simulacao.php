@@ -2,10 +2,10 @@
 include '../../includes/core/conexao.php';
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $_SESSION['cliente'] = $_POST['nome_cliente'];
-    $produto_id = intval($_POST['produto_id']);
-    $quantidade = intval($_POST['quantidade']);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['cliente'] = $_POST['nome_cliente'];
+        $produto_id = intval($_POST['produto_id']);
+        $quantidade = intval($_POST['quantidade']);
 
     if ($produto_id <= 0 || $quantidade <= 0) {
         header('Location: ../../private/simulacao.php?erro=quantidade_produto');

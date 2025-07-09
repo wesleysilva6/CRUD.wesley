@@ -5,8 +5,8 @@
                 document.getElementById('preview').src = e.target.result;
             }
             reader.readAsDataURL(input.files[0])
+            }
         }
-    }
 
         const senhaAtual = document.getElementById('senhaAtual')
         const toggleSenha = document.getElementById('toggleSenha')
@@ -55,7 +55,6 @@
                 icon3.classList.add('bi-eye')
             }
         });
-
 
         let cropper;
         const inputFoto = document.getElementById('inputFoto');

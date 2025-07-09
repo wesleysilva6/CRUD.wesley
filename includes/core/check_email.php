@@ -1,6 +1,8 @@
 <?php 
     include 'conexao.php';
     session_start();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email_redefinir'] ?? '';
 
     $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
@@ -17,5 +19,6 @@
         $_SESSION['email_redefinir'] = $dados['email'];
         header('location: enviar_email.php');
         exit;
+        }
     }
 ?>

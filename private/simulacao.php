@@ -1,9 +1,9 @@
 <?php 
         session_start();
-        include '../includes/core/conexao.php';
         date_default_timezone_set('America/Sao_Paulo');
-
+        include '../includes/core/conexao.php';
         $usuario_id = $_SESSION['id'];
+
         if (!isset($_SESSION['id'])) {
         header('Location: ../public/login.php?erro=acesso_negado');
         exit;
@@ -38,7 +38,7 @@
                 <?php if(isset($_GET['quantidade']) == 'limite') { ?>
                     <div class="alert alert-danger m-3">A quantidade adicionada excete o limite disponível no estoque</div>
                 <?php } ?>
-                
+
                 <?php if(isset($_GET['adicionado']) == 'historico') { ?>
                     <div class="alert alert-success m-3">Simulação concluida com sucesso</div>
                 <?php } ?>

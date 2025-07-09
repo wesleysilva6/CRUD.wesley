@@ -1,6 +1,8 @@
 :root {
         --color--background-card:#0a0c0f;
         --color--background:#000;
+        --color--table-impar:#20252a;
+        --color--table-par:#161A1F;
         --color--primary:#0B5ED7;
         --color--navbar:#0C0F16;
         --color--border:#393E42;
@@ -69,7 +71,7 @@
         }
 
         .icon {
-        color: var(--color-text);
+        color: var(--color--text);
         }
 
         .table.table-striped {
@@ -86,11 +88,11 @@
         }
 
         .table.table-striped tbody tr:nth-of-type(odd) td {
-        background: #20252a; 
+        background: var(--color--table-impar); 
         color: var(--color--text);     
         }
 
         .table.table-striped tbody tr:nth-of-type(even) td {
-        background: #161A1F; 
+        background: var(--color--table-par); 
         color: var(--color--text);
         }

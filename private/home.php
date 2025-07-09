@@ -8,7 +8,7 @@
         if (!isset($_SESSION['id'])) {
         header('Location: ../public/login.php?erro=acesso_negado');
         exit;
-    }
+        }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -43,7 +43,7 @@
                     while ($topico = $result->fetch_assoc()) {
                         $produtos = $conn->query("SELECT * FROM produtos WHERE topico_id = " . intval($topico['id_topico'])); ?>
 
-    <div class="container pb-5 mb-5 mt-3" style="background: #161A1F">
+    <div class="container pb-5 mb-5 mt-3">
             <h4 class="my-3" style="color:#fff"> <?php echo htmlspecialchars($topico['nome_topico']); ?> </h4>
             <div class="card-body">
             <table class="table table-striped">

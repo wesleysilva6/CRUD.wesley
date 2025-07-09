@@ -63,7 +63,7 @@
         }
 
         footer {
-        background: #0C0F16;
+        background: var(--color--navbar);
         padding: 1rem 4%;
         margin: 14.19rem 0 0 0;
         }

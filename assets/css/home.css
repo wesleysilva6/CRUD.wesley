@@ -1,5 +1,8 @@
 :root {
+        --color--background-container:#161A1F;
         --color--background-modal:#161A1F;
+        --color--table-impar:#20252a;
+        --color--table-par:#161A1F;
         --color--background:#000;
         --color--primary:#0B5ED7;
         --color--border:#393E42;
@@ -22,6 +25,10 @@
 
         .navbar {
         background: var(--color--navbar);
+        }
+
+        .container {
+        background: var(--color--background-container);
         }
 
         .btn-topico {
@@ -92,11 +99,11 @@
         }
 
         .table.table-striped tbody tr:nth-of-type(odd) td {
-        background: #20252a; 
+        background: var(--color--table-impar); 
         color: var(--color--text);
         }
 
         .table.table-striped tbody tr:nth-of-type(even) td {
-        background: #161A1F; 
+        background: var(--color--table-par); 
         color: var(--color--text);
         }

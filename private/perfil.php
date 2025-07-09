@@ -1,8 +1,7 @@
 <?php 
         session_start();
-        include '../includes/core/conexao.php';
         date_default_timezone_set('America/Sao_Paulo');
-
+        include '../includes/core/conexao.php';
         $usuario_id = $_SESSION['id'];
 
         if (!isset($_SESSION['id'])) {
