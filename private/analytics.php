@@ -58,14 +58,14 @@
 
         <div class="row g-4">
             <div class="col-md-6">
-                <div class="card-dark">
+                <div class="card">
                     <h5>Simulações por Dia</h5>
                     <canvas id="chartSimulacoesDia"></canvas>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="card-dark">
+                <div class="card">
                     <h5>Resumo Geral</h5>
                     <canvas id="chartResumo"></canvas>
                 </div>

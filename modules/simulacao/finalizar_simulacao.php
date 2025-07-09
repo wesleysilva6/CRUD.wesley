@@ -14,8 +14,8 @@
                 $preco = $item['preco'];
                 $subtotal = $quantidade * $preco;
                 $total += $subtotal;
-        }
-    }
+        } 
+    } 
         $stmt = $conn->prepare("INSERT INTO simulacoes (usuario_id, cliente, criada_em, total) VALUES (?, ?, ?, ?)");
         $stmt->bind_param('issd', $usuario_id, $nome_cliente, $criada_em, $total);
         $stmt->execute();
@@ -29,11 +29,11 @@
                     $subtotal = $quantidade * $preco;
                     $stmt1->bind_param('iisidd', $simulacao_id, $produto_id, $nome_produto, $quantidade, $preco, $subtotal);
                     $stmt1->execute();
-                }
-            }
+                } 
+            } 
         unset($_SESSION['simulacao']);
         unset($_SESSION['cliente']);
     }
-        header('Location: ../../private/historico.php?adicionado=historico');
+        header('location: ../../private/historico.php?adicionado=historico');
         exit;
 ?>

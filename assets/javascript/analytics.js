@@ -6,7 +6,7 @@
             datasets: [{
             label: 'Simulações por dia',
             data: chartDiasData,
-            backgroundColor: 'rgba(6,62,145,0.6)'
+            backgroundColor: '#0b5ed7'
             }]
         },
         options: {
@@ -23,7 +23,7 @@
             labels: ['Total de simulações', 'Valor Total (R$)'],
             datasets: [{
             data: chartResumoData,
-            backgroundColor: ['#3e95cd', '#00d300']
+            backgroundColor: ['#0b5ed7', '#00d300']
             }]
         },
         options: { responsive: true }

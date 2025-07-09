@@ -1,6 +1,6 @@
 <?php 
-include '../../includes/core/conexao.php';
-session_start();
+    include '../../includes/core/conexao.php';
+    session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['cliente'] = $_POST['nome_cliente'];
@@ -50,7 +50,7 @@ session_start();
             exit;
         } 
     }
-        header('Location: ../../private/simulacao.php?produto=adicionado');
+        header('location: ../../private/simulacao.php?produto=adicionado');
         exit;
     }
 ?>

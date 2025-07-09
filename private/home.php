@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/css/home.css">
     <script src="../assets/javascript/main.js"></script>
-    <title>Estoque Aqui - Dashboard</title>
+    <title>Estoque Aqui - Home</title>
 </head>
     <body>
         <?php include '../includes/components/sidebar.php' ?>
