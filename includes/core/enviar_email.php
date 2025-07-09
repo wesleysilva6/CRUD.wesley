@@ -14,7 +14,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'estoque.aqui1@gmail.com';
-    $mail->Password   = 'dddccukrqxsiczxr';  // Lembre-se: essa é a senha de app do Gmail
+    $mail->Password   = '';  // Lembre-se: essa é a senha de app do Gmail
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
     $mail->CharSet = 'UTF-8';

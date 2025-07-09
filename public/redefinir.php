@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../assets/css/cadastro.css">
     <title>Estoque Aqui - System</title>
 </head>
-    <body style="background:#000">
+    <body>
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
                 <a href="../public/cadastrar.php" class="navbar-brand">

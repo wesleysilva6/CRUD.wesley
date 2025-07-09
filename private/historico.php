@@ -23,10 +23,9 @@
     <link rel="stylesheet" href="../assets/css/historico.css">
     <script src="../assets/javascript/main.js"></script>
 </head>
-<body style="background:#000;">
-
-    <?php include '../includes/components/sidebar.php'; ?>
-    <?php include '../includes/components/modals.php'; ?>
+    <body>
+        <?php include '../includes/components/sidebar.php'; ?>
+        <?php include '../includes/components/modals.php'; ?>
 
     <div class="card">
         <div class="card-header text-white">
@@ -90,5 +89,5 @@
             history.replaceState(null, '', 'http://localhost:3000/private/historico.php')
         }, 3000);
         </script>
-</body>
+    </body>
 </html>

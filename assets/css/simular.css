@@ -1,10 +1,12 @@
 :root {
+        --color--background-card:#0a0c0f;
+        --color--background:#000;
         --color--primary:#0B5ED7;
+        --color--navbar:#0C0F16;
         --color--border:#393E42;
         --color--input:#20252A;
-        --color--background-card:#0a0c0f;
-        --color-text: #fff;
-}
+        --color--text: #fff;
+        }
 
 ::-webkit-scrollbar {
         width: 8px;
@@ -14,8 +16,12 @@
         background:var(--color--primary);
         }
 
+        body {
+        background: var(--color--background);
+        }
+
         .navbar {
-        background-color: #0C0F16;
+        background: var(--color--navbar);
         }
 
         .btn-topico {
@@ -36,7 +42,7 @@
         .prod select {
         background: var(--color--input);
         border: 1px solid var(--color--border);
-        color: var(--color-text);
+        color: var(--color--text);
         }
 
         .prod select:focus {
@@ -45,19 +51,19 @@
         }
 
         .form-control {
-        background-color: var(--color--input);
+        background: var(--color--input);
         border: 1px solid var(--color--border);
-        color: var(--color-text);
+        color: var(--color--text);
         }
 
         .form-control::placeholder {
-        color: var(--color-text);; 
+        color: var(--color--text);; 
         }
 
         .form-control:focus {
         background: var(--color--input);
         border-color: var(--color--border);
-        color: var(--color-text);
+        color: var(--color--text);
         box-shadow: none;
         outline: none;
         }
@@ -76,15 +82,15 @@
         .table.table-striped thead th {
         border-bottom: 2px solid var(--color--primary);
         background:var(--color--primary);
-        color: var(--color-text);
+        color: var(--color--text);
         }
 
         .table.table-striped tbody tr:nth-of-type(odd) td {
         background: #20252a; 
-        color: var(--color-text);     
-    }
+        color: var(--color--text);     
+        }
 
         .table.table-striped tbody tr:nth-of-type(even) td {
         background: #161A1F; 
-        color: var(--color-text);
-    }
+        color: var(--color--text);
+        }

@@ -27,9 +27,10 @@
                 <li><a href="../private/home.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-house-door-fill"></i>Dashboard</a></li>
                 <li><a href="../private/simulacao.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-box-seam-fill"></i>Simular Venda</a></li>
                 <li><a href="../private/historico.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-clipboard-data-fill"></i>Histórico</a></li>
-                <li><a href="../includes/core/deslogar.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
+                <li><a href="../private/analytics.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-bar-chart-line-fill"></i>Estatisticas</a></li>
+                <li><a href="../public/index.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>

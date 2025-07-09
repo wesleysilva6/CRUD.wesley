@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../assets/css/check.css">
     <title>Estoque Aqui - System</title>
 </head>
-    <body style="background:#000">
+    <body>
         <div class="container"> 
             <div class="row">
                 <div class="card-login">

@@ -22,7 +22,7 @@
     <script src="../assets/javascript/main.js"></script>
     <title>Estoque Aqui - Simular Venda</title>
 </head>
-    <body style=background:#000;>
+    <body>
         <?php include '../includes/components/sidebar.php' ?>
 
         <div class="card">
@@ -30,7 +30,7 @@
                 <?php if (isset($_GET['produto']) == 'adicionado') { ?>
                     <div class="alert alert-success">Produto adicionado com sucesso</div>
                 <?php } ?>
-                
+
                 <?php if (isset($_GET['erro']) == 'quantidade') { ?>
                     <div id="" class="alert alert-danger m-3">Quantidade do produto inválida</div>
                 <?php } ?>
@@ -51,7 +51,7 @@
                     <div class="alert alert-danger m-3">Adicione produtos a está simulação para ela ser limpa</div>
                 <?php } ?>
                 <h5 class="card-title mt-2">Simulação de Venda</h5>
-        </div>
+            </div>
 
         <form action="../modules/simulacao/adicionar_simulacao.php" method="POST">
             <div class="card-body text-white">
@@ -63,7 +63,7 @@
                         <select name="produto_id" class="form-select" required>
                             <option value="">Selecione um produto</option>
                             <?php
-                                $stmt = $conn->prepare("SELECT p.id, p.nome_produto 
+                                $stmt = $conn->prepare("SELECT p.id, p.nome_produto, p.quantidade 
                                 FROM produtos p
                                 INNER JOIN topicos t ON p.topico_id = t.id_topico
                                 WHERE t.usuario_id = ?");
@@ -71,7 +71,7 @@
                                 $stmt->execute();
                                 $result = $stmt->get_result();
                                 while ($produto = $result->fetch_assoc()) {
-                                    echo "<option value='{$produto['id']}'>{$produto['nome_produto']}</option>";
+                                    echo "<option value='{$produto['id']}' data-quantidade='{$produto['quantidade']}'>{$produto['nome_produto']}</option>";
                                 }
                             ?>
                         </select>
@@ -80,6 +80,7 @@
                     <div>
                         <label class="form-label">Quantidade</label>
                         <input type="number" name="quantidade" class="form-control" placeholder="Informe a Quantidade" required>
+                        <small id="estoque-info" class="text-warning d-block"></small>
                     </div>
 
                     <div class="mt-auto">
@@ -149,10 +150,21 @@
             document.querySelectorAll('.alert').forEach(al => {
                 al.style.display = 'none'
             })
-            history.replaceState(null, '', 'http://localhost:3000/private/simular_venda.php')
+            history.replaceState(null, '', 'http://localhost:3000/private/simulacao.php')
         }, 3000);
-    </script>
 
+            const selectProduto = document.querySelector('select[name="produto_id"]');
+            const infoEstoque = document.getElementById('estoque-info');
+            selectProduto.addEventListener('change', function () {
+                const selected = this.options[this.selectedIndex];
+                const estoque = selected.getAttribute('data-quantidade');
+                if (estoque) {
+                    infoEstoque.textContent = `Quantidade disponível no estoque: ${estoque}`;
+                } else {
+                    infoEstoque.textContent = '';
+                }
+            });
+    </script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>

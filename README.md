@@ -56,6 +56,7 @@
 - **PHPMailer** — envio de e-mails por SMTP  
 - **PhpSpreadsheet** — geração de planilhas Excel  
 - **Cropper.js** — corte de imagem para avatar
+- **Chart.js** — geração de gráficos interativos e dinâmicos para dashboard
 
 ---
 
@@ -65,8 +66,8 @@
 - Simulação de vendas com cálculo total  
 - Exportação de dados  
 - Upload, corte e exclusão de foto de perfil  
-- Gerenciamento de usuários  
-- Interface 100% responsiva  
+- Gerenciamento de usuários
+- Dashboard com gráficos analíticos (bar e doughnut)  
 
 ---
 
@@ -75,6 +76,9 @@
 <p align="center">
   <img src="assets/img/screenshots/imagem_index.png" width="350">
   <img src="assets/img/screenshots/imagem_home.png" width="350">
+  <img src="assets/img/screenshots/imagem_simulacao.png" width="350">
+  <img src="assets/img/screenshots/imagem_historico.png" width="350">
+  <img src="assets/img/screenshots/imagem_analytics.png" width="350">
   <img src="assets/img/screenshots/imagem_perfil.png" width="350">
 </p>
 
@@ -85,7 +89,7 @@
 - [x] CRUD de Produtos  
 - [x] Simulação com exportação  
 - [x] Upload de foto  
-- [ ] Dashboard com gráficos
+- [x] Dashboard com gráficos
 ---
 
 ## 🧪 Como executar

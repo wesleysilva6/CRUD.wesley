@@ -16,9 +16,7 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <title>Estoque Aqui - System</title>
 </head>
-    <body style="background:#000">
-
-        
+    <body>
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
@@ -67,16 +65,16 @@
             </div>
         </div>
 
-                <?php 
-                    include '../includes/components/footer.php'
-                ?>
+            <?php 
+                include '../includes/components/footer.php'
+            ?>
 
     <script>
         setTimeout(() => {
-            document.querySelectorAll('.alert').forEach(al => {
+            document.querySelectorAll('.text-danger').forEach(al => {
                 al.style.display = 'none'
             })
-            history.replaceState(null, '', 'http://localhost:3000/private/historico.php')
+            history.replaceState(null, '', 'http://localhost:3000/public/login.php')
         }, 3000);
     </script>
             <script src="../assets/javascript/perfil.js"></script>

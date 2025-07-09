@@ -8,7 +8,7 @@
         if (!isset($_SESSION['id'])) {
         header('Location: ../public/login.php?erro=acesso_negado');
         exit;
-}
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,7 +22,7 @@
     <script src="../assets/javascript/main.js"></script>
     <title>Estoque Aqui - Dashboard</title>
 </head>
-    <body style="background:#000">
+    <body>
         <?php include '../includes/components/sidebar.php' ?>
 
         <div class="container-txt mt-5 d-flex justify-content-center" style="border:none;">

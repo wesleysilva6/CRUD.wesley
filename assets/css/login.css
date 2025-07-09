@@ -1,11 +1,13 @@
 :root {
+        --color--background:#000;
         --color--primary:#0B5ED7;
+        --color--navbar:#0C0F16;
         --color--border:#393E42;
-        --color--background:#0C0F16;
         --color--input:#20252A;
-}
+        --color--text:#fff;
+        }
 
-::-webkit-scrollbar {
+        ::-webkit-scrollbar {
         width: 8px;
         }
 
@@ -13,8 +15,12 @@
         background:var(--color--primary);
         }
 
-        .navbar {
+        body {
         background: var(--color--background);
+        }
+
+        .navbar {
+        background: var(--color--navbar);
         }
 
         .card-login {
@@ -24,25 +30,25 @@
         }
 
         .card {
-        background: var(--color--background);
+        background: var(--color--navbar);
         }
 
         .input-group-text {
-        background-color: var(--color--input);
+        background: var(--color--input);
         border: 1px solid var(--color--border);
         }
 
         .form-control {
-        color: #fff;
-        background-color: var(--color--input);
+        color: var(--color--text);
+        background: var(--color--input);
         border: 1px solid var(--color--border);
         }
 
         .form-control:focus {
         box-shadow: none;
         outline: none;
-        background-color: var(--color--input);
-        color:#fff;
+        background: var(--color--input);
+        color: var(--color--text);
         border-color: var(--color--border);
         }
 
@@ -51,8 +57,8 @@
         }
 
         .eyes {
-        color: #fff;
-        background-color: var(--color--input);
+        color: var(--color--text);
+        background: var(--color--input);
         border: 1px solid var(--color--border);
         }
 
