@@ -19,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/css/simular.css">
-    <script src="../assets/javascript/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     <title>Estoque Aqui - Simular Venda</title>
 </head>
     <body>
@@ -53,7 +53,7 @@
                 <h5 class="card-title mt-2">Simulação de Venda</h5>
             </div>
 
-        <form action="../modules/simulacao/adicionar_simulacao.php" method="POST">
+        <form action="../controllers/simulacao/adicionar_simulacao.php" method="POST">
             <div class="card-body text-white">
                 <label class="form-label">Cliente</label>
                 <input type="text" name="nome_cliente" class="form-control w-25 mb-3" placeholder="Nome do Cliente" required>
@@ -137,10 +137,10 @@
                 </div>
             </div>
 
-            <form action="../modules/simulacao/finalizar_simulacao.php" method="POST">
+            <form action="../controllers/simulacao/finalizar_simulacao.php" method="POST">
                 <div class="card-footer d-flex justify-content-center gap-3 mb-4">
                     <button type="submit" class="btn btn-primary">Confirmar Simulação</button>
-                    <a href="../modules/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
+                    <a href="../controllers/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
                 </div>
             </form>
         </div>

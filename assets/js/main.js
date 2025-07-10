@@ -44,7 +44,7 @@
                     const idTopico = button.getAttribute('data-id-topico')
                     const confirmarBtn = document.getElementById('confirmarExclusao')
                     if (confirmarBtn) {
-                        confirmarBtn.href = `../modules/topicos/excluir_topico.php?id_topico=${idTopico}`
+                        confirmarBtn.href = `../controllers/topicos/excluir_topico.php?id_topico=${idTopico}`
                     }
                 })
             }
@@ -59,7 +59,7 @@
                     const deletar = button.getAttribute('data-id-produto')
                     const confirmarBtn = document.getElementById('deletarProduto')
                     if (confirmarBtn) {
-                        confirmarBtn.href = `../modules/produtos/excluir_produto.php?id_produto=${deletar}`
+                        confirmarBtn.href = `../controllers/produtos/excluir_produto.php?id_produto=${deletar}`
                     }
                 })
             }
@@ -74,7 +74,7 @@
                     const idItem = button.getAttribute('data-id-item')
                     const confirmarBtn = document.getElementById('deletarSimulacao')
                     if (confirmarBtn) {
-                        confirmarBtn.href = `../modules/historico/deletar_simulacao.php?id_item=${idItem}`
+                        confirmarBtn.href = `../controllers/historico/deletar_simulacao.php?id_item=${idItem}`
                     }
                 })
             }

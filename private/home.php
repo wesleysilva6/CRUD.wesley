@@ -18,7 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/css/home.css">
-    <script src="../assets/javascript/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     <title>Estoque Aqui - Home</title>
 </head>
     <body>
@@ -30,7 +30,7 @@
 
         <div class="btn-topico">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTopico"><i class="bi bi-plus-circle"> Adicionar Tópico</i></button>
-            <a href="../modules/tabelas/exportar_tabelas.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabelas</i></a>
+            <a href="../controllers/tabelas/exportar_tabelas.php" class="btn btn-primary"><i class="bi bi-box-arrow-in-up-right"> Exportar Tabelas</i></a>
         </div>
 
                 <?php 
@@ -121,7 +121,7 @@
                         </button>
 
                 <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="setIdTopico(<?php echo $topico['id_topico']; ?>)"><i class="bi bi-plus-circle"> Adicionar Produto </i></button>
-                <a href="../modules/tabelas/exportar_tabela.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"><i class="bi bi-box-arrow-in-up-right"> 
+                <a href="../controllers/tabelas/exportar_tabela.php?id_topico=<?php echo $topico['id_topico']; ?>" class="btn btn-primary mt-5"><i class="bi bi-box-arrow-in-up-right"> 
                 Exportar Tabela </i></a>
         </div>
     </div>

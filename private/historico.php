@@ -19,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/css/historico.css">
-    <script src="../assets/javascript/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     <title>Estoque Aqui - Histórico</title>
 </head>
     <body>

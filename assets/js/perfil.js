@@ -97,7 +97,7 @@
                 const formData = new FormData();
                 formData.append('foto', blob, 'cortada.png');
 
-                fetch('../modules/perfil/atualizar_foto.php', {
+                fetch('../controllers/perfil/atualizar_foto.php', {
                     method: 'POST',
                     body: formData
                 })

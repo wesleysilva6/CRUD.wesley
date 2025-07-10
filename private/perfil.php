@@ -32,7 +32,7 @@
         </div>
     <div class="perfil text-center text-white mt-2">Meu Perfil</div>
 
-        <form id="formFoto" action="../modules/perfil/atualizar_foto.php" method="POST" enctype="multipart/form-data" class="text-center">
+        <form id="formFoto" action="../controllers/perfil/atualizar_foto.php" method="POST" enctype="multipart/form-data" class="text-center">
             <div class="d-flex flex-column align-items-center justify-content-center">
                 <?php
                 $foto = isset($_SESSION['foto']) && $_SESSION['foto'] !== '' ? $_SESSION['foto'] : 'user.png';
@@ -42,7 +42,7 @@
 
                 <div class="d-flex align-items-center gap-2">
                     <label for="inputFoto" class="btn btn-primary">Escolher arquivo</label>
-                    <a href="../modules/perfil/deletar_foto.php" class="btn btn-danger" title="Remover Foto">
+                    <a href="../controllers/perfil/deletar_foto.php" class="btn btn-danger" title="Remover Foto">
                         <i class="bi bi-trash3"></i>
                     </a>
                 </div>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="card-body">
-            <form action="../modules/perfil/atualizar_nome.php" method="POST">
+            <form action="../controllers/perfil/atualizar_nome.php" method="POST">
                 <div class="mb-3 text-start">
                     <label class="form-label text-white">Editar Nome</label>
                     <input type="text" name="novo_nome" class="form-control" placeholder="Nome do Usuário">
@@ -78,7 +78,7 @@
             </form>
 
             <hr class="text-primary my-4">
-            <form action="../modules/perfil/atualizar_senha.php" method="POST">
+            <form action="../controllers/perfil/atualizar_senha.php" method="POST">
 
                 <label class="form-label">Senha Atual</label>
                 <div class="input-group mb-2">
@@ -136,7 +136,7 @@
         }, 3500);
         </script>
 
-        <script src="../assets/javascript/perfil.js"></script>
+        <script src="../assets/js/perfil.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
     </body>
 </html>

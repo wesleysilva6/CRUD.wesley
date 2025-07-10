@@ -79,7 +79,7 @@
             const chartResumoData = [<?= intval($dadosResumo['total']) ?>, <?= floatval($dadosResumo['valor']) ?>];
         </script>
 
-            <script src="../assets/javascript/analytics.js"></script>
+            <script src="../assets/js/analytics.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
