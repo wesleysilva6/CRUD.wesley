@@ -93,7 +93,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nome</th>
+                                <th>Nome Produto</th>
                                 <th>Quantidade</th>
                                 <th>Preço Unitário</th>
                                 <th>Subtotal</th>
@@ -105,7 +105,7 @@
                                 $total = 0;
                                 if (isset($_SESSION['simulacao']) && count($_SESSION['simulacao']) > 0) {
                                 foreach ($_SESSION['simulacao'] as $id => $item) {
-                                    $stmt = $conn->prepare('SELECT nome_produto, preco FROM produtos WHERE id = ?');
+                                    $stmt = $conn->prepare("SELECT nome_produto, preco FROM produtos WHERE id = ?");
                                     $stmt->bind_param('i', $id);
                                     $stmt->execute();
                                     $result = $stmt->get_result();

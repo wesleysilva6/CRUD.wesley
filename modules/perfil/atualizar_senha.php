@@ -2,12 +2,12 @@
     include '../../includes/core/conexao.php';
     session_start();
 
+        $usuario_id = $_SESSION['id'];
+
         if (!isset($_SESSION['id'])) {
         header('Location: ../public/login.php?erro=acesso_negado');
         exit;
         }
-
-        $usuario_id = $_SESSION['id'];  
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $senha_atual = $_POST['senha'];
@@ -40,5 +40,6 @@
         $stmt1->bind_param('si', $senha_hash, $usuario_id);
         $stmt1->execute();
         header('location: ../../private/perfil.php?alterada=sucesso');
+        exit;
         }
 ?>

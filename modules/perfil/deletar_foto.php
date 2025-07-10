@@ -2,12 +2,12 @@
         include '../../includes/core/conexao.php';
         session_start();
 
+        $usuario_id = $_SESSION['id'];
+
         if (!isset($_SESSION['id'])) {
             header('Location: ../../public/login.php?erro=acesso_negado');
             exit;
         }
-
-        $usuario_id = $_SESSION['id'];
 
         $stmt = $conn->prepare("SELECT foto FROM usuarios WHERE id = ?");
         $stmt->bind_param('i', $usuario_id);

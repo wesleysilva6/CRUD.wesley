@@ -15,19 +15,19 @@
         $dadosResumo = $resumo->get_result()->fetch_assoc();
 
         // Gráfico de simulações por dia da semana
-        $chartDias = $conn->prepare("SELECT DAYNAME(s.criada_em) AS dia, COUNT(*) AS qtd FROM simulacoes s WHERE s.usuario_id = ? GROUP BY dia ");
+        $chartDias = $conn->prepare("SELECT DAYNAME(s.criada_em) AS dia, COUNT(*) AS qtd FROM simulacoes s WHERE s.usuario_id = ? GROUP BY dia ORDER BY FIELD(DAYNAME(s.criada_em), 'Sunday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Monday')");
         $chartDias->bind_param('i',$usuario_id);
         $chartDias->execute();
         $resDias = $chartDias->get_result();
 
         $traducao = [
+        'Sunday'    => 'Domingo',
         'Monday'    => 'Segunda-feira',
         'Tuesday'   => 'Terça-feira',
         'Wednesday' => 'Quarta-feira',
         'Thursday'  => 'Quinta-feira',
         'Friday'    => 'Sexta-feira',
-        'Saturday'  => 'Sábado',
-        'Sunday'    => 'Domingo'
+        'Saturday'  => 'Sábado'
         ];
 
     $dias = $qtds = [];

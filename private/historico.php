@@ -77,9 +77,6 @@
                     </tbody>
                 </table>
             </div>
-            <form action="../modules/historico/limpar_historico.php" method="POST">
-                <button type="submit" class="btn btn-primary">Limpar Histórico</button>
-            </form>
         </div>
     </div>
 

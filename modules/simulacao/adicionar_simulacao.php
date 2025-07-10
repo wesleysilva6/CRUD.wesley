@@ -13,7 +13,7 @@
     }
 
     // Consulta o produto pelo ID
-    $stmt = $conn->prepare('SELECT nome_produto, preco, quantidade FROM produtos WHERE id = ?');
+    $stmt = $conn->prepare("SELECT nome_produto, preco, quantidade FROM produtos WHERE id = ?");
     $stmt->bind_param('i', $produto_id);
     $stmt->execute();
     $result = $stmt->get_result();
