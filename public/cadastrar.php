@@ -1,22 +1,23 @@
 <?php
-    session_start();
-    include '../includes/core/conexao.php';
     include '../includes/components/header.php';
+    include '../includes/core/conexao.php';
+    session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $senha = $_POST['senha'] ?? '';
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+        $nome = $_POST['nome'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $senha = $_POST['senha'] ?? '';
 
-    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senhaHash')";
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    if ($conn->query($sql) === TRUE) {
-        $_SESSION['nome'] = $nome;
-        header('location: login.php?cadastro=realizado');
-        exit();
-    }
-}
+        $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
+        $stmt->bind_param('sss', $nome, $email, $senhaHash);
+            if ($stmt->execute()) {
+                $_SESSION['nome'] = $nome;
+                header('Location: login.php?cadastro=realizado');
+                exit;
+            } 
+        }
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +38,7 @@
                         <div class="card">
                             <div class="card-header" style="color:#fff">Cadastrar</div>
                                 <div class="text-center"><img src="../assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
-                                
+
                             <div class="card-body">
                                 <form action="cadastrar.php" method="POST">
 
@@ -45,12 +46,12 @@
                                         <span class="input-group-text"><i class="bi bi-person-circle" style="color:#fff"></i></span>
                                         <input type="text" class="form-control" name="nome" placeholder="Usuário" required>
                                     </div>
-                                    
+
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>
                                         <input type="email" class="form-control" name="email" id="" placeholder="E-mail" required>
                                     </div>
-                                    
+
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
                                         <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Senha" required>
@@ -58,7 +59,7 @@
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
-                                    
+
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Cadastrar</button>
                                     <div class="text-end mt-2"><a href="../public/login.php">Já possui login?</a></div>
                                 </form>
