@@ -1,4 +1,4 @@
-<?php 
+<?php
         session_start();
         date_default_timezone_set('America/Sao_Paulo');
         include '../includes/core/conexao.php';
@@ -9,7 +9,6 @@
         exit;
         }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

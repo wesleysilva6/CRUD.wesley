@@ -1,13 +1,13 @@
 <?php
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\Exception;
 
-    require '../../vendor/autoload.php';
+        require '../../vendor/autoload.php';
 
-    function enviarConfirmacaoSenhaRedefinida($email, $nome) {
+        function enviarConfirmacaoSenhaRedefinida($email, $nome) {
         $mail = new PHPMailer(true);
 
-    try {
+        try {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;

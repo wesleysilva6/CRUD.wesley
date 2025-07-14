@@ -1,4 +1,4 @@
-<?php 
+<?php
         session_start();
         date_default_timezone_set('America/Sao_Paulo');
         include '../includes/core/conexao.php';
@@ -32,7 +32,7 @@
                 <?php } ?>
 
                 <?php if (isset($_GET['erro']) == 'quantidade') { ?>
-                    <div id="" class="alert alert-danger m-3">Quantidade do produto inválida</div>
+                    <div class="alert alert-danger m-3">Quantidade do produto inválida</div>
                 <?php } ?>
 
                 <?php if(isset($_GET['quantidade']) == 'limite') { ?>

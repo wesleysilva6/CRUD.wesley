@@ -2,18 +2,18 @@
     include '../../includes/core/conexao.php';
     session_start();
 
+        $usuario_id = $_SESSION['id'];
+
         if (!isset($_SESSION['id'])) {
         header('Location: ../public/login.php?erro=acesso_negado');
         exit;
         }
 
-        $usuario_id = $_SESSION['id'];
-
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $novo_nome = $_POST['novo_nome'];
 
         if (!empty($novo_nome)) {
-        $stmt = $conn->prepare('UPDATE usuarios SET nome = ? WHERE id = ?');
+        $stmt = $conn->prepare("UPDATE usuarios SET nome = ? WHERE id = ?");
         $stmt->bind_param('si', $novo_nome, $usuario_id);
         if ($stmt->execute()) {
             $_SESSION['nome'] = $novo_nome;
