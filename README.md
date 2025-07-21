@@ -132,4 +132,4 @@ http://localhost/public/index.php
 
 ---
 
-<p align="center">   <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0B5ED7&height=120&section=footer" /> </p>
+<p align="center"> <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0B5ED7&height=120&section=footer"/> </p>
