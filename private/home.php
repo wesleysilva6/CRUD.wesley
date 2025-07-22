@@ -40,7 +40,11 @@
                 $stmt->execute();
                 $result = $stmt->get_result();
                     while ($topico = $result->fetch_assoc()) {
-                        $produtos = $conn->query("SELECT * FROM produtos WHERE topico_id = " . intval($topico['id_topico'])); ?>
+                        $produtos = $conn->query("SELECT *, 
+                        DATE_FORMAT(criado_em, '%d/%m/%Y %H:%i') AS criado_em, 
+                        DATE_FORMAT(atualizado_em, '%d/%m/%Y %H:%i') AS atualizado_em
+                        FROM produtos 
+                        WHERE topico_id = " . intval($topico['id_topico'])); ?>
 
     <div class="container pb-5 mb-5 mt-3">
             <h4 class="my-3" style="color:#fff"> <?php echo htmlspecialchars($topico['nome_topico']); ?> </h4>

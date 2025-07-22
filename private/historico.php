@@ -51,7 +51,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $stmt = $conn->prepare("SELECT i.id AS id_item, s.cliente, s.criada_em, i.nome_produto, i.quantidade, i.preco, i.subtotal FROM simulacoes s INNER JOIN itens_simulacao i ON s.id = i.id_simulacao WHERE s.usuario_id = ? ORDER BY s.criada_em DESC ");
+                        <?php $stmt = $conn->prepare("SELECT i.id AS id_item, s.cliente, 
+                        DATE_FORMAT(s.criada_em, '%d/%m/%Y %H:%i') AS criada_em, i.nome_produto, i.quantidade, i.preco, i.subtotal 
+                        FROM simulacoes s 
+                        INNER JOIN itens_simulacao i ON s.id = i.id_simulacao 
+                        WHERE s.usuario_id = ? ORDER BY s.criada_em DESC ");
                             $stmt->bind_param('i', $usuario_id);
                             $stmt->execute();
                             $result = $stmt->get_result() ?>
