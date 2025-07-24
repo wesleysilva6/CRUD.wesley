@@ -15,11 +15,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../public/assets/img/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../assets/css/simular.css">
-    <script src="../assets/js/main.js"></script>
+    <link rel="stylesheet" href="../public/assets/css/simular.css">
+    <script src="../public/assets/js/main.js"></script>
     <title>Estoque Aqui - Simular Venda</title>
 </head>
     <body>
@@ -63,7 +63,8 @@
                         <select name="produto_id" class="form-select" required>
                             <option value="">Selecione um produto</option>
                             <?php
-                                $stmt = $conn->prepare("SELECT p.id, p.nome_produto, p.quantidade 
+                                $stmt = $conn->prepare(
+                                "SELECT p.id, p.nome_produto, p.quantidade 
                                 FROM produtos p
                                 INNER JOIN topicos t ON p.topico_id = t.id_topico
                                 WHERE t.usuario_id = ?");

@@ -4,7 +4,7 @@
         $usuario_id = $_SESSION['id'];
 
         if (!isset($_SESSION['id'])) {
-        header('Location: ../public/login.php');
+        header('Location: ../public/login.php?erro=acesso_negado');
         exit;
         }
 
@@ -14,23 +14,12 @@
         $resumo->execute();
         $dadosResumo = $resumo->get_result()->fetch_assoc();
 
-        // Gráfico de simulações por dia da semana
-        $chartDias = $conn->prepare("SELECT DAYNAME(s.criada_em) AS dia, COUNT(*) AS qtd FROM simulacoes s WHERE s.usuario_id = ? GROUP BY dia ORDER BY FIELD(DAYNAME(s.criada_em), 'Sunday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Monday')");
+        $chartDias = $conn->prepare("SELECT DATE_FORMAT(s.criada_em, '%d/%m') AS dia, COUNT(*) AS qtd FROM simulacoes s WHERE s.usuario_id = ? GROUP BY dia ORDER BY dia ASC");
         $chartDias->bind_param('i',$usuario_id);
         $chartDias->execute();
         $resDias = $chartDias->get_result();
 
-        $traducao = [
-        'Sunday'    => 'Domingo',
-        'Monday'    => 'Segunda-feira',
-        'Tuesday'   => 'Terça-feira',
-        'Wednesday' => 'Quarta-feira',
-        'Thursday'  => 'Quinta-feira',
-        'Friday'    => 'Sexta-feira',
-        'Saturday'  => 'Sábado'
-        ];
-
-    $dias = $qtds = [];
+    $qtds = [];
         while($r = $resDias->fetch_assoc()){
             $dias[] = $traducao[$r['dia']] ?? $r['dia']; // traduz
             $qtds[] = $r['qtd'];
@@ -42,11 +31,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../public/assets/img/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/analytics.css">
+    <link rel="stylesheet" href="../public/assets/css/analytics.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Estoque Aqui - Analytics</title>
 </head>
@@ -79,7 +68,7 @@
             const chartResumoData = [<?= intval($dadosResumo['total']) ?>, <?= floatval($dadosResumo['valor']) ?>];
         </script>
 
-            <script src="../assets/js/analytics.js"></script>
+            <script src="../public/assets/js/analytics.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../public/assets/css/sidebar.css">
 </head>
 <body>        
     <nav class="navbar" data-bs-theme="dark">
@@ -9,15 +9,15 @@
                     <i class="bi bi-list"></i>
                 </button>
                 <a href="home.php" class="navbar-brand mx-auto">
-                    <img src="../assets/img/logo_stexto.png" width="65" height="65" alt="">
-                    <img src="../assets/img/fundop2.png" alt="" width="85" height="65">
+                    <img src="../public/assets/img/logo_stexto.png" width="65" height="65" alt="">
+                    <img src="../public/assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
             </div>
     </nav>
 
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
-                <img src="../assets/img/logo_branca.png" width="120rem" class="mx-auto d-block">
+                <img src="../public/assets/img/logo_branca.png" width="120rem" class="mx-auto d-block">
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
 

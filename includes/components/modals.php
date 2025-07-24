@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="shortcut icon" href="../public/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../public/assets/css/home.css">
 </head>
 
     <body>
