@@ -3,7 +3,7 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=0B5ED7&size=35&center=true&vCenter=true&width=1000&lines=Projeto+CRUD;Estoque+Aqui;Controle+de+Estoque+Simples+e+Eficiente)](https://git.io/typing-svg)
 
 <p align="center">
-  <img src="assets/img/fundop.png" alt="Logo Estoque Aqui" width="180" />
+  <img src="public/assets/img/fundop.png" alt="Logo Estoque Aqui" width="180" />
 </p>
 
 ---
@@ -81,12 +81,12 @@ Funcional, responsivo e com foco na experiência do usuário, ele permite:
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="assets/img/screenshots/imagem_index.png" width="350">
-  <img src="assets/img/screenshots/imagem_home.png" width="350">
-  <img src="assets/img/screenshots/imagem_simulacao.png" width="350">
-  <img src="assets/img/screenshots/imagem_historico.png" width="350">
-  <img src="assets/img/screenshots/imagem_analytics.png" width="350">
-  <img src="assets/img/screenshots/imagem_perfil.png" width="350">
+  <img src="public/assets/img/screenshots/imagem_index.png" width="350">
+  <img src="public/assets/img/screenshots/imagem_home.png" width="350">
+  <img src="public/assets/img/screenshots/imagem_simulacao.png" width="350">
+  <img src="public/assets/img/screenshots/imagem_historico.png" width="350">
+  <img src="public/assets/img/screenshots/imagem_analytics.png" width="350">
+  <img src="public/assets/img/screenshots/imagem_perfil.png" width="350">
 </p>
 
 ---
@@ -110,12 +110,14 @@ Funcional, responsivo e com foco na experiência do usuário, ele permite:
 # 1. Clone o repositório
 git clone https://github.com/wesleysilva6/CRUD.wesley.git
 
-# 2. Importe o banco de dados (arquivo sql/crud_login.sql)
+# 2. Importe o banco de dados
+(arquivo sql/crud_login.sql)
 
 # 3. Configure o banco em:
 includes/core/conexao.php
 
-# 4. Inicie o servidor Apache + MySQL (XAMPP, WAMP ou Laragon)
+# 4. Inicie o servidor Apache + MySQL
+(XAMPP, WAMP ou Laragon)
 
 # 5. Acesse no navegador:
 http://localhost/public/index.php
