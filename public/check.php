@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="card-login">
                     <div class="card">
-                        
+
                         <div class="card-header" style="color:#fff">Verificar e-mail</div>
                         <div class="text-center"><img src="assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
                             <div class="card-body">

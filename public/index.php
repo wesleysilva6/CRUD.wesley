@@ -15,7 +15,7 @@
     <body>
         <nav class="navbar" data-bs-theme="dark">
             <div class="container-fluid">
-                <a href="../public/index.php" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                 <img src="assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
             </div>
@@ -30,8 +30,8 @@
                             Com este sistema, você pode cadastrar, atualizar, excluir e acompanhar em tempo real todas as movimentações do seu estoque, garantindo organização, agilidade e total controle sobre suas operações.
                             Ideal para empresas que buscam precisão e praticidade, nossa ferramenta oferece uma interface simples e fácil de usar, ajudando você a evitar perdas, controlar quantidades e manter seu    estoque sempre atualizado com rapidez e segurança.
                             Agora, além de todas essas funcionalidades, o sistema conta também com a opção de exportar os dados do estoque para planilhas Excel, seja de um tópico específico ou de toda a base de dados, facilitando ainda mais a análise, controle e geração de relatórios personalizados.</p>
-                            <a href="../public/login.php" class="btn">Login</a>
-                            <a href="../public/cadastrar.php" class="btn">Cadastre-se</a>
+                            <a href="login.php" class="btn">Login</a>
+                            <a href="cadastrar.php" class="btn">Cadastre-se</a>
                         </div>  
 
                         <div class="col-md-4 d-flex justify-content-end" id="logo">

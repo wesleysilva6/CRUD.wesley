@@ -55,8 +55,8 @@
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Entrar</button>
                                     
                                     <div class="d-flex justify-content-between">
-                                        <a href="../public/check.php">Esqueceu a Senha?</a>
-                                        <a href="../public/cadastrar.php">Cadastrar-se</a>
+                                        <a href="check.php">Esqueceu a Senha?</a>
+                                        <a href="cadastrar.php">Cadastrar-se</a>
                                     </div>
                                 </form>
                             </div>
@@ -71,7 +71,7 @@
 
     <script>
         setTimeout(() => {
-            document.querySelectorAll('.text-danger').forEach(al => {
+            document.querySelectorAll('.text-danger, .alert').forEach(al => {
                 al.style.display = 'none'
             })
             history.replaceState(null, '', 'http://localhost:3000/public/login.php')
