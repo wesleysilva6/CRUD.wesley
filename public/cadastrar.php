@@ -8,16 +8,22 @@
         $email = $_POST['email'] ?? '';
         $senha = $_POST['senha'] ?? '';
 
+        if (empty($nome) || empty($email) || empty($senha)) {
+            header('location: cadastrar.php?erro=cadastro');
+            exit;
+        }
+
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
         $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
         $stmt->bind_param('sss', $nome, $email, $senhaHash);
-            if ($stmt->execute()) {
-                $_SESSION['nome'] = $nome;
-                header('Location: login.php?cadastro=realizado');
-                exit;
-            } 
+
+        if ($stmt->execute()) {
+            $_SESSION['nome'] = $nome;
+            header('Location: login.php?cadastro=realizado');
+            exit;
         }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +46,7 @@
                                 <div class="text-center"><img src="assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
 
                             <div class="card-body">
-                                <form action="cadastrar.php" method="POST">
+                                <form action="cadastrar.php" method="POST" id="cadastrarForm">
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-person-circle" style="color:#fff"></i></span>
@@ -60,8 +66,19 @@
                                         </button>
                                     </div>
 
-                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Cadastrar</button>
-                                    <div class="text-end mt-2"><a href="../public/login.php">Já possui login?</a></div>
+                                    
+                                    <?php if(isset($_GET['erro']) == 'cadastro') { ?>
+                                        <div class="text-danger">Preencha todos os campos</div>
+                                    <?php } ?>
+
+                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEntrar">Cadastrar</button>
+                                    <div class="d-flex justify-content-center mt-1">
+                                        <div id="loginSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+                                            <span class="visually-hidden">Carregando...</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-end mt-"><a href="../public/login.php">Já possui login?</a></div>
                                 </form>
                             </div>
                         </div>
@@ -73,6 +90,19 @@
                     include '../includes/components/footer.php'
                 ?>
 
+        <script>
+            setTimeout(() => {
+                document.querySelectorAll('.text-danger').forEach(al => {
+                    al.style.display = 'none'
+                })
+                history.replaceState(null, '', 'http://localhost:3000/public/check.php')
+            }, 3000);
+
+            document.getElementById('cadastrarForm').addEventListener('submit', function() {
+            document.getElementById('btnEntrar').disabled = true;
+            document.getElementById('loginSpinner').style.display = 'inline-block';
+            });
+        </script>
             <script src="assets/js/perfil.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

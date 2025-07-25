@@ -14,13 +14,13 @@
         $sheet = $spreadsheet->getActiveSheet();
         $row = 1;
 
-        $stmtTopico = $conn->prepare("SELECT nome_topico FROM topicos WHERE id_topico = ?");
-        $stmtTopico->bind_param('i', $id_topico);
-        $stmtTopico->execute();
-        $resultTopico = $stmtTopico->get_result();
+        $stmt = $conn->prepare("SELECT nome_topico FROM topicos WHERE id_topico = ?");
+        $stmt->bind_param('i', $id_topico);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if ($resultTopico->num_rows > 0) {
-            $dadosTopico = $resultTopico->fetch_assoc();
+        if ($result->num_rows > 0) {
+            $dadosTopico = $result->fetch_assoc();
             $nomeTopico = $dadosTopico['nome_topico'];
         }
 
