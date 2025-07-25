@@ -42,7 +42,7 @@
                 removerTopico.addEventListener('show.bs.modal', function (event) {
                     const button = event.relatedTarget;
                     const idTopico = button.getAttribute('data-id-topico')
-                    const confirmarBtn = document.getElementById('confirmarExclusao')
+                    const confirmarBtn = document.getElementById('deletarTopico')
                     if (confirmarBtn) {
                         confirmarBtn.href = `../controllers/topicos/excluir_topico.php?id_topico=${idTopico}`
                     }

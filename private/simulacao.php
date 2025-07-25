@@ -55,12 +55,12 @@
 
         <form action="../controllers/simulacao/adicionar_simulacao.php" method="POST">
             <div class="card-body text-white">
-                <label class="form-label">Cliente</label>
-                <input type="text" name="nome_cliente" class="form-control w-25 mb-3" placeholder="Nome do Cliente" required>
+                <label for="nomeCliente" class="form-label">Cliente</label>
+                <input type="text" id="nomeCliente" name="nome_cliente" class="form-control w-25 mb-3" placeholder="Nome do Cliente" required>
                 <div class="mb-3 d-flex align-items-center gap-3 flex-wrap">
                     <div class="prod">  
-                        <label class="form-label">Produto</label>
-                        <select name="produto_id" class="form-select" required>
+                        <label for="produtoId" class="form-label">Produto</label>
+                        <select id="produtoId" name="produto_id" class="form-select" required>
                             <option value="">Selecione um produto</option>
                             <?php
                                 $stmt = $conn->prepare(
@@ -79,8 +79,8 @@
                     </div>
 
                     <div>
-                        <label class="form-label">Quantidade</label>
-                        <input type="number" name="quantidade" class="form-control" placeholder="Informe a Quantidade" required>
+                        <label for="quantidade" class="form-label">Quantidade</label>
+                        <input type="number" id="quantidade" name="quantidade" class="form-control" placeholder="Informe a Quantidade" required>
                         <small id="estoque-info" class="text-warning d-block"></small>
                     </div>
 

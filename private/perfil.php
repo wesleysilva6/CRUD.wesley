@@ -61,8 +61,8 @@
         <div class="card-body">
             <form action="../controllers/perfil/atualizar_nome.php" method="POST">
                 <div class="mb-3 text-start">
-                    <label class="form-label text-white">Editar Nome</label>
-                    <input type="text" name="novo_nome" class="form-control" placeholder="Nome do Usuário">
+                    <label for="editarNome" class="form-label text-white">Editar Nome</label>
+                    <input type="text" id="editarNome" name="novo_nome" class="form-control" placeholder="Nome do Usuário">
 
                 <?php if(isset($_GET['status']) == 'nome') { ?>
                     <div class="text-success">Nome atualizado com sucesso!</div>
@@ -79,7 +79,7 @@
             <hr class="text-primary my-4">
             <form action="../controllers/perfil/atualizar_senha.php" method="POST">
 
-                <label class="form-label">Senha Atual</label>
+                <label for="senhaAtual" class="form-label">Senha Atual</label>
                 <div class="input-group mb-2">
                     <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Digite uma Senha" required>
                     <button type="button" class="eyes btn btn-dark" id="toggleSenha">
@@ -87,7 +87,7 @@
                     </button>
                 </div>
 
-                <label class="form-label mt-2">Digite uma nova Senha</label>
+                <label for="novaSenha" class="form-label mt-2">Digite uma nova Senha</label>
                 <div class="input-group mb-2">
                     <input type="password" class="form-control" name="nova_senha" id="novaSenha" placeholder="Confirme a Senha" required>
                     <button type="button" class="eyes btn btn-dark" id="toggleSenha2">
@@ -95,7 +95,7 @@
                     </button>
                 </div>
 
-                <label class="form-labelb mt-2">Confirmar Nova Senha</label>
+                <label for="confirmarSenha" class="form-labelb mt-2">Confirmar Nova Senha</label>
                 <div class="input-group mt-2">
                     <input type="password" id="confirmarSenha" name="confirmar_senha" class="form-control" placeholder="Confirme a nova senha" required>
                     <button type="button" class="eyes btn btn-dark" id="toggleSenha3">

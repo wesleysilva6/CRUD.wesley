@@ -58,7 +58,7 @@
                                     <?php if (isset($_GET['erro']) && $_GET['erro'] == 'senhas_diferentes') { ?>
                                         <div class="text-danger">As senhas informadas não coincidem. Por favor, verifique e tente novamente.</div>
                                     <?php } ?>
-                                    
+
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit">Redefinir Senha</button>
                                 </form>
                             </div>

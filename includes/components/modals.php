@@ -15,8 +15,8 @@
                     </div>
                         <div class="modal-body text-white">
                             <div class="mb-3">
-                                <label class="form-label">Nome do Tópico :</label>
-                                <input type="text" class="form-control" name="nome_topico" placeholder="Nome do Tópico" required>
+                                <label for="nomeTopico" class="form-label">Nome do Tópico :</label>
+                                <input type="text" id="nomeTopico" class="form-control" name="nome_topico" placeholder="Nome do Tópico" required>
                             </div>
                                 <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
                         </div>
@@ -35,29 +35,29 @@
                         </div>
                             <div class="modal-body text-white">
                                     <div class="mb-3">
-                                        <label class="form-label">Imagem do Produto:</label>
+                                        <label for="inputImagem" class="form-label">Imagem do Produto:</label>
                                         <input type="file" class="form-control" name="imagem" id="inputImagem" accept="image/*">
                                         <img id="previewImagem" src="#" alt="Preview da Imagem" style="display:none; margin-top: 10px; max-width: 100%; border-radius: 8px;" />
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Nome do Produto :</label>
-                                        <input type="text" class="form-control" name="nome_produto" placeholder="Nome do Produto" required>
+                                        <label for="nomeProduto" class="form-label">Nome do Produto :</label>
+                                        <input type="text" id="nomeProduto" class="form-control" name="nome_produto" placeholder="Nome do Produto" required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Preço :</label>
-                                        <input type="text" class="form-control" name="preco" placeholder="Preço" required>
+                                        <label for="preco" class="form-label">Preço :</label>
+                                        <input type="text" id="preco" class="form-control" name="preco" placeholder="Preço" required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Quantidade :</label>
-                                        <input type="number" class="form-control" name="quantidade" placeholder="Quantidade" required>
+                                        <label for="quantidade" class="form-label">Quantidade :</label>
+                                        <input type="number" id="quantidade" class="form-control" name="quantidade" placeholder="Quantidade" required>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Descrição :</label>
-                                        <textarea class="form-control" name="descricao" style="resize:none"  placeholder="Descrição do Produto" required></textarea>
+                                        <label for="descricao" class="form-label">Descrição :</label>
+                                        <textarea id="descricao" class="form-control" name="descricao" style="resize:none"  placeholder="Descrição do Produto" required></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary w-100">Adicionar Produto</button>
                             </div>
@@ -92,27 +92,27 @@
                         <input type="hidden" name="id" id="editar_id_produto">
                         <input type="hidden" name="id_topico" id="editar_id_topico">
                         <div class="mb-3">
-                            <label class="form-label">Nova Imagem (opcional):</label>
-                            <input type="file" class="form-control" name="imagem" accept="image/*">
+                            <label for="nova_imagem" class="form-label">Nova Imagem (opcional):</label>
+                            <input type="file" id="nova_imagem" id="novaImagem" class="form-control" name="imagem" accept="image/*">
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Nome do Produto:</label>
+                            <label for="editar_nome_produto" class="form-label">Nome do Produto:</label>
                             <input type="text" class="form-control" name="nome_produto" id="editar_nome_produto" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Preço:</label>
+                            <label for="editar_preco" class="form-label">Preço:</label>
                             <input type="text" class="form-control" name="preco" id="editar_preco" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Quantidade:</label>
+                            <label for="editar_quantidade" class="form-label">Quantidade:</label>
                             <input type="number" class="form-control" name="quantidade" id="editar_quantidade" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Descrição:</label>
+                            <label for="editar_descricao" class="form-label">Descrição:</label>
                             <textarea style="resize:none;" class="form-control" name="descricao" id="editar_descricao" rows="3" required></textarea>
                         </div>
 
@@ -138,7 +138,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <a id="confirmarExclusao" href="#" class="btn btn-primary">Sim</a>
+                    <a id="deletarTopico" href="#" class="btn btn-primary">Sim</a>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
                 </div>
 
