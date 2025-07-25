@@ -77,6 +77,13 @@
             ?>
 
         <script>
+            setTimeout(() => {
+                document.querySelectorAll('.text-danger').forEach(al => {
+                    al.style.display = 'none'
+                })
+                history.replaceState(null, '', 'http://localhost:3000/public/check.php')
+            }, 3000);
+
             document.getElementById('redefinirForm').addEventListener('submit', function() {
             document.getElementById('btnRedefinir').disabled = true;
             document.getElementById('loginSpinner').style.display = 'inline-block';

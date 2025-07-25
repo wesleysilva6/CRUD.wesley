@@ -28,7 +28,7 @@
                             <h3>Seja Bem-Vindo a ESTOQUE AQUI !</h3>
                             <p>Seja bem-vindo ao nosso Sistema de Controle de Estoque, uma plataforma completa, segura e eficiente, desenvolvida para facilitar a gestão de produtos e  materiais da sua empresa.
                             Com este sistema, você pode cadastrar, atualizar, excluir e acompanhar em tempo real todas as movimentações do seu estoque, garantindo organização, agilidade e total controle sobre suas operações.
-                            Ideal para empresas que buscam precisão e praticidade, nossa ferramenta oferece uma interface simples e fácil de usar, ajudando você a evitar perdas, controlar quantidades e manter seu    estoque sempre atualizado com rapidez e segurança.
+                            Ideal para empresas que buscam precisão e praticidade, nossa ferramenta oferece uma interface simples e fácil de usar, ajudando você a evitar perdas, controlar quantidades e manter seu estoque sempre atualizado com rapidez e segurança.
                             Agora, além de todas essas funcionalidades, o sistema conta também com a opção de exportar os dados do estoque para planilhas Excel, seja de um tópico específico ou de toda a base de dados, facilitando ainda mais a análise, controle e geração de relatórios personalizados.</p>
                             <a href="login.php" class="btn">Login</a>
                             <a href="cadastrar.php" class="btn">Cadastre-se</a>
