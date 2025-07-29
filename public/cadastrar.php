@@ -34,7 +34,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/cadastro.css">
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/core/password-toggle.js" defer></script>
+    <script src="assets/js/core/main.js" defer></script>
     <title>Estoque Aqui - System</title>
 </head>
     <body>
@@ -62,17 +63,16 @@
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
                                         <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Senha" required>
-                                        <button type="button" class="eyes btn btn-dark" id="toggleSenha">
+                                        <button type="button" class="eyes btn btn-dark" data-toggle="password" data-target="senhaAtual">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
-
 
                                     <?php if(isset($_GET['erro']) && $_GET['erro'] == 'cadastro') { ?>
                                         <div class="text-danger">Preencha todos os campos</div>
                                     <?php } ?>
 
-                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEntrar">Cadastrar</button>
+                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEnviar">Cadastrar</button>
                                     <div class="d-flex justify-content-center mt-2">
                                         <div id="checkSpinner" class="spinner-border text-primary" role="status" style="display:none;">
                                             <span class="visually-hidden">Carregando...</span>
@@ -96,7 +96,7 @@
                 document.querySelectorAll('.text-danger').forEach(al => {
                     al.style.display = 'none'
                 })
-                history.replaceState(null, '', 'http://localhost:3000/public/check.php')
+                history.replaceState(null, '', 'http://localhost:3000/public/cadastrar.php')
             }, 3000);
         </script>
             <script src="assets/js/perfil.js"></script>

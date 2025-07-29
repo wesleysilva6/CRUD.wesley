@@ -8,60 +8,12 @@
             }
         }
 
-        const senhaAtual = document.getElementById('senhaAtual')
-        const toggleSenha = document.getElementById('toggleSenha')
-        const icon = toggleSenha.querySelector('i')
-
-        toggleSenha.addEventListener('click', () => {
-            if (senhaAtual.type === 'password') {
-                senhaAtual.type = 'text';
-                icon.classList.remove('bi-eye')
-                icon.classList.add('bi-eye-slash')
-            } else {
-                senhaAtual.type = 'password'
-                icon.classList.remove('bi-eye-slash')
-                icon.classList.add('bi-eye')
-            }
-        });
-
-        const novaSenha = document.getElementById('novaSenha')
-        const toggleSenha2 = document.getElementById('toggleSenha2')
-        const icon2 = toggleSenha2.querySelector('i')
-
-        toggleSenha2.addEventListener('click', () => {
-            if (novaSenha.type === 'password') {
-                novaSenha.type = 'text'
-                icon2.classList.remove('bi-eye')
-                icon2.classList.add('bi-eye-slash')
-            } else {
-                novaSenha.type = 'password';
-                icon2.classList.remove('bi-eye-slash')
-                icon2.classList.add('bi-eye')
-            }
-        });
-
-        const confirmarSenha = document.getElementById('confirmarSenha')
-        const toggleSenha3 = document.getElementById('toggleSenha3')
-        const icon3 = toggleSenha3.querySelector('i')
-
-        toggleSenha3.addEventListener('click', () => {
-            if (confirmarSenha.type === 'password') {
-                confirmarSenha.type = 'text'
-                icon3.classList.remove('bi-eye')
-                icon3.classList.add('bi-eye-slash')
-            } else {
-                confirmarSenha.type = 'password'
-                icon3.classList.remove('bi-eye-slash')
-                icon3.classList.add('bi-eye')
-            }
-        });
-
         // Cropper.js para cortar imagem de perfil
         let cropper
         const inputFoto = document.getElementById('inputFoto')
         const imagemCrop = document.getElementById('imagemCrop')
         const btnCortar = document.getElementById('btnCortar')
-        //const form = document.getElementById('formFoto')
+        const form = document.getElementById('formFoto')
 
         inputFoto.addEventListener('change', function (e) {
             const file = e.target.files[0];

@@ -7,7 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/cadastro.css">
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/core/main.js" defer></script>
+    <script src="assets/js/core/password-toggle.js" defer></script>
     <title>Estoque Aqui - System</title>
 </head>
     <body>
@@ -35,7 +36,7 @@
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
                                         <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Digite uma Senha" required>
-                                        <button type="button" class="eyes btn btn-dark" id="toggleSenha">
+                                        <button type="button" class="eyes btn btn-dark" data-toggle="password" data-target="senhaAtual">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
@@ -43,7 +44,7 @@
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
                                         <input type="password" class="form-control" name="confirmar_senha" id="novaSenha" placeholder="Confirme a Senha" required>
-                                        <button type="button" class="eyes btn btn-dark" id="toggleSenha2">
+                                        <button type="button" class="eyes btn btn-dark" data-toggle="password" data-target="novaSenha">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
@@ -56,7 +57,7 @@
                                         <div class="text-danger">As senhas informadas não coincidem. Por favor, verifique e tente novamente.</div>
                                     <?php } ?>
 
-                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnRedefinir">Redefinir Senha</button>
+                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEnviar">Redefinir Senha</button>
                                     <div class="d-flex justify-content-center mt-2">
                                         <div id="checkSpinner" class="spinner-border text-primary" role="status" style="display:none;">
                                             <span class="visually-hidden">Carregando...</span>
@@ -73,14 +74,6 @@
                 include '../includes/components/footer.php'
             ?>
 
-        <script>
-            setTimeout(() => {
-                document.querySelectorAll('.text-danger').forEach(al => {
-                    al.style.display = 'none'
-                })
-                history.replaceState(null, '', 'http://localhost:3000/public/check.php')
-            }, 3000);
-        </script>
             <script src="assets/js/perfil.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

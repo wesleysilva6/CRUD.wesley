@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/check.css">
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/core/main.js" defer></script>
     <title>Estoque Aqui - System</title>
 </head>
     <body>
@@ -75,12 +75,10 @@
             if (isset($_GET['email']) && $_GET['email'] == 'enviado' && isset($_SESSION['email_redefinir'])) {
                 $usuario = htmlspecialchars($_SESSION['email_redefinir']); ?>
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    const usuario = "<?php echo $usuario; ?>";
-                    document.getElementById('usuarioEmail').innerText = usuario;
-                    const emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
-                    emailModal.show();
-                });
+                    const usuario = "<?php echo $usuario; ?>"
+                    document.getElementById('usuarioEmail').innerText = usuario
+                    const emailModal = new bootstrap.Modal(document.getElementById('emailModal'))
+                    emailModal.show()
             </script>
         <?php } ?>
 

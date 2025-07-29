@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../public/assets/css/perfil.css">
+    <script src="../public/assets/js/core/password-toggle.js" defer></script>
+    <script src="../public/assets/js/pages/perfil.js" defer></script>
     <title>Estoque Aqui - Perfil</title>
 </head>
     <body>
@@ -33,11 +35,9 @@
 
         <form id="formFoto" action="../controllers/perfil/atualizar_foto.php" method="POST" enctype="multipart/form-data" class="text-center">
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <?php
-                $foto = isset($_SESSION['foto']) && $_SESSION['foto'] !== '' ? $_SESSION['foto'] : 'user.png';
-                $caminho = file_exists("../uploads/" . $foto) ? "../uploads/" . $foto : "../uploads/user.png";
-                ?>
-                <img src="<?php echo $caminho; ?>" id="preview" class="img-preview mb-3" alt="Foto de Perfil" style="max-width: 200px; border-radius: 50%;">
+                <?php $foto = isset($_SESSION['foto']) && $_SESSION['foto'] !== '' ? $_SESSION['foto'] : 'user.png';
+                $caminho = file_exists("../uploads/" . $foto) ? "../uploads/" . $foto : "../uploads/user.png"; ?>
+            <img src="<?php echo $caminho; ?>" id="preview" class="img-preview mb-3" alt="Foto de Perfil" style="max-width: 200px; border-radius: 50%;">
 
                 <div class="d-flex align-items-center gap-2">
                     <label for="inputFoto" class="btn btn-primary">Escolher arquivo</label>
@@ -77,12 +77,12 @@
             </form>
 
             <hr class="text-primary my-4">
-            <form action="../controllers/perfil/atualizar_senha.php" method="POST">
 
+            <form action="../controllers/perfil/atualizar_senha.php" method="POST">
                 <label for="senhaAtual" class="form-label">Senha Atual</label>
                 <div class="input-group mb-2">
                     <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Digite uma Senha" required>
-                    <button type="button" class="eyes btn btn-dark" id="toggleSenha">
+                    <button type="button" class="eyes btn btn-dark" data-toggle="password" data-target="senhaAtual">
                         <i class="bi bi-eye"></i>
                     </button>
                 </div>
@@ -90,7 +90,7 @@
                 <label for="novaSenha" class="form-label mt-2">Digite uma nova Senha</label>
                 <div class="input-group mb-2">
                     <input type="password" class="form-control" name="nova_senha" id="novaSenha" placeholder="Confirme a Senha" required>
-                    <button type="button" class="eyes btn btn-dark" id="toggleSenha2">
+                    <button type="button" class="eyes btn btn-dark" data-toggle="password" data-target="novaSenha">
                         <i class="bi bi-eye"></i>
                     </button>
                 </div>
@@ -98,7 +98,7 @@
                 <label for="confirmarSenha" class="form-labelb mt-2">Confirmar Nova Senha</label>
                 <div class="input-group mt-2">
                     <input type="password" id="confirmarSenha" name="confirmar_senha" class="form-control" placeholder="Confirme a nova senha" required>
-                    <button type="button" class="eyes btn btn-dark" id="toggleSenha3">
+                    <button type="button" class="eyes btn btn-dark" data-toggle="password" data-target="confirmarSenha">
                         <i class="bi bi-eye"></i>
                     </button>
                 </div>
@@ -126,16 +126,17 @@
             </form>
         </div>
     </div>
-        <script>
+
+    <script>
         setTimeout(() => {
             document.querySelectorAll('.text-danger, .text-success').forEach(al => {
                 al.style.display = 'none'
             })
             history.replaceState(null, '', 'http://localhost:3000/private/perfil.php')
         }, 3500);
-        </script>
+    </script>
 
-        <script src="../public/assets/js/perfil.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="../public/assets/js/perfil.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
     </body>
 </html>

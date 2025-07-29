@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/login.css">
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/core/main.js" defer></script>
+    <script src="assets/js/core/password-toggle.js" defer></script>
     <title>Estoque Aqui - System</title>
 </head>
     <body>
@@ -37,7 +38,7 @@
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
                                         <input type="password" class="form-control" name="senha" id="senhaAtual" placeholder="Senha" required>
-                                        <button type="button" class="eyes btn btn-dark" id="toggleSenha">
+                                        <button type="button" class="eyes btn btn-dark" data-toggle="password" data-target="senhaAtual">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </div>
@@ -50,7 +51,7 @@
                                         <div class="text-danger">Senha inválida</div>
                                     <?php } ?>
 
-                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEntrar">Entrar</button>
+                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEnviar">Entrar</button>
                                     <div class="d-flex justify-content-center mt-2">
                                         <div id="checkSpinner" class="spinner-border text-primary" role="status" style="display:none;">
                                             <span class="visually-hidden">Carregando...</span>
