@@ -24,7 +24,7 @@
 
 🎯 **Estoque Aqui** é um sistema web moderno e intuitivo para gerenciamento de estoque, ideal para pequenas e médias empresas.  
 
-Funcional, responsivo e com foco na experiência do usuário, ele permite:
+Funcional, e com foco na experiência do usuário, ele permite:
 - ✅ Controle completo de produtos
 - 📦 Simulação e histórico de vendas
 - 👥 Gerenciamento de usuários
@@ -100,7 +100,6 @@ Funcional, responsivo e com foco na experiência do usuário, ele permite:
 - [ ] 📅 Filtro de simulações por período  
 - [ ] 🔔 Notificações de estoque baixo  
 - [ ] 📦 Histórico de movimentações de estoque  
-- [ ] 📱 Responsividade total para mobile
 
 ---
 
