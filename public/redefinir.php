@@ -1,7 +1,3 @@
-<?php 
-    include '../includes/core/conexao.php';
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/cadastro.css">
+    <script src="assets/js/main.js" defer></script>
     <title>Estoque Aqui - System</title>
 </head>
     <body>
@@ -19,7 +16,7 @@
                 <a href="cadastrar.php" class="navbar-brand">
                 <img src="assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="assets/img/fundop2.png" alt="" width="85" height="65">
                 </a>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav"> 
                     <li class="nav-item"><a href="../includes/core/deslogar.php" class="nav-link">Voltar</a></li>
                 </ul>
             </div>
@@ -33,7 +30,7 @@
                                 <div class="text-center"><img src="assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
 
                             <div class="card-body">
-                                <form action="../includes/core/redefinir_senha.php" method="POST" id="redefinirForm">
+                                <form action="../includes/core/redefinir_senha.php" method="POST" id="spinnerForm">
 
                                     <div class="input-group mt-2">
                                         <span class="input-group-text"><i class="bi bi-lock" style="color:#fff"></i></span>
@@ -61,7 +58,7 @@
 
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnRedefinir">Redefinir Senha</button>
                                     <div class="d-flex justify-content-center mt-2">
-                                        <div id="loginSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+                                        <div id="checkSpinner" class="spinner-border text-primary" role="status" style="display:none;">
                                             <span class="visually-hidden">Carregando...</span>
                                         </div>
                                     </div>
@@ -83,11 +80,6 @@
                 })
                 history.replaceState(null, '', 'http://localhost:3000/public/check.php')
             }, 3000);
-
-            document.getElementById('redefinirForm').addEventListener('submit', function() {
-            document.getElementById('btnRedefinir').disabled = true;
-            document.getElementById('loginSpinner').style.display = 'inline-block';
-            });
         </script>
             <script src="assets/js/perfil.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

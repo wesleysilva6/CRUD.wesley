@@ -9,8 +9,8 @@
         $descricao = $_POST['descricao'];
         $id_topico = $_POST['id_topico'];
         $imagem = $_FILES['imagem'] ?? null;
-
         $caminhoImagem = null;
+
         if ($id) {
             $busca = $conn->prepare("SELECT imagem FROM produtos WHERE id = ?");
             $busca->bind_param("i", $id);

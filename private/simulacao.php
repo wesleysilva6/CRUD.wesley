@@ -27,27 +27,27 @@
 
         <div class="card">
             <div class="card-header text-white">
-                <?php if (isset($_GET['produto']) == 'adicionado') { ?>
+                <?php if (isset($_GET['produto']) && $_GET['produto'] == 'adicionado') { ?>
                     <div class="alert alert-success">Produto adicionado com sucesso</div>
                 <?php } ?>
 
-                <?php if (isset($_GET['erro']) == 'quantidade') { ?>
+                <?php if (isset($_GET['erro']) && $_GET['erro'] == 'quantidade') { ?>
                     <div class="alert alert-danger m-3">Quantidade do produto inválida</div>
                 <?php } ?>
 
-                <?php if(isset($_GET['quantidade']) == 'limite') { ?>
+                <?php if(isset($_GET['quantidade']) && $_GET['quantidade'] == 'limite') { ?>
                     <div class="alert alert-danger m-3">A quantidade adicionada excete o limite disponível no estoque</div>
                 <?php } ?>
 
-                <?php if(isset($_GET['adicionado']) == 'historico') { ?>
+                <?php if(isset($_GET['adicionado']) && $_GET['adicionado'] == 'historico') { ?>
                     <div class="alert alert-success m-3">Simulação concluida com sucesso</div>
                 <?php } ?>
 
-                <?php if(isset($_GET['simulacao']) == 'limpa') { ?>
+                <?php if(isset($_GET['simulacao']) && $_GET['simulacao'] == 'limpa') { ?>
                     <div class="alert alert-success m-3">Simulação limpa com sucesso</div>
                 <?php } ?>
 
-                <?php if(isset($_GET['produtos']) == 'inexistentes') { ?>
+                <?php if(isset($_GET['produtos']) && $_GET['produtos'] == 'inexistentes') { ?>
                     <div class="alert alert-danger m-3">Adicione produtos a está simulação para ela ser limpa</div>
                 <?php } ?>
                 <h5 class="card-title mt-2">Simulação de Venda</h5>

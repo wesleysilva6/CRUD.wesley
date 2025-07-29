@@ -12,8 +12,8 @@
         $stmt = $conn->prepare("SELECT foto FROM usuarios WHERE id = ?");
         $stmt->bind_param('i', $usuario_id);
         $stmt->execute();
-        $resultado = $stmt->get_result();
-        $usuario = $resultado->fetch_assoc();
+        $result = $stmt->get_result();
+        $usuario = $result->fetch_assoc();
 
         if ($usuario && $usuario['foto'] != 'user.png') {
         $caminho_foto = '../../uploads/' . $usuario['foto'];

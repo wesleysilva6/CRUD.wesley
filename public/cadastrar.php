@@ -1,5 +1,4 @@
 <?php
-    include '../includes/components/header.php';
     include '../includes/core/conexao.php';
     session_start();
 
@@ -35,9 +34,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/cadastro.css">
+    <script src="assets/js/main.js" defer></script>
     <title>Estoque Aqui - System</title>
 </head>
     <body>
+    <?php include '../includes/components/header.php' ?>
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
@@ -46,7 +47,7 @@
                                 <div class="text-center"><img src="assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
 
                             <div class="card-body">
-                                <form action="cadastrar.php" method="POST" id="cadastrarForm">
+                                <form action="cadastrar.php" method="POST" id="spinnerForm">
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-person-circle" style="color:#fff"></i></span>
@@ -66,14 +67,14 @@
                                         </button>
                                     </div>
 
-                                    
-                                    <?php if(isset($_GET['erro']) == 'cadastro') { ?>
+
+                                    <?php if(isset($_GET['erro']) && $_GET['erro'] == 'cadastro') { ?>
                                         <div class="text-danger">Preencha todos os campos</div>
                                     <?php } ?>
 
                                     <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEntrar">Cadastrar</button>
-                                    <div class="d-flex justify-content-center mt-1">
-                                        <div id="loginSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+                                    <div class="d-flex justify-content-center mt-2">
+                                        <div id="checkSpinner" class="spinner-border text-primary" role="status" style="display:none;">
                                             <span class="visually-hidden">Carregando...</span>
                                         </div>
                                     </div>
@@ -97,11 +98,6 @@
                 })
                 history.replaceState(null, '', 'http://localhost:3000/public/check.php')
             }, 3000);
-
-            document.getElementById('cadastrarForm').addEventListener('submit', function() {
-            document.getElementById('btnEntrar').disabled = true;
-            document.getElementById('loginSpinner').style.display = 'inline-block';
-            });
         </script>
             <script src="assets/js/perfil.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

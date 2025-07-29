@@ -60,7 +60,8 @@
 
         $mail->send();
     } catch (Exception $e) {
-        // Log de erro se quiser
+    header('Location: ../../public/check.php?email=nao&enviado');
+    exit;
     }
 }
 ?>

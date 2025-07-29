@@ -1,6 +1,6 @@
     function mostrarPreview(input) {
         if (input.files && input.files[0]) {
-            const reader = new FileReader();
+            const reader = new FileReader()
             reader.onload = function(e) {
                 document.getElementById('preview').src = e.target.result;
             }
@@ -56,23 +56,24 @@
             }
         });
 
-        let cropper;
-        const inputFoto = document.getElementById('inputFoto');
-        const imagemCrop = document.getElementById('imagemCrop');
-        const btnCortar = document.getElementById('btnCortar');
-        const form = document.getElementById('formFoto');
+        // Cropper.js para cortar imagem de perfil
+        let cropper
+        const inputFoto = document.getElementById('inputFoto')
+        const imagemCrop = document.getElementById('imagemCrop')
+        const btnCortar = document.getElementById('btnCortar')
+        //const form = document.getElementById('formFoto')
 
         inputFoto.addEventListener('change', function (e) {
             const file = e.target.files[0];
             if (file) {
-                const reader = new FileReader();
+                const reader = new FileReader()
 
                 reader.onload = function (event) {
                     imagemCrop.src = event.target.result;
-                    imagemCrop.style.display = 'block';
+                    imagemCrop.style.display = 'block'
 
                     if (cropper) {
-                        cropper.destroy();
+                        cropper.destroy()
                     }
 
                     cropper = new Cropper(imagemCrop, {
@@ -80,10 +81,10 @@
                         viewMode: 1
                     });
 
-                    btnCortar.style.display = 'inline-block';
+                    btnCortar.style.display = 'inline-block'
                 };
 
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(file)
             }
         });
 
@@ -95,7 +96,7 @@
 
             canvas.toBlob(function (blob) {
                 const formData = new FormData();
-                formData.append('foto', blob, 'cortada.png');
+                formData.append('foto', blob, 'cortada.png')
 
                 fetch('../controllers/perfil/atualizar_foto.php', {
                     method: 'POST',
@@ -105,8 +106,8 @@
                     if (response.redirected) {
                         window.location.href = response.url;
                     } else {
-                        alert('Erro ao enviar imagem.');
+                        alert('Erro ao enviar imagem.')
                     }
-                });
-            }, 'image/png');
-        });
+                })
+            }, 'image/png')
+        })

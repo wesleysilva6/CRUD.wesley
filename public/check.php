@@ -1,7 +1,6 @@
 <?php 
     session_start();
     include '../includes/core/conexao.php';
-    include '../includes/components/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +15,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/check.css">
+    <script src="assets/js/main.js" defer></script>
     <title>Estoque Aqui - System</title>
 </head>
     <body>
+    <?php include '../includes/components/header.php' ?>
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
@@ -27,14 +28,14 @@
                         <div class="card-header" style="color:#fff">Verificar e-mail</div>
                         <div class="text-center"><img src="assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
                             <div class="card-body">
-                                <form action="../includes/core/check_email.php" method="POST" id="checkForm">
+                                <form action="../includes/core/check_email.php" method="POST" id="spinnerForm">
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>
                                         <input type="email" class="form-control" name="email_redefinir" placeholder="E-mail">
                                     </div>
 
-                                    <?php if (isset($_GET['erro']) == 'email') { ?>
+                                    <?php if (isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
                                         <div class="text-danger">E-mail inválido. Verifique e tente novamente.</div>
                                     <?php } ?>
 
@@ -90,12 +91,8 @@
                 })
                 history.replaceState(null, '', 'http://localhost:3000/public/check.php')
             }, 3000);
-
-                document.getElementById('checkForm').addEventListener('submit', function() {
-                document.getElementById('btnEnviar').disabled = true;
-                document.getElementById('checkSpinner').style.display = 'inline-block';
-            });
         </script>
+            <script src="assets/js/perfil.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>

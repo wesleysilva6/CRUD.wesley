@@ -14,8 +14,11 @@
         $sheet = $spreadsheet->getActiveSheet();
         $row = 1;
 
-        $topicos = $conn->query("SELECT id_topico, nome_topico FROM topicos WHERE usuario_id = $usuario_id");
-        while ($topico = $topicos->fetch_assoc()) {
+        $topicos = $conn->prepare("SELECT id_topico, nome_topico FROM topicos WHERE usuario_id = ?");
+        $topicos->bind_param("i", $usuario_id);
+        $topicos->execute();
+        $result = $topicos->get_result();
+        while ($topico = $result->fetch_assoc()) {
         $topico_nome = $topico['nome_topico'];
         $topico_id = $topico['id_topico'];
 

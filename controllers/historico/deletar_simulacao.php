@@ -22,7 +22,7 @@
         if ($id_item >= 0) {
         $stmt = $conn->prepare("DELETE FROM simulacoes WHERE id = ? AND usuario_id = ?");
         $stmt->bind_param('ii', $id_simulacao, $usuario_id);
-/*         $stmt->execute(); */
+        $stmt->execute();
         $stmt->close();
         }
 

@@ -1,4 +1,4 @@
-        const ctx1 = document.getElementById('chartSimulacoesDia').getContext('2d');
+        const ctx1 = document.getElementById('chartSimulacoesDia').getContext('2d')
         new Chart(ctx1, {
         type: 'bar',
         data: {
@@ -14,9 +14,9 @@
             y: { beginAtZero: true }
             }
         }
-        });
+        })
 
-        const ctx2 = document.getElementById('chartResumo').getContext('2d');
+        const ctx2 = document.getElementById('chartResumo').getContext('2d')
         new Chart(ctx2, {
         type: 'doughnut',
         data: {
@@ -27,4 +27,4 @@
             }]
         },
         options: { responsive: true }
-        });
+        })

@@ -9,7 +9,6 @@
     $mail = new PHPMailer(true);
 
 try {
-    // Configuração do servidor SMTP
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
@@ -19,14 +18,12 @@ try {
     $mail->Port = 587;
     $mail->CharSet = 'UTF-8';
 
-    // Remetente e destinatário
     $mail->setFrom('estoque.aqui1@gmail.com', 'Estoque Aqui');
     $mail->addAddress($_SESSION['email_redefinir']);  // Email do usuário que pediu a redefinição
 
     // Monta o link de redefinição
     $link = 'http://localhost:3000/public/redefinir.php?email=' . urlencode($_SESSION['email_redefinir']);
 
-    // Conteúdo do e-mail (HTML)
     $mail->isHTML(true);
     $mail->Subject = '🔒 Redefinição de Senha - Estoque Aqui';
     $mail->Body = '

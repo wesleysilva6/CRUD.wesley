@@ -64,11 +64,11 @@
                     <label for="editarNome" class="form-label text-white">Editar Nome</label>
                     <input type="text" id="editarNome" name="novo_nome" class="form-control" placeholder="Nome do Usuário">
 
-                <?php if(isset($_GET['status']) == 'nome') { ?>
+                <?php if(isset($_GET['status']) && $_GET['status'] == 'nome') { ?>
                     <div class="text-success">Nome atualizado com sucesso!</div>
                 <?php } ?>
 
-                <?php if(isset($_GET['nome']) == 'vazio') { ?>
+                <?php if(isset($_GET['nome']) && $_GET['nome'] == 'vazio') { ?>
                     <div class="text-danger">O nome não pode estar em branco.</div>
                 <?php } ?>
 
@@ -103,19 +103,19 @@
                     </button>
                 </div>
 
-                <?php if (isset($_GET['senha']) == 'incorreta') { ?>
+                <?php if (isset($_GET['senha']) && $_GET['senha'] == 'incorreta') { ?>
                     <div class="text-danger">A senha atual informada está incorreta.</div>
                 <?php } ?>
 
-                <?php if (isset($_GET['campos']) == 'vazios') { ?>
+                <?php if (isset($_GET['campos']) && $_GET['campos'] == 'vazios') { ?>
                     <div class="text-danger">Preencha todos os campos para atualizar sua senha.</div>
                 <?php } ?>
 
-                <?php if (isset($_GET['erro']) == 'senhas') { ?>
+                <?php if (isset($_GET['erro']) && $_GET['erro'] == 'senhas') { ?>
                     <div class="text-danger">As novas senhas digitadas não coincidem.</div>
                 <?php } ?>
 
-                <?php if (isset($_GET['alterada']) == 'sucesso') { ?>
+                <?php if (isset($_GET['alterada']) && $_GET['alterada'] == 'sucesso') { ?>
                     <div class="text-success">Senha Alterada com sucesso</div>
                 <?php } ?>
 

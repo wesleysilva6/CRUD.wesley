@@ -18,7 +18,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../public/assets/css/home.css">
-    <script src="../public/assets/js/main.js"></script>
+    <script src="../public/assets/js/main.js" defer></script>
+    <script src="../public/assets/js/modals.js" defer></script>
     <title>Estoque Aqui - Home</title>
 </head>
     <body>
@@ -136,7 +137,6 @@
                 history.replaceState(null, '', 'http://localhost:3000/private/home.php')
             }, 3000);
         </script>
-
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>
