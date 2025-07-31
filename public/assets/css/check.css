@@ -24,6 +24,10 @@
         background: var(--color--navbar);
         }
 
+        #usuarioEmail {
+        color: var(--color--text);
+        }
+
         .card-login {
         padding: 13rem 0 0 0;
         width: 28rem;

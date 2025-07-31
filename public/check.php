@@ -60,12 +60,17 @@
                     <h5 class="modal-title" id="emailModalLabel">E-mail enviado com sucesso!</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
-                <div class="modal-body text-white">
-                    <p>E-mail de redefinição de senha enviado para: <strong id="usuarioEmail"></strong></p>
+
+                <div class="modal-body text-white text-center">
+                    <p><i class="bi bi-envelope-check" style="font-size: 3.4rem;"></i><br>
+                        E-mail de <strong>redefinição de senha</strong> foi enviado para: <strong style="font-size: 1.15rem;" id="usuarioEmail"></strong>
+                    </p>
+                    <p>Verifique sua caixa de entrada ou spam.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
                 </div>
+
                 </div>
             </div>
             </div>
@@ -75,10 +80,12 @@
             if (isset($_GET['email']) && $_GET['email'] == 'enviado' && isset($_SESSION['email_redefinir'])) {
                 $usuario = htmlspecialchars($_SESSION['email_redefinir']); ?>
             <script>
+                document.addEventListener('DOMContentLoaded', function () {
                     const usuario = "<?php echo $usuario; ?>"
                     document.getElementById('usuarioEmail').innerText = usuario
                     const emailModal = new bootstrap.Modal(document.getElementById('emailModal'))
                     emailModal.show()
+                })
             </script>
         <?php } ?>
 
@@ -90,7 +97,7 @@
                 history.replaceState(null, '', 'http://localhost:3000/public/check.php')
             }, 3000);
         </script>
-            <script src="assets/js/perfil.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+            <script src="assets/js/perfil.js"></script>
     </body>
 </html>

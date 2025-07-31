@@ -64,7 +64,7 @@
                     <label for="editarNome" class="form-label text-white">Editar Nome</label>
                     <input type="text" id="editarNome" name="novo_nome" class="form-control" placeholder="Nome do Usuário">
 
-                <?php if(isset($_GET['status']) && $_GET['status'] == 'nome') { ?>
+                <?php if(isset($_GET['status']) && $_GET['status'] == 'nome_atualizado') { ?>
                     <div class="text-success">Nome atualizado com sucesso!</div>
                 <?php } ?>
 
@@ -111,7 +111,7 @@
                     <div class="text-danger">Preencha todos os campos para atualizar sua senha.</div>
                 <?php } ?>
 
-                <?php if (isset($_GET['erro']) && $_GET['erro'] == 'senhas') { ?>
+                <?php if (isset($_GET['erro']) && $_GET['erro'] == 'senhas_diferentes') { ?>
                     <div class="text-danger">As novas senhas digitadas não coincidem.</div>
                 <?php } ?>
 
