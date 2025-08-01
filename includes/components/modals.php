@@ -2,13 +2,15 @@
 <head>
     <link rel="shortcut icon" href="../public/assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../public/assets/css/home.css">
+    <script src="../../public/assets/js/core/main.js" defer></script>
+    <script src="../../public/assets/js/core/modals.js" defer></script>
 </head>
 
     <body>
         <!-- MODAL de ADICIONAR TÓPICO -->
         <div class="modal fade" id="modalTopico" tabindex="-1">
             <div class="modal-dialog">
-                <form action="../controllers/topicos/add_topico.php" method="POST" class="modal-content">
+                <form action="../controllers/topicos/add_topico.php" method="POST" class="spinnerForm modal-content">
                     <div class="modal-header text-white">
                         <h5 class="modal-tittle text-white">Adicionar Tópico :</h5>
                         <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal"></button>
@@ -18,7 +20,12 @@
                                 <label for="nomeTopico" class="form-label">Nome do Tópico :</label>
                                 <input type="text" id="nomeTopico" class="form-control" name="nome_topico" placeholder="Nome do Tópico" required>
                             </div>
-                                <button type="submit" class="btn btn-primary w-100">Adicionar Tópico</button>
+                                <button type="submit" class="btnEnviar btn btn-primary w-100">Adicionar Tópico</button>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <div class="checkSpinner spinner-border text-primary" role="status" style="display:none;">
+                                        <span class="visually-hidden">Carregando...</span>
+                                    </div>
+                                </div>
                         </div>
                 </form>
             </div>
@@ -27,7 +34,7 @@
         <!-- MODAL de ADICIONAR PRODUTO -->
         <div class="modal fade" id="modalProduto" tabindex="-1">
             <div class="modal-dialog">
-                <form action="../controllers/produtos/adicionar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
+                <form action="../controllers/produtos/adicionar_produto.php" method="POST" class="spinnerForm modal-content" enctype="multipart/form-data">
                     <input type="hidden" name="id_topico">
                         <div class="modal-header text-white">
                             <h5 class="modal-tittle text-white">Adicionar Produto</h5>
@@ -59,7 +66,12 @@
                                         <label for="descricao" class="form-label">Descrição :</label>
                                         <textarea id="descricao" class="form-control" name="descricao" style="resize:none"  placeholder="Descrição do Produto" required></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary w-100">Adicionar Produto</button>
+                                    <button type="submit" class="btnEnviar btn btn-primary w-100">Adicionar Produto</button>
+                                    <div class="d-flex justify-content-center mt-2">
+                                        <div class="checkSpinner spinner-border text-primary" role="status" style="display:none;">
+                                            <span class="visually-hidden">Carregando...</span>
+                                        </div>
+                                    </div>
                             </div>
                 </form>
             </div>
@@ -82,7 +94,7 @@
                 <!-- MODAL de EDITAR PRODUTO -->
                 <div class="modal fade" id="editarModal" tabindex="-1">
                 <div class="modal-dialog">
-                    <form action="../controllers/produtos/editar_produto.php" method="POST" class="modal-content" enctype="multipart/form-data">
+                    <form action="../controllers/produtos/editar_produto.php" method="POST" class="spinnerForm modal-content" enctype="multipart/form-data">
                     <div class="modal-header text-white">
                         <h5 class="modal-title text-white">Editar Produto</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -116,7 +128,12 @@
                             <textarea style="resize:none;" class="form-control" name="descricao" id="editar_descricao" rows="3" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Atualizar Produto</button>
+                        <button type="submit" class="btnEnviar btn btn-primary w-100">Atualizar Produto</button>
+                        <div class="d-flex justify-content-center mt-2">
+                            <div class="checkSpinner spinner-border text-primary" role="status" style="display:none;">
+                                <span class="visually-hidden">Carregando...</span>
+                            </div>
+                        </div>
                     </div>
 
                     </form>
@@ -168,7 +185,7 @@
         </div>
 
         <!-- MODAL DE EXCLUIR SIMULAÇÃO -->
-        <div class="modal fade" id="removerSimulacao" tabindex="-1" aria-labelledby="removerProdutoLabel" aria-hidden="true">
+        <div class="modal fade" id="removerSimulacao" tabindex="-1" aria-labelledby="excluirSimulacaoLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header text-white">
@@ -182,6 +199,27 @@
 
                     <div class="modal-footer">
                         <a id="deletarSimulacao" href="" class="btn btn-primary">Sim</a>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL DE ECLUIR SIMULAÇÕES DO HISTÓRICO -->
+        <div class="modal fade" id="limparHistorico" tabindex="-1" aria-labelledby="removerHistoricoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-white">
+                        <h5 class="modal-title">Excluir Simulações do Histórico</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="modal-body text-white">
+                        <p><strong>Tem certeza de que deseja excluir todas as simulações do histórico? Esta ação é irreversível.</strong></p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a id="deletarHistorico" href="" class="btn btn-primary">Sim</a>
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
                     </div>
                 </div>

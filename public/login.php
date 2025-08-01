@@ -28,7 +28,7 @@
                         <div class="card-header" style="color:#fff">Entrar</div>
                         <div class="text-center"><img src="assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
                             <div class="card-body">
-                                <form action="../includes/core/valida_acesso.php" method="POST" id="spinnerForm">
+                                <form action="../includes/core/valida_acesso.php" method="POST" class="spinnerForm">
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-envelope" style="color:#fff"></i></span>
@@ -43,17 +43,26 @@
                                         </button>
                                     </div>
 
-                                    <?php if(isset($_GET['erro']) && $_GET['erro'] == 'email') { ?>
-                                        <div class="text-danger">Email e Senha inválidos</div>
-                                    <?php } ?>
+                                <?php 
+                                    $mensagem = [
+                                        'error' => [
+                                            'email_senha' => ['danger', 'Email e senha inválidos']
+                                        ],
+                                        'erro' => [
+                                            'senha' => ['danger', 'Senha inválida']
+                                        ]
+                                    ];
 
-                                    <?php if(isset($_GET['erro']) && $_GET['erro'] == 'senha') { ?>
-                                        <div class="text-danger">Senha inválida</div>
-                                    <?php } ?>
-
-                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEnviar">Entrar</button>
+                                    foreach ($mensagem as $param => $opcoes) {
+                                        if(isset($_GET[$param]) && isset($opcoes[$_GET[$param]])) {
+                                            [$tipo, $mensagem] = $opcoes[$_GET[$param]];
+                                            echo "<div class='text-$tipo'>$mensagem</div>";
+                                        }
+                                    }
+                                ?>
+                                    <button class="btnEnviar btn btn-sm btn-primary mt-2 w-100" type="submit">Entrar</button>
                                     <div class="d-flex justify-content-center mt-2">
-                                        <div id="checkSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+                                        <div class="checkSpinner spinner-border text-primary" role="status" style="display:none;">
                                             <span class="visually-hidden">Carregando...</span>
                                         </div>
                                     </div>

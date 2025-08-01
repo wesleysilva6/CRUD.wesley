@@ -14,8 +14,14 @@
                 $preco = $item['preco'];
                 $subtotal = $quantidade * $preco;
                 $total += $subtotal;
-        } 
-    } 
+            }
+        }
+
+        if(empty($_SESSION['simulacao']) || $total <= 0) {
+            header('location: ../../private/simulacao.php?simulacao=vazia');
+            exit;
+        }
+
         $stmt = $conn->prepare("INSERT INTO simulacoes (usuario_id, cliente, criada_em, total) VALUES (?, ?, ?, ?)");
         $stmt->bind_param('issd', $usuario_id, $nome_cliente, $criada_em, $total);
         $stmt->execute();

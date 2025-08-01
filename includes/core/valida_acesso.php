@@ -25,7 +25,7 @@
         exit;
         }
     } else {
-        header('location: ../../public/login.php?erro=email&senha');
+        header('location: ../../public/login.php?error=email_senha');
         exit;
         }
     }

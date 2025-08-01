@@ -36,3 +36,14 @@
                     }
                 })
             }
+
+        // MODAL PARA REMOVER SIMULAÇÃO
+            const limparHistorico = document.getElementById('limparHistorico')
+            if(limparHistorico) {
+                limparHistorico.addEventListener('show.bs.modal', function (event) {
+                    const confirmarBtn = document.getElementById('deletarHistorico')
+                    if (confirmarBtn) {
+                        confirmarBtn.href = `../controllers/historico/deletar_simulacoes.php`
+                    }
+                })
+            }

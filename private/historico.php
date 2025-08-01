@@ -28,11 +28,23 @@
 
     <div class="card">
         <div class="card-header text-white">
+            <?php 
+                $msg = [
+                    'produto' => [
+                        'removido' => ['danger', 'Produto removido com sucesso']
+                    ],
+                    'produtos' => [
+                        'removidos' => ['danger', 'Todos os produtos foram removidos do histórico com sucesso!']
+                    ],
+                ];
 
-            <?php if (isset($_GET['produto']) && $_GET['produto'] == 'removido') { ?>
-                <div class="alert alert-danger">Produto removido com sucesso</div>
-            <?php } ?>
-
+                foreach ($msg as $param => $opcoes) {
+                    if(isset($_GET[$param]) && isset($opcoes[$_GET[$param]])) {
+                        [$tipo, $mensagem] = $opcoes[$_GET[$param]];
+                        echo "<div class='alert alert-$tipo'>$mensagem</div> ";
+                    }
+                }
+            ?>
             <h5 class="card-title mt-2">Histórico de Simulações</h5>
         </div>
 
@@ -45,13 +57,14 @@
                             <th>Produto</th>
                             <th>Quantidade</th>
                             <th>Preço</th>
-                            <th>Subtotal</th>
                             <th>Criada em</th>
+                            <th>Subtotal</th>
                             <th>Deletar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $stmt = $conn->prepare("SELECT i.id AS id_item, s.cliente, 
+                        <?php $total = 0;
+                        $stmt = $conn->prepare("SELECT i.id AS id_item, s.cliente, 
                         DATE_FORMAT(s.criada_em, '%d/%m/%Y %H:%i') AS criada_em, i.nome_produto, i.quantidade, i.preco, i.subtotal 
                         FROM simulacoes s 
                         INNER JOIN itens_simulacao i ON s.id = i.id_simulacao 
@@ -60,13 +73,13 @@
                             $stmt->execute();
                             $result = $stmt->get_result() ?>
                         <?php while($linha = $result->fetch_assoc()) { ?>
-                            <tr>
+                            <?php $total += $linha['subtotal']; ?>
                                 <td> <?php echo $linha['cliente'] ?></td>
                                 <td> <?php echo $linha['nome_produto'] ?></td>
                                 <td> <?php echo $linha['quantidade'] ?></td>
                                 <td> <?php echo 'R$ '. number_format($linha['preco'], 2, ',', '.'); ?> </td>
-                                <td> <?php echo 'R$ '. number_format($linha['subtotal'], 2, ',', '.'); ?> </td>
                                 <td> <?php echo $linha['criada_em'] ?></td>
+                                <td> <?php echo 'R$ '. number_format($linha['subtotal'], 2, ',', '.'); ?> </td>
                             <td>
                                 <button class="btn"
                                 data-bs-toggle="modal"
@@ -79,7 +92,16 @@
                             </tr>
                         <?php } ?>
                     </tbody>
+                        <tfoot>
+                            <tr class="table-dark">
+                                <th colspan="5" class="text-end text-white">Subtotal Geral:</th>
+                                <th>R$ <?php echo number_format($total, 2, ',', '.'); ?></th>
+                            </tr>
+                        </tfoot>
                 </table>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#limparHistorico">Excluir todas as Simulações</button>
             </div>
         </div>
     </div>

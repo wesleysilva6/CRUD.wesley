@@ -48,7 +48,7 @@
                                 <div class="text-center"><img src="assets/img/fundop.png" alt="" width="200rem" height="200rem"></div>
 
                             <div class="card-body">
-                                <form action="cadastrar.php" method="POST" id="spinnerForm">
+                                <form action="cadastrar.php" method="POST" class="spinnerForm">
 
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-person-circle" style="color:#fff"></i></span>
@@ -72,9 +72,9 @@
                                         <div class="text-danger">Preencha todos os campos</div>
                                     <?php } ?>
 
-                                    <button class="btn btn-sm btn-primary mt-2 w-100" type="submit" id="btnEnviar">Cadastrar</button>
+                                    <button class="btnEnviar btn btn-sm btn-primary mt-2 w-100" type="submit">Cadastrar</button>
                                     <div class="d-flex justify-content-center mt-2">
-                                        <div id="checkSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+                                        <div class="checkSpinner spinner-border text-primary" role="status" style="display:none;">
                                             <span class="visually-hidden">Carregando...</span>
                                         </div>
                                     </div>

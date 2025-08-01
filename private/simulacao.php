@@ -19,6 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../public/assets/css/simular.css">
+    <script src="../public/assets/js/core/main.js" defer></script>
     <title>Estoque Aqui - Simular Venda</title>
 </head>
     <body>
@@ -46,6 +47,9 @@
                     'produtos' => [
                         'inexistentes' => ['danger', 'Adicione produtos a esta simulação para ela ser limpa']
                     ],
+                    'simulacao' => [
+                        'vazia' => ['danger', 'A simulação não pode ser concluída com produtos inválidos ou sem produtos']
+                    ],
                 ];
 
                 foreach ($mensagens as $param => $opcoes) {
@@ -59,7 +63,7 @@
                 <h5 class="card-title mt-2">Simulação de Venda</h5>
             </div>
 
-        <form action="../controllers/simulacao/adicionar_simulacao.php" method="POST">
+        <form action="../controllers/simulacao/adicionar_simulacao.php" method="POST" class="spinnerForm">
             <div class="card-body text-white">
                 <label for="nomeCliente" class="form-label">Cliente</label>
                 <input type="text" id="nomeCliente" name="nome_cliente" class="form-control w-25 mb-3" placeholder="Nome do Cliente" required>
@@ -91,7 +95,12 @@
                     </div>
 
                     <div class="mt-auto">
-                        <button type="submit" class="btn btn-primary">Adicionar à Simulação</button>
+                        <button type="submit" class="btnEnviar btn btn-primary">Adicionar à Simulação</button>
+                        <div class="d-flex justify-content-center">
+                            <div class="checkSpinner spinner-border text-primary" role="status" style="display:none;">
+                                <span class="visually-hidden">Carregando...</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </form>
@@ -121,7 +130,7 @@
                                         $quantidade = $item['quantidade'];
                                         $subtotal = $produto['preco'] * $quantidade;
                                         $total += $subtotal;
-                                        echo "<tr>
+                                        echo "<tr>  
                                             <td>{$produto['nome_produto']}</td>
                                             <td>{$quantidade}</td>
                                             <td>R$ " . number_format($produto['preco'], 2, ',', '.') . "</td>
@@ -144,10 +153,17 @@
                 </div>
             </div>
 
-            <form action="../controllers/simulacao/finalizar_simulacao.php" method="POST">
-                <div class="card-footer d-flex justify-content-center gap-3 mb-4">
-                    <button type="submit" class="btn btn-primary">Confirmar Simulação</button>
-                    <a href="../controllers/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
+            <form action="../controllers/simulacao/finalizar_simulacao.php" method="POST" class="spinnerForm">
+                <div class="card-footer d-flex flex-column align-items-center mb-4">
+                    <div class="d-flex justify-content-center gap-3 w-100">
+                        <button type="submit" class="btnEnviar btn btn-primary">Confirmar Simulação</button>
+                        <a href="../controllers/simulacao/limpar_simulacao.php" class="btn btn-primary">Limpar Simulação</a>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2 w-100">
+                        <div class="checkSpinner spinner-border text-primary" role="status" style="display:none;">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
