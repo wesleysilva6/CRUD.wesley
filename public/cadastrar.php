@@ -41,7 +41,7 @@
     <body>
     <?php include '../includes/components/header.php' ?>
         <div class="container"> 
-            <div class="row">
+            <div class="row"> 
                 <div class="card-login">
                         <div class="card">
                             <div class="card-header" style="color:#fff">Cadastrar</div>

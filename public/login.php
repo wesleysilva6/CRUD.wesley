@@ -60,6 +60,7 @@
                                         }
                                     }
                                 ?>
+
                                     <button class="btnEnviar btn btn-sm btn-primary mt-2 w-100" type="submit">Entrar</button>
                                     <div class="d-flex justify-content-center mt-2">
                                         <div class="checkSpinner spinner-border text-primary" role="status" style="display:none;">

@@ -8,7 +8,7 @@
         $senha = $_POST['senha'];
         $confirmar_senha = $_POST['confirmar_senha'];
             if (empty($senha) || empty($confirmar_senha)) {
-                header('Location: ../../public/redefinir.php?erro=preencher&campos');
+                header('Location: ../../public/redefinir.php?error=preencher_campos');
                 exit;
             }
                 if ($senha !== $confirmar_senha) {

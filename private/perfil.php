@@ -129,10 +129,7 @@
                     ],
                     'alterada' => [
                         'sucesso' => ['success', 'Senha alterada com sucesso']
-                    ],
-                    'status' => [
-                        'nome_atualizado' => ['success', 'Nome atualizado com sucesso!']
-                    ],
+                    ]
                 ];
 
                 foreach ($mensagens as $param => $opcoes) {

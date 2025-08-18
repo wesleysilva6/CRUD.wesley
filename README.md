@@ -46,7 +46,7 @@ Funcional, e com foco na experiência do usuário, ele permite:
 ### Back-end
 <p align="center">
   <code><img height="32" src="https://raw.githubusercontent.com/github/explore/main/topics/php/php.png" /></code>
-  <code><img height="32" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" /></code>
+  <code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" alt="MySQL"/></code>
 </p>
 
 ### Ferramentas & Utilitários

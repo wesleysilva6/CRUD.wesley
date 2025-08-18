@@ -32,7 +32,7 @@
                             Agora, além de todas essas funcionalidades, o sistema conta também com a opção de exportar os dados do estoque para planilhas Excel, seja de um tópico específico ou de toda a base de dados, facilitando ainda mais a análise, controle e geração de relatórios personalizados.</p>
                             <a href="login.php" class="btn">Login</a>
                             <a href="cadastrar.php" class="btn">Cadastre-se</a>
-                        </div>  
+                        </div>
 
                         <div class="col-md-4 d-flex justify-content-end" id="logo">
                             <img src="assets/img/caixa_fundop.png" alt="" class="postion-absolute d-none d-md-block" width="250rem" style="margin-right: -10rem;">

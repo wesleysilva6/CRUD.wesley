@@ -49,13 +49,23 @@
                                         </button>
                                     </div>
 
-                                    <?php if (isset($_GET['erro']) && $_GET['erro'] == 'preencher') { ?>
-                                        <div class="text-danger">Por favor, preencha todos os campos obrigatórios</div>
-                                    <?php } ?>
+                                <?php 
+                                    $mensagem = [
+                                        'error' => [
+                                            'reencher_campos' => ['danger', 'Por favor, preencha todos os campos obrigatórios']
+                                        ],
+                                        'erro' => [
+                                            'senhas_diferentes' => ['danger', 'As senhas informadas não coincidem. Por favor, verifique e tente novamente.']
+                                        ]
+                                    ];
 
-                                    <?php if (isset($_GET['erro']) && $_GET['erro'] == 'senhas_diferentes') { ?>
-                                        <div class="text-danger">As senhas informadas não coincidem. Por favor, verifique e tente novamente.</div>
-                                    <?php } ?>
+                                    foreach ($mensagem as $param => $opcoes) {
+                                        if(isset($_GET[$param]) && isset($opcoes[$_GET[$param]])) {
+                                            [$tipo, $mensagem] = $opcoes[$_GET[$param]];
+                                            echo "<div class='text-$tipo'>$mensagem</div>";
+                                        }
+                                    }
+                                ?>
 
                                     <button class="btnEnviar btn btn-sm btn-primary mt-2 w-100" type="submit">Redefinir Senha</button>
                                     <div class="d-flex justify-content-center mt-2">
