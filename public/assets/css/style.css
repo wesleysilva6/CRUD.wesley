@@ -2,10 +2,15 @@
         --color--primary:#0B5ED7;
         --color--navbar:#0C0F16;
         --color--text: #fff;
+        --coolor--bg-index: #000;
         }
 
 ::-webkit-scrollbar {
         width: 8px;
+        }
+
+        body {
+        background: var(--coolor--bg-index);
         }
 
         ::-webkit-scrollbar-thumb {

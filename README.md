@@ -100,6 +100,7 @@ Funcional, e com foco na experiência do usuário, ele permite:
 - [ ] 📅 Filtro de simulações por período  
 - [ ] 🔔 Notificações de estoque baixo  
 - [ ] 📦 Histórico de movimentações de estoque  
+- [ ] ⚙️ Implementar funcionalidade real para vendas
 
 ---
 
