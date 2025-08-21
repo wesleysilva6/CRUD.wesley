@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../public/assets/img/favicon.ico" type="image/x-icon">
+
 </head>
-    <body style="background:#000">
+    <body>
         <nav class="navbar">
             <div class="container-fluid">
                 <a href="../public/login.php" class="navbar-brand">
@@ -17,4 +18,4 @@
             </div>
         </nav>
     </body>
-</html>''
+</html>

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="../../public/assets/css/sidebar.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
 </head>
-<body>        
-    <nav class="navbar" data-bs-theme="dark">
+<body>
+    <nav class="navbar">
             <div class="container-fluid">
                 <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <i class="bi bi-list"></i>
                 </button>
-                <a href="home.php" class="navbar-brand mx-auto">
-                    <img src="../public/assets/img/logo_stexto.png" width="65" height="65" alt="">
-                    <img src="../public/assets/img/fundop2.png" alt="" width="85" height="65">
-                </a>
+                <div class="navbar-brand mx-auto">
+                    <h3>Dashboard</h3>
+                </div>
             </div>
     </nav>
 
@@ -32,6 +34,6 @@
                 <li><a href="../includes/core/deslogar.php" class="text-white mb-3 fs-5 nav-link"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
