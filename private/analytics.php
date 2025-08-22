@@ -1,6 +1,8 @@
 <?php
         session_start();
-        include '../includes/core/conexao.php';
+        require_once __DIR__ . '/../includes/core/bootstrap.php';
+        require_once '../includes/core/conexao.php';
+
         $usuario_id = $_SESSION['id'];
 
         if (!isset($_SESSION['id'])) {
@@ -40,7 +42,7 @@
     <title>Estoque Aqui - Analytics</title>
 </head>
     <body>
-        <?php include '../includes/components/sidebar.php'; ?>
+        <?php view('sidebar') ?>
 
     <div class="container dashboard-container">
         <h2 class="dashboard-title">📊 Analytics Geral</h2>

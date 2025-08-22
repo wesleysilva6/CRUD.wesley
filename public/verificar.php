@@ -1,6 +1,7 @@
 <?php 
     session_start();
-    include '../includes/core/conexao.php';
+    require_once __DIR__ . '/../includes/core/bootstrap.php';
+    require_once '../includes/core/conexao.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
     <title>Estoque Aqui - System</title>
 </head>
     <body>
-    <?php include '../includes/components/header.php' ?>
+    <?php view('header'); ?>
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
@@ -76,7 +77,7 @@
             </div>
 
         <?php 
-            include '../includes/components/footer.php';
+            view('footer');
             if (isset($_GET['email']) && $_GET['email'] == 'enviado' && isset($_SESSION['email_redefinir'])) {
                 $usuario = htmlspecialchars($_SESSION['email_redefinir']); ?>
             <script>
@@ -94,7 +95,7 @@
                 document.querySelectorAll('.text-danger').forEach(al => {
                     al.style.display = 'none'
                 })
-                history.replaceState(null, '', 'http://localhost:3000/public/check.php')
+                history.replaceState(null, '', 'http://localhost:3000/public/verificar.php')
             }, 3000);
         </script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

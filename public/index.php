@@ -1,3 +1,5 @@
+    <?php require_once __DIR__ . '/../includes/core/bootstrap.php'; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -53,9 +55,7 @@
                 </div>
             </section>
 
-            <?php 
-                include '../includes/components/footer.php'
-            ?>
+            <?php view('footer') ?>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>

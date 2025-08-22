@@ -1,3 +1,5 @@
+    <?php require_once __DIR__ . '/../includes/core/bootstrap.php'; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,7 +17,7 @@
     <title>Estoque Aqui - System</title>
 </head>
     <body>
-    <?php include '../includes/components/header.php' ?>
+    <?php view('header') ?>
         <div class="container"> 
             <div class="row">
                 <div class="card-login">
@@ -69,7 +71,7 @@
                                     </div>
 
                                     <div class="d-flex justify-content-between">
-                                        <a href="check.php">Esqueceu a Senha?</a>
+                                        <a href="verificar.php">Esqueceu a Senha?</a>
                                         <a href="cadastrar.php">Cadastrar-se</a>
                                     </div>
                                 </form>
@@ -80,7 +82,7 @@
         </div>
 
             <?php 
-                include '../includes/components/footer.php'
+                view('footer')
             ?>
 
     <script>

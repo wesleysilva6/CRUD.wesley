@@ -1,7 +1,9 @@
 <?php 
         session_start();
+        require_once __DIR__ . '/../includes/core/bootstrap.php';
+        require_once '../includes/core/conexao.php';
+        
         date_default_timezone_set('America/Sao_Paulo');
-        include '../includes/core/conexao.php';
         $usuario_id = $_SESSION['id'];
 
         if (!isset($_SESSION['id'])) {
@@ -23,8 +25,8 @@
     <title>Estoque Aqui - Histórico</title>
 </head>
     <body>
-        <?php include '../includes/components/sidebar.php'; ?>
-        <?php include '../includes/components/modals.php'; ?>
+        <?php view('modals') ?>
+        <?php view('sidebar') ?>
 
     <div class="card">
         <div class="card-header text-white">

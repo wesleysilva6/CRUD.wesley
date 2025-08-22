@@ -1,6 +1,5 @@
-
 <?php 
-    include 'conexao.php';
+    require_once 'conexao.php';
     session_start();
     $email = $_SESSION['email_redefinir'];
 

@@ -1,5 +1,5 @@
 <?php
-        include '../../includes/core/conexao.php';
+        require_once '../../includes/core/conexao.php';
         session_start();
 
         if (!isset($_SESSION['id'])) {

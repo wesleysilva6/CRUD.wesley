@@ -1,7 +1,8 @@
 <?php
         session_start();
-        include '../includes/core/conexao.php';
-        include '../includes/components/modals.php';
+        require_once __DIR__ . '/../includes/core/bootstrap.php';
+        require_once '../includes/core/conexao.php';
+
         date_default_timezone_set('America/Sao_Paulo');
 
         if (!isset($_SESSION['id'])) {
@@ -9,6 +10,7 @@
         exit;
         }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,7 +25,8 @@
     <title>Estoque Aqui - Home</title>
 </head>
     <body>
-        <?php include '../includes/components/sidebar.php' ?>
+        <?php view('modals') ?>
+        <?php view('sidebar') ?>
 
         <div class="container-txt mt-5 d-flex justify-content-center" style="border:none;">
             <div class="alert alert-primary text-center"> Seja Muito Bem-Vindo(a) <?php echo $_SESSION['nome']; ?> ao seu Sistema de ESTOQUE !</div>

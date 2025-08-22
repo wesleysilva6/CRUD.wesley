@@ -1,5 +1,5 @@
 <?php 
-    include '../../includes/core/conexao.php';
+    require_once '../../includes/core/conexao.php';
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

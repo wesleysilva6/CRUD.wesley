@@ -1,6 +1,8 @@
 <?php
-    include '../includes/core/conexao.php';
     session_start();
+    require_once __DIR__ . '/../includes/core/bootstrap.php';
+
+    require_once '../includes/core/conexao.php';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome = $_POST['nome'] ?? '';
@@ -39,7 +41,7 @@
     <title>Estoque Aqui - System</title>
 </head>
     <body>
-    <?php include '../includes/components/header.php' ?>
+    <?php view('header') ?>
         <div class="container"> 
             <div class="row"> 
                 <div class="card-login">
@@ -88,7 +90,7 @@
         </div>
 
                 <?php 
-                    include '../includes/components/footer.php'
+                    view('footer')
                 ?>
 
         <script>

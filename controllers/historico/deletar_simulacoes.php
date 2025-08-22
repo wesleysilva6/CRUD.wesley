@@ -1,5 +1,5 @@
 <?php 
-        include '../../includes/core/conexao.php';
+        require_once '../../includes/core/conexao.php';
         session_start();
 
         $usuario_id = $_SESSION['id'];

@@ -1,5 +1,5 @@
 <?php 
-    include '../../includes/core/conexao.php';
+    require_once '../../includes/core/conexao.php';
     $id = $_GET['id_topico'];
 
         if($id == TRUE) {

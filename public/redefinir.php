@@ -1,3 +1,5 @@
+    <?php require_once __DIR__ . '/../includes/core/bootstrap.php'; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -81,7 +83,7 @@
         </div>
 
             <?php 
-                include '../includes/components/footer.php'
+                view('footer')
             ?>
 
             <script src="assets/js/perfil.js"></script>

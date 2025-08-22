@@ -1,14 +1,17 @@
 <?php
         session_start();
-        date_default_timezone_set('America/Sao_Paulo');
-        include '../includes/core/conexao.php';
-        $usuario_id = $_SESSION['id'];
+        require_once __DIR__ . '/../includes/core/bootstrap.php';
+        require_once '../includes/core/conexao.php';
 
+        date_default_timezone_set('America/Sao_Paulo');
+        $usuario_id = $_SESSION['id'];
+        
         if (!isset($_SESSION['id'])) {
         header('Location: ../public/login.php?erro=acesso_negado');
         exit;
         }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,7 +29,7 @@
     <title>Estoque Aqui - Perfil</title>
 </head>
     <body>
-        <?php include '../includes/components/sidebar.php' ?>
+        <?php view('sidebar') ?>
 
     <div class="card mx-auto" style="max-width: 700px;">
         <div class="card-header text-center">
