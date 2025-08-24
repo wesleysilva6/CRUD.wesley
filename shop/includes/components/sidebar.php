@@ -6,18 +6,13 @@
     <link rel="stylesheet" href="../assets/css/sidebar.css">
 </head>
     <body>
-        <div class="sidebar d-flex flex-column">
-            <h4 class="px-3 text-white mb-4">Meu Sistema</h4>
-                <nav class="nav flex-column">
-                    <a href="../../../private/home.php" class="nav-link"><i class="bi bi-house"></i> Painel de Estoque</a>
-                    <a href="../../shop/views/dashboard.php" class="nav-link active"><i class="bi bi-house"></i> Dashboard</a>
-                    <a href="" class="nav-link"><i class="bi bi-person"></i> Perfil</a>
-                    <a href="#" class="nav-link"><i class="bi bi-cart"></i> Vendas</a>
-                    <a href="#" class="nav-link"><i class="bi bi-clock-history"></i> Histórico</a>
-                    <a href="#" class="nav-link"><i class="bi bi-bar-chart"></i> Estatísticas</a>
-                    <a href="#" class="nav-link"><i class="bi bi-gear"></i> </a>
-                </nav>
-        </div>
+    <aside class="sidebar" id="sidebar">
+        <h2><i class="bi bi-wallet2"></i> <span class="sidebar-text">Controle</span></h2>
+        <a href="../../../private/home.php"><i class="bi bi-speedometer2"></i><span class="sidebar-text">Painel</span></a>
+        <a href="#"><i class="bi bi-cash-coin"></i><span class="sidebar-text">Finanças</span></a>
+        <a href="#"><i class="bi bi-bar-chart-line"></i><span class="sidebar-text">Relatórios</span></a>
+        <a href="#"><i class="bi bi-gear"></i><span class="sidebar-text">Configurações</span></a>
+    </aside>
 </body>
 </html>
 

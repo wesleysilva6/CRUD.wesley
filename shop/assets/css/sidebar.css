@@ -1,62 +1,96 @@
-    :root {
-        --color--background:#f8fbfc;
-        --color--primary:#0B5ED7;
-        --color--navbar:#dbd5d5;
-        --color--text: #fff;
-    }
+:root {
+    --color--background: #f8fbfc;
+    --color--primary: #0B5ED7;
+    --color--navbar: #dbd5d5;
+    --color--text: #fff;
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        background-color: var(--color--background);
-    }
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color--background);
+}
 
-    .sidebar {
-        height: 100vh;
-        position: fixed;
-        left: 0;
-        top: 0;
-        background-color: #0F121A;
-        color: white;
-        padding-top: 1rem;
-        width: 240px;
-    }
+/* SIDEBAR */
+.sidebar {
+    background: linear-gradient(180deg, #000814, #001d3d);
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #fff;
+    padding: 20px;
+    transition: all 0.3s;
+}
 
-    .sidebar .nav-link {
-        color: #fff;
-        font-size: 16px;
-        padding: 12px 20px;
-        display: flex;
-        align-items: center;
-        border-radius: 8px;
-        margin: 5px 10px;
-        transition: background 0.2s;
-    }
+.sidebar h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: opacity 0.3s;
+}
 
-    .sidebar .nav-link:hover {
-        background: #00003a;
-        color: #fff;
-    }
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+    margin: 12px 0;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
 
-    .sidebar .nav-link.active {
-        background: #000f33;
-        color: #fff;
-    }
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
 
-    .sidebar .nav-link i {
-        margin-right: 10px;
-        font-size: 18px;
-    }
+/* COLAPSADA */
+.sidebar.collapsed {
+    width: 70px;
+}
 
-    .content {
-        margin-left: 240px;
-        padding: 20px;
-    }
+.sidebar.collapsed h2 {
+    opacity: 0;
+}
 
-    .card {
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
+.sidebar-text {
+    transition: opacity 0.3s;
+}
 
-    .table th, .table td {
-        vertical-align: middle;
-    }
+.sidebar.collapsed .sidebar-text {
+    display: none;
+}
+
+#toggleSidebar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000000; /* ou branco se fundo escuro */
+    font-size: 1.4rem;
+}
+
+
+/* CONTEÚDO */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+/* Quando a sidebar estiver colapsada */
+.content.expanded {
+    margin-left: 70px;
+}
+
+/* CARDS E TABELAS */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
