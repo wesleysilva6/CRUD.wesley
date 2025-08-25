@@ -70,7 +70,7 @@
                 <label for="nomeCliente" class="form-label">Cliente</label>
                 <input type="text" id="nomeCliente" name="nome_cliente" class="form-control w-25 mb-3" placeholder="Nome do Cliente" required>
                 <div class="mb-3 d-flex align-items-center gap-3 flex-wrap">
-                    <div class="prod">  
+                    <div class="prod">
                         <label for="produtoId" class="form-label">Produto</label>
                         <select id="produtoId" name="produto_id" class="form-select" required>
                             <option value="">Selecione um produto</option>

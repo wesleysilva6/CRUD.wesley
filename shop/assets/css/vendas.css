@@ -1,0 +1,45 @@
+:root {
+        --color--background: #f8fbfc;
+        --color--primary: #0B5ED7;
+        --color--navbar: #dbd5d5;
+        --color--border: #001630;
+        --color--card: #001630;
+        --color--text: #fff;
+        --bg-card:#138f4b;
+}
+
+.card-header {
+    background: var(--color--card);
+    color: var(--color--text);
+}
+
+.infos {
+    gap: 20rem;
+}
+
+.info-cliente input {
+    width: 40rem;
+    height: 2.2rem;
+    border-color: var(--color--border);
+    border-radius: 0.4rem;
+}
+
+.info-cliente input:focus {
+    background: var(--color--input);
+    border-color: var(--color--card);
+    box-shadow: none;
+    outline: none;
+}
+
+.info-vendedor select {
+    width: 40rem;
+    height: 2.2rem;
+    border-color: var(--color--border);
+    border-radius: 0.4rem;
+}
+
+.info-vendedor select:focus {
+    border-color: var(--color--border);
+    box-shadow: none;
+    outline: none;
+}

@@ -59,7 +59,8 @@
                 <h2>Dashboard</h2>
                 <div class="d-flex align-items-center">
                     <input type="text" class="form-control me-2" placeholder="Pesquisar">
-                    <i class="bi bi-person-circle fs-4"></i>
+                    <?php $foto = isset($_SESSION['foto']) && $_SESSION['foto'] !== '' ? $_SESSION['foto'] : 'user.png'; $caminho = "../../../uploads/" . $foto; ?>
+                    <img src="<?php echo $caminho; ?>" alt="Foto de Perfil" class="rounded-circle" width="40" height="40">
                 </div>
             </div>
 
@@ -81,7 +82,7 @@
         <div class="col-md-3">
             <div class="card p-3 text-center">
                 <h6>Produtos Disponíveis</h6>
-                <h4 class="text-success"> <?php echo $total_produtos; ?> </h4>
+                <h4 class="text-success"> <i class="bi bi-box"></i> <?php echo $total_produtos; ?> </h4>
             </div>
         </div>
 
@@ -89,8 +90,7 @@
             <div class="card p-3 text-center">
                 <h6>Estoque Baixo</h6>
                 <h4>
-                    <i class="bi bi-exclamation-triangle text-warning"></i>
-                    <span><?php echo $total_unidades; ?></span> <span class="text-danger"><?php echo $produtos_estoque_baixo; ?></span>
+                    <span><?php echo $total_unidades;  ?></span> | <span class="text-danger"><i class="bi bi-exclamation-triangle text-warning"> </i><?php echo $produtos_estoque_baixo; ?></span>
                 </h4>
             </div>
         </div>

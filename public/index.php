@@ -15,7 +15,7 @@
     <title>Estoque Aqui - System</title>
 </head>
     <body>
-        <nav class="navbar" data-bs-theme="dark">
+        <nav class="navbar">
             <div class="container-fluid">
                 <a href="index.php" class="navbar-brand">
                 <img src="assets/img/logo_stexto.png" width="65" height="65" alt=""> <img src="assets/img/fundop2.png" alt="" width="85" height="65">

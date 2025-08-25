@@ -13,20 +13,20 @@ body {
 /* SIDEBAR */
 .sidebar {
     background: linear-gradient(180deg, #000814, #001d3d);
-    width: 250px;
+    width: 15rem;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    color: #fff;
-    padding: 20px;
+    color: var(--color--text);
+    padding: 1.3rem;
     transition: all 0.3s;
 }
 
 .sidebar h2 {
     font-size: 1.2rem;
     text-align: center;
-    margin-bottom: 30px;
+    margin: 1.2rem 0 2rem 0;
     transition: opacity 0.3s;
 }
 
@@ -34,11 +34,11 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #fff;
+    color: var(--color--text);
     text-decoration: none;
-    margin: 12px 0;
-    padding: 10px;
-    border-radius: 8px;
+    margin: 0.8rem 0;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
     transition: background 0.3s;
 }
 
@@ -48,7 +48,7 @@ body {
 
 /* COLAPSADA */
 .sidebar.collapsed {
-    width: 70px;
+    width: 4.6rem;
 }
 
 .sidebar.collapsed h2 {
@@ -74,8 +74,8 @@ body {
 
 /* CONTEÚDO */
 .content {
-    margin-left: 250px;
-    padding: 20px;
+    margin: 0 0 0 15rem;
+    padding: 1.2rem;
     transition: margin-left 0.3s;
 }
 
@@ -86,11 +86,15 @@ body {
 
 /* CARDS E TABELAS */
 .card {
-    border-radius: 12px;
+    border-radius: 0.8rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .table th,
 .table td {
     vertical-align: middle;
+}
+
+.rounded-circle {
+    cursor: pointer;
 }
