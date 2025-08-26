@@ -13,32 +13,21 @@
     color: var(--color--text);
 }
 
-.infos {
-    gap: 20rem;
-}
-
-.info-cliente input {
-    width: 40rem;
-    height: 2.2rem;
+.card-body input {
     border-color: var(--color--border);
-    border-radius: 0.4rem;
 }
 
-.info-cliente input:focus {
-    background: var(--color--input);
-    border-color: var(--color--card);
+.card-body input:focus {
+    border-color: var(--color--border);
     box-shadow: none;
     outline: none;
 }
 
-.info-vendedor select {
-    width: 40rem;
-    height: 2.2rem;
+.card-body select {
     border-color: var(--color--border);
-    border-radius: 0.4rem;
 }
 
-.info-vendedor select:focus {
+.card-body select:focus {
     border-color: var(--color--border);
     box-shadow: none;
     outline: none;

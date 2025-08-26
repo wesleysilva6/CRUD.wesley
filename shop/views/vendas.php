@@ -28,7 +28,7 @@
         <div class="content" id="content">
             <div class="dash d-flex justify-content-between align-items-center mb-4">
                 <button id="toggleSidebar"><i class="bi bi-arrow-bar-left"></i></button>
-                <h2></h2>
+                <h2>Realizar Venda</h2>
                 <div class="d-flex align-items-center">
                     <input type="text" class="form-control me-2" placeholder="Pesquisar">
                     <?php $foto = isset($_SESSION['foto']) && $_SESSION['foto'] !== '' ? $_SESSION['foto'] : 'user.png'; $caminho = "../../../uploads/" . $foto; ?>
@@ -64,7 +64,7 @@
                                     <option value="">Selecione um Produto</option>
                                         <?php
                                             $stmt = $conn->prepare(
-                                            "SELECT p.id, p.nome_produto, p.quantidade, p.preco, p.imagem
+                                            "SELECT p.id, p.nome_produto, p.quantidade, p.preco, p.imagem, p.descricao
                                             FROM produtos p
                                             INNER JOIN topicos t ON p.topico_id = t.id_topico
                                             WHERE t.usuario_id = ?");
@@ -72,9 +72,12 @@
                                             $stmt->execute();
                                             $result = $stmt->get_result();
                                             while ($produto = $result->fetch_assoc()) {
+                                                $precoFormatado = number_format($produto['preco'], 2, ',', '.'); 
                                                 echo "<option value='{$produto['id']}' 
                                                             data-quantidade='{$produto['quantidade']}'
-                                                            data-preco=' {$produto['preco']}'
+                                                            data-preco='{$precoFormatado}'
+                                                            data-descricao='{$produto['descricao']}'
+                                                            data-preco-raw='{$produto['preco']}'
                                                             data-foto='../../../uploads/{$produto['imagem']}'>
                                                             {$produto['nome_produto']}
                                                     </option>";
@@ -85,7 +88,9 @@
 
                             <div id="detalhesProduto" style="display:none;">
                                 <img id="previewProduto" src="" alt="Imagem do Produto" class="img-thumbnail mb-2" style="max-width:120px;">
-                                <p><strong>Preço:</strong> R$ <span id="precoProduto"></span></p>
+                                <p><strong>Preço: </strong> R$ <span id="precoProduto"></span></p>
+                                <p><strong>Descrição: </strong> <span id="descProduto"></span></p>
+                                
                                 <label>Quantidade</label>
                                 <input type="number" id="quantidade" class="form-control" min="1" value="1">
                                 <button type="button" class="btn btn-success mt-2" id="adicionarCarrinho">
@@ -137,9 +142,11 @@
                 const preco = option.getAttribute('data-preco');
                 const foto = option.getAttribute('data-foto');
                 const qtd = option.getAttribute('data-quantidade');
+                const desc = option.getAttribute('data-descricao')
 
                 document.getElementById('detalhesProduto').style.display = 'block';
                 document.getElementById('precoProduto').innerText = preco;
+                document.getElementById('descProduto').innerText = desc;
                 document.getElementById('previewProduto').src = foto;
                 document.getElementById('quantidade').max = qtd; // limite até o estoque disponível
             } else {
