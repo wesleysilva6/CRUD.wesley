@@ -82,7 +82,7 @@
         <div class="col-md-3">
             <div class="card p-3 text-center">
                 <h6>Produtos Disponíveis</h6>
-                <h4 class="text-success"> <i class="bi bi-box"></i> <?php echo $total_produtos; ?> </h4>
+                <h4 class="text-"> <i class="bi bi-box"></i> <?php echo $total_produtos; ?> </h4>
             </div>
         </div>
 

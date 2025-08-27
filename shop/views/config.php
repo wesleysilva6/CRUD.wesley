@@ -49,8 +49,7 @@
 
             <div class="container mt-4">
                 <div id="home" class="tab-section">  
-                    <h4>Home</h4>
-                    <p>Conteúdo livre da Home.</p>
+                    
                 </div>
 
                 <div id="vendas" class="tab-section" style="display:none;">  

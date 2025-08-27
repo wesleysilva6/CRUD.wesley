@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19/08/2025 às 16:26
+-- Tempo de geração: 27/08/2025 às 17:01
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -37,6 +37,13 @@ CREATE TABLE `itens_simulacao` (
   `subtotal` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `itens_simulacao`
+--
+
+INSERT INTO `itens_simulacao` (`id`, `id_simulacao`, `produto_id`, `nome_produto`, `quantidade`, `preco`, `subtotal`) VALUES
+(53, 161, 20, 'Mouse Logitech P34', 1, 4000.00, 4000.00);
+
 -- --------------------------------------------------------
 
 --
@@ -45,7 +52,7 @@ CREATE TABLE `itens_simulacao` (
 
 CREATE TABLE `itens_venda` (
   `id` int(11) NOT NULL,
-  `id_venda` int(11) NOT NULL,
+  `venda_id` int(11) NOT NULL,
   `produto_id` int(11) NOT NULL,
   `quantidade` int(11) NOT NULL,
   `preco_unitario` decimal(10,2) NOT NULL,
@@ -70,6 +77,13 @@ CREATE TABLE `produtos` (
   `criado_em` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome_produto`, `quantidade`, `descricao`, `atualizado_em`, `topico_id`, `preco`, `imagem`, `criado_em`) VALUES
+(22, 'iPhone 13 Pro Max', 9, '128 GB DE ARMAZENAMENTO 3GB DE RAM\r\n', '2025-08-26 11:15:10', 204, 2899.00, '', '2025-08-26 10:58:08');
+
 -- --------------------------------------------------------
 
 --
@@ -83,6 +97,13 @@ CREATE TABLE `simulacoes` (
   `criada_em` datetime DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `simulacoes`
+--
+
+INSERT INTO `simulacoes` (`id`, `usuario_id`, `cliente`, `criada_em`, `total`) VALUES
+(161, 10, 'Cliente X', '2025-08-26 09:39:25', 4000.00);
 
 -- --------------------------------------------------------
 
@@ -102,7 +123,7 @@ CREATE TABLE `topicos` (
 --
 
 INSERT INTO `topicos` (`id_topico`, `nome_topico`, `criado_em`, `usuario_id`) VALUES
-(203, 'SLAAAAAAAAAAA', '2025-08-19 10:22:46', 10);
+(204, 'SLAAAAAAAAAAA', '2025-08-21 11:38:52', 10);
 
 -- --------------------------------------------------------
 
@@ -134,10 +155,26 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `foto`) VALUES
 
 CREATE TABLE `vendas` (
   `id` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `cliente` varchar(255) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `criada_em` datetime DEFAULT current_timestamp()
+  `cliente` varchar(100) NOT NULL,
+  `vendedor_id` int(11) NOT NULL,
+  `total` decimal(10,2) DEFAULT NULL,
+  `realizada_em` timestamp NOT NULL DEFAULT current_timestamp(),
+  `telefone` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `vendedores`
+--
+
+CREATE TABLE `vendedores` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `inicio_em` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -156,7 +193,7 @@ ALTER TABLE `itens_simulacao`
 --
 ALTER TABLE `itens_venda`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_venda` (`id_venda`),
+  ADD KEY `venda_id` (`venda_id`),
   ADD KEY `produto_id` (`produto_id`);
 
 --
@@ -192,7 +229,14 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `vendas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_id` (`usuario_id`);
+  ADD KEY `vendedor_id` (`vendedor_id`);
+
+--
+-- Índices de tabela `vendedores`
+--
+ALTER TABLE `vendedores`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -202,7 +246,7 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT de tabela `itens_simulacao`
 --
 ALTER TABLE `itens_simulacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `itens_venda`
@@ -214,19 +258,19 @@ ALTER TABLE `itens_venda`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `simulacoes`
 --
 ALTER TABLE `simulacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT de tabela `topicos`
 --
 ALTER TABLE `topicos`
-  MODIFY `id_topico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
+  MODIFY `id_topico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
@@ -238,6 +282,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `vendas`
 --
 ALTER TABLE `vendas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `vendedores`
+--
+ALTER TABLE `vendedores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -254,7 +304,7 @@ ALTER TABLE `itens_simulacao`
 -- Restrições para tabelas `itens_venda`
 --
 ALTER TABLE `itens_venda`
-  ADD CONSTRAINT `itens_venda_ibfk_1` FOREIGN KEY (`id_venda`) REFERENCES `vendas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `itens_venda_ibfk_1` FOREIGN KEY (`venda_id`) REFERENCES `vendas` (`id`),
   ADD CONSTRAINT `itens_venda_ibfk_2` FOREIGN KEY (`produto_id`) REFERENCES `produtos` (`id`);
 
 --
@@ -279,7 +329,7 @@ ALTER TABLE `topicos`
 -- Restrições para tabelas `vendas`
 --
 ALTER TABLE `vendas`
-  ADD CONSTRAINT `vendas_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `vendas_ibfk_1` FOREIGN KEY (`vendedor_id`) REFERENCES `vendedores` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -43,12 +43,17 @@
                         <h5 class="text-center mt-2">Nova Venda</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="../controllers/vendas/adicionar_venda.php" method="POST" id="formVenda">
                             <div class="mb-3">
                                 <label for="nomeCliente" class="form-label">Cliente</label>
-                                <input type="text" id="nomeCliente" name="nome_cliente" class="form-control" placeholder="Nome do Cliente" required>
+                                <input type="text" id="nomeCliente" name="nome_cliente" class="form-control" required>
                             </div>
-                            
+
+                            <div class="mb-3">
+                                <label for="telCliente" class="form-label">Telefone</label>
+                                <input type="text" id="telCliente" name="tel_cliente" class="form-control" required>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="vendedor" class="form-label">Vendedor</label>
                                 <select id="vendedor" name="vendedor" class="form-select">
@@ -74,13 +79,13 @@
                                             while ($produto = $result->fetch_assoc()) {
                                                 $precoFormatado = number_format($produto['preco'], 2, ',', '.'); 
                                                 echo "<option value='{$produto['id']}' 
-                                                            data-quantidade='{$produto['quantidade']}'
-                                                            data-preco='{$precoFormatado}'
-                                                            data-descricao='{$produto['descricao']}'
-                                                            data-preco-raw='{$produto['preco']}'
-                                                            data-foto='../../../uploads/{$produto['imagem']}'>
-                                                            {$produto['nome_produto']}
-                                                    </option>";
+                                                    data-quantidade='{$produto['quantidade']}'
+                                                    data-preco='{$precoFormatado}'
+                                                    data-descricao='{$produto['descricao']}'
+                                                    data-preco-raw='{$produto['preco']}'
+                                                    data-foto='../../../uploads/{$produto['imagem']}'>
+                                                    {$produto['nome_produto']}
+                                                </option>";
                                             }
                                         ?>
                                 </select>
@@ -90,12 +95,14 @@
                                 <img id="previewProduto" src="" alt="Imagem do Produto" class="img-thumbnail mb-2" style="max-width:120px;">
                                 <p><strong>Preço: </strong> R$ <span id="precoProduto"></span></p>
                                 <p><strong>Descrição: </strong> <span id="descProduto"></span></p>
-                                
                                 <label>Quantidade</label>
-                                <input type="number" id="quantidade" class="form-control" min="1" value="1">
-                                <button type="button" class="btn btn-success mt-2" id="adicionarCarrinho">
-                                    Adicionar ao Carrinho
-                                </button>
+                                <input type="number" name="quantidade" id="quantidade" class="form-control" min="1" value="1">
+
+                                <!-- Inputs escondidos para garantir -->
+                                <input type="hidden" name="produtoSelecionado" id="produtoSelecionado">
+                                <input type="hidden" name="quantidadeSelecionada" id="quantidadeSelecionada">
+
+                                <button type="submit" class="btn btn-success mt-2">Adicionar ao Carrinho</button>
                             </div>
                         </form>
                     </div>
@@ -116,18 +123,42 @@
                                     <th>Qtd</th>
                                     <th>Preço</th>
                                     <th>Total</th>
-                                    <th></th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody id="carrinhoLista">
-                                <!-- Produtos inseridos via JS -->
+                                <?php
+                                $total = 0;
+                                if (isset($_SESSION['venda']) && count($_SESSION['venda']) > 0) {
+                                foreach ($_SESSION['venda'] as $id => $item) {
+                                    $stmt = $conn->prepare("SELECT nome_produto, preco FROM produtos WHERE id = ?");
+                                    $stmt->bind_param('i', $id);
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+                                    if ($result && $result->num_rows > 0) {
+                                    $produto = $result->fetch_assoc();
+                                        $quantidade = $item['quantidade'];
+                                        $subtotal = $produto['preco'] * $quantidade;
+                                        $total += $subtotal;
+                                        echo "<tr>  
+                                            <td>{$produto['nome_produto']}</td>
+                                            <td>{$quantidade}</td>
+                                            <td>R$ " . number_format($produto['preco'], 2, ',', '.') . "</td>
+                                            <td>R$ " . number_format($subtotal, 2, ',', '.') . "</td>
+                                        </tr>";
+                                    }
+                                    $stmt->close();
+                                }
+                            } ?>
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-between mt-3">
                             <h5>Total:</h5>
                             <h5 id="totalVenda">R$ 0,00</h5>
                         </div>
-                        <button class="btn btn-primary w-100 mt-3">Finalizar Venda</button>
+                            <form action="../controllers/vendas/finalizar_venda.php">
+                                <button type="submit" class="btn btn-primary w-100 mt-3">Finalizar Venda</button>
+                            </form>
                     </div>
                 </div>
             </div>
@@ -153,6 +184,16 @@
                 document.getElementById('detalhesProduto').style.display = 'none';
             }
         });
+
+document.getElementById('adicionarCarrinho').addEventListener('click', function() {
+    const produto = document.getElementById('produto').value;
+    const quantidade = document.getElementById('quantidade').value;
+
+    document.getElementById('produtoSelecionado').value = produto;
+    document.getElementById('quantidadeSelecionada').value = quantidade;
+});
+
+
 </script>
 </body>
 </html>
