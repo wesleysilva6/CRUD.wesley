@@ -205,7 +205,7 @@
             </div>
         </div>
 
-        <!-- MODAL DE ECLUIR SIMULAÇÕES DO HISTÓRICO -->
+        <!-- MODAL DE EXCLUIR SIMULAÇÕES DO HISTÓRICO -->
         <div class="modal fade" id="limparHistorico" tabindex="-1" aria-labelledby="removerHistoricoLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

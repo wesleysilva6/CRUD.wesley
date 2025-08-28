@@ -58,6 +58,7 @@
                                 <label for="vendedor" class="form-label">Vendedor</label>
                                 <select id="vendedor" name="vendedor" class="form-select">
                                     <option value="">Selecione um Vendedor</option>
+                                    <option value="">Wesley</option>
                                 </select>
                             </div>
 
@@ -98,11 +99,7 @@
                                 <label>Quantidade</label>
                                 <input type="number" name="quantidade" id="quantidade" class="form-control" min="1" value="1">
 
-                                <!-- Inputs escondidos para garantir -->
-                                <input type="hidden" name="produtoSelecionado" id="produtoSelecionado">
-                                <input type="hidden" name="quantidadeSelecionada" id="quantidadeSelecionada">
-
-                                <button type="submit" class="btn btn-success mt-2">Adicionar ao Carrinho</button>
+                                <button type="submit" class="btn btn-success mt-2" id="adicionarCarrinho">Adicionar ao Carrinho</button>
                             </div>
                         </form>
                     </div>
@@ -112,7 +109,7 @@
             <!-- Coluna direita - Carrinho -->
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header">   
                         <h5 class="text-center">Carrinho</h5>
                     </div>
                     <div class="card-body">
@@ -127,36 +124,39 @@
                                 </tr>
                             </thead>
                             <tbody id="carrinhoLista">
-                                <?php
-                                $total = 0;
-                                if (isset($_SESSION['venda']) && count($_SESSION['venda']) > 0) {
-                                foreach ($_SESSION['venda'] as $id => $item) {
-                                    $stmt = $conn->prepare("SELECT nome_produto, preco FROM produtos WHERE id = ?");
-                                    $stmt->bind_param('i', $id);
-                                    $stmt->execute();
-                                    $result = $stmt->get_result();
-                                    if ($result && $result->num_rows > 0) {
-                                    $produto = $result->fetch_assoc();
-                                        $quantidade = $item['quantidade'];
-                                        $subtotal = $produto['preco'] * $quantidade;
-                                        $total += $subtotal;
-                                        echo "<tr>  
-                                            <td>{$produto['nome_produto']}</td>
-                                            <td>{$quantidade}</td>
-                                            <td>R$ " . number_format($produto['preco'], 2, ',', '.') . "</td>
-                                            <td>R$ " . number_format($subtotal, 2, ',', '.') . "</td>
-                                        </tr>";
+                                <tr>
+                                    <?php
+                                    $total = 0;
+                                    if (isset($_SESSION['venda']) && count($_SESSION['venda']) > 0) {
+                                    foreach ($_SESSION['venda'] as $id => $item) {
+                                        $stmt = $conn->prepare("SELECT nome_produto, preco FROM produtos WHERE id = ?");
+                                        $stmt->bind_param('i', $id);
+                                        $stmt->execute();
+                                        $result = $stmt->get_result();
+                                        if ($result && $result->num_rows > 0) {
+                                        $produto = $result->fetch_assoc();
+                                            $quantidade = $item['quantidade'];
+                                            $subtotal = $produto['preco'] * $quantidade;
+                                            $total += $subtotal;
+                                            echo "<tr>
+                                                <td>{$produto['nome_produto']}</td>
+                                                <td>{$quantidade}</td>
+                                                <td>R$ " . number_format($produto['preco'], 2, ',', '.') . "</td>
+                                                <td>R$ " . number_format($subtotal, 2, ',', '.') . "</td>
+                                            </tr>";
+                                        }
+                                        $stmt->close();
                                     }
-                                    $stmt->close();
-                                }
-                            } ?>
+                                } ?>
+                                
+                                </tr>
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-between mt-3">
                             <h5>Total:</h5>
-                            <h5 id="totalVenda">R$ 0,00</h5>
+                            <h5 id="totalVenda">R$ <?= number_format($total, 2, ',', '.') ?></h5>
                         </div>
-                            <form action="../controllers/vendas/finalizar_venda.php">
+                            <form action="../controllers/vendas/finalizar_venda.php" method="POST">
                                 <button type="submit" class="btn btn-primary w-100 mt-3">Finalizar Venda</button>
                             </form>
                     </div>
@@ -184,15 +184,17 @@
                 document.getElementById('detalhesProduto').style.display = 'none';
             }
         });
+  document.getElementById('produto').addEventListener('change', function () {
+    const option = this.options[this.selectedIndex];
+    const det = document.getElementById('detalhesProduto');
+    if (!option.value) { det.style.display = 'none'; return; }
 
-document.getElementById('adicionarCarrinho').addEventListener('click', function() {
-    const produto = document.getElementById('produto').value;
-    const quantidade = document.getElementById('quantidade').value;
-
-    document.getElementById('produtoSelecionado').value = produto;
-    document.getElementById('quantidadeSelecionada').value = quantidade;
-});
-
+    document.getElementById('precoProduto').innerText = option.getAttribute('data-preco');
+    document.getElementById('descProduto').innerText  = option.getAttribute('data-descricao');
+    document.getElementById('previewProduto').src     = option.getAttribute('data-foto');
+    document.getElementById('quantidade').max         = option.getAttribute('data-quantidade');
+    det.style.display = 'block';
+  });
 
 </script>
 </body>

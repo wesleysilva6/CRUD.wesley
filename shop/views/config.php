@@ -23,7 +23,8 @@
     <script src="../assets/js/core/main.js" defer></script>
 </head>
 <body>
-    <?php include '../includes/components/sidebar.php' ?>
+    <?php include '../includes/components/sidebar.php'?>
+    <?php include '../includes/components/modal.php'?>
         <div class="content" id="content">
             <div class="dash d-flex justify-content-between align-items-center mb-4">
                 <button id="toggleSidebar"><i class="bi bi-arrow-bar-left"></i></button>
@@ -37,21 +38,55 @@
 
             <nav class="nav nav-underline custom-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" data-tab="home"> Sistema</a>
+                    <a class="nav-link active" data-tab="sistema">Sistema</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-tab="vendas"> Vendas</a>
+                    <a class="nav-link" data-tab="usuarios">Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-tab="config"> Segurança</a>
+                    <a class="nav-link" data-tab="vendedores">Vendedores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-tab="vendas">Vendas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-tab="segurança">Segurança</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-tab="integracoes">Integrações</a>
                 </li>
             </nav>
 
             <div class="container mt-4">
-                <div id="home" class="tab-section">  
-                    
-                </div>
 
+            <div id="sistema" class="tab-section" style="display:none;">
+                <h4>Sistema</h4>
+            </div>  
+
+            <!-- ABA VENDEDORES -->
+            <div id="vendedores" class="tab-section" style="display:none;">  
+                <form action="../controllers/configs/adicionar_vendedor.php" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="">Nome do Vendedor</label>
+                        <input type="text" class="form-control" name="nome_vendedor" placeholder="Nome do Vendedor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Email do Vendedor</label>
+                        <input type="email" class="form-control" name="email_vendedor" placeholder="Email do Vendedor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Telefone do Vendedor</label>
+                        <input type="text" class="form-control" name="tel_vendedor" placeholder="Telefone do Vendedor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Foto do Vendedor</label>
+                        <input type="file" name="foto_vendedor" id="">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Adicionar Vendedor</button>
+                </form>
+            </div>
+
+                <!-- ABA US -->
                 <div id="vendas" class="tab-section" style="display:none;">  
                     <h4>Vendas</h4>
                     <p>Conteúdo livre de Vendas.</p>
@@ -66,23 +101,38 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const links = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.tab-section');
+<script>
+    const links = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.tab-section');
 
-        links.forEach(link => {
-        link.addEventListener('click', () => {
-            // Atualiza classe active
-            links.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+    // Recupera a aba salva no localStorage ou usa "sistema"
+    let activeTab = localStorage.getItem('activeTab') || 'sistema';
 
-            // Mostra a aba correta
-            const tab = link.getAttribute('data-tab');
-            sections.forEach(sec => {
+    function showTab(tab) {
+        // Ativa link
+        links.forEach(l => l.classList.remove('active'));
+        document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+        // Mostra seção
+        sections.forEach(sec => {
             sec.style.display = (sec.id === tab) ? 'block' : 'none';
-                });
-            });
         });
-    </script>
+
+        // Salva no localStorage
+        localStorage.setItem('activeTab', tab);
+    }
+
+    // Inicializa a aba ao carregar
+    showTab(activeTab);
+
+    // Evento de clique
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            const tab = link.getAttribute('data-tab');
+            showTab(tab);
+        });
+    });
+</script>
+
 </body>
 </html>
