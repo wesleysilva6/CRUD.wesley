@@ -50,6 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
     }
 
-    header('Location: ../../views/vendas.php?produto=adicionado');
+    header('Location: ../../views/vendas.php');
     exit;
 }

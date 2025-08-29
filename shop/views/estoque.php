@@ -19,6 +19,7 @@
     <title>Painel de Vendas - Estoque</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="../assets/js/core/main.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -38,9 +39,9 @@
 
             <div class="col-md-12">
                 <div class="container">
-
                 </div>
             </div>
-        </div>
+
+</script>
 </body>
 </html>

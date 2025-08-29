@@ -96,11 +96,12 @@ Funcional, e com foco na experiência do usuário, ele permite:
 - [x] CRUD de Produtos  
 - [x] Simulação com Exportação  
 - [x] Upload e Corte de Foto  
-- [x] Dashboard com Gráficos  
+- [x] Dashboard com Gráficos
 - [ ] 📅 Filtro de simulações por período  
 - [ ] 🔔 Notificações de estoque baixo  
 - [ ] 📦 Histórico de movimentações de estoque  
 - [ ] ⚙️ Implementar funcionalidade real para vendas
+- [ ] 
 
 ---
 

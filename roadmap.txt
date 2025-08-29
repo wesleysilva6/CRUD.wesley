@@ -1,0 +1,102 @@
+⚙️ Estrutura de Configurações
+🔹 Aba Sistema
+
+Configurações gerais do sistema como um todo.
+
+Nome da empresa (pode ser exibido no topo ou nos relatórios).
+
+Logo da empresa (upload para personalizar o sistema).
+
+Tema (claro/escuro).
+
+Moeda padrão (R$, $, €...).
+
+Idioma (português, inglês etc).
+
+Formato de data e hora (dd/mm/yyyy ou mm/dd/yyyy).
+
+🔹 Aba Usuários
+
+Gerenciamento dos usuários que acessam o sistema.
+
+Criar novo usuário (nome, email, senha, foto, cargo).
+
+Editar dados de usuários existentes.
+
+Atribuir permissões (Ex.: Admin, Vendedor, Estoquista).
+
+Ativar/desativar usuários.
+
+Alterar senha e foto de perfil.
+
+🔹 Aba Vendedores
+
+Gestão focada nos vendedores cadastrados.
+
+Adicionar/editar/excluir vendedores (o que você já tem).
+
+Upload/alteração de foto do vendedor.
+
+Status do vendedor (ativo/inativo).
+
+Relatórios rápidos: total de vendas do vendedor, desempenho mensal.
+
+🔹 Aba Estoque
+
+Configurações específicas de controle de estoque.
+
+Definir quantidade mínima para alerta de estoque baixo.
+
+Ativar alerta para produtos próximos da validade.
+
+Configurar categorias de produtos (ex.: eletrônicos, móveis, roupas).
+
+Importar/exportar produtos em Excel/CSV.
+
+Permitir ajuste automático de estoque após vendas.
+
+🔹 Aba Vendas
+
+Configurações voltadas para o fluxo de vendas.
+
+Definir formas de pagamento aceitas (dinheiro, cartão, pix).
+
+Configurar desconto máximo que um vendedor pode aplicar.
+
+Ativar geração de recibo/nota após a venda.
+
+Personalizar modelo de recibo (logo, mensagem padrão, rodapé).
+
+Opção de arredondamento de valores (se usar dinheiro físico).
+
+🔹 Aba Segurança
+
+Configurações relacionadas ao acesso e proteção.
+
+Ativar 2FA (autenticação em duas etapas).
+
+Limite de tentativas de login.
+
+Definir tempo máximo de sessão inativa.
+
+Logs de acesso (quem entrou, quando, de onde).
+
+Políticas de senha (mínimo de caracteres, caracteres especiais etc).
+
+🔹 Aba Backup
+
+Gerenciamento de dados do sistema.
+
+Criar backup do banco de dados.
+
+Restaurar backup.
+
+Agendar backup automático (diário, semanal, mensal).
+
+🔹 Aba Integrações (extra, se quiser evoluir depois)
+
+Integração com WhatsApp (enviar recibos para clientes).
+
+Integração com gateways de pagamento (PagSeguro, PayPal, MercadoPago).
+
+Integração com sistema de Nota Fiscal Eletrônica.

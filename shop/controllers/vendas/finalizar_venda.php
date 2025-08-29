@@ -51,5 +51,5 @@ $stmt1->close();
 // limpa sessão
 unset($_SESSION['venda'], $_SESSION['cliente'], $_SESSION['telefone'], $_SESSION['vendedor']);
 
-header('Location: ../../views/vendas.php?adicionado=historico');
+header('Location: ../../views/vendas.php?venda_finalizada');
 exit;

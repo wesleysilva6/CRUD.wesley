@@ -2,6 +2,8 @@
     session_start();
     require_once '../../../includes/core/conexao.php';
 
+    header('Content-Type: application/json');
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nome_vendedor = $_POST['nome_vendedor'];
         $email_vendedor = $_POST['email_vendedor'];
@@ -21,11 +23,16 @@
         $stmt = $conn->prepare("INSERT INTO vendedores (nome, email, telefone, foto) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $nome_vendedor, $email_vendedor, $tel_vendedor, $caminhoImagem);
         if ($stmt->execute()) {
-            $stmt->close();
-            header('location: ../../views/config.php?vendedor=cadastrado');
-            exit;
+        echo json_encode([
+            'success' => true,
+            'nome' => $nome_vendedor,
+            'email' => $email_vendedor,
+            'telefone' => $tel_vendedor,
+            'foto' => $caminhoImagem
+        ]);
+        exit;
         } else {
-            header ('location: ../../views/config.php?vendedor=nao_cadastrado');
+            echo json_encode(['success' => false]);
             exit;
         }
     }

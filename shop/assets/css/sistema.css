@@ -1,0 +1,44 @@
+
+:root {
+        --color--background: #f8fbfc;
+        --color--primary: #0B5ED7;
+        --color--navbar: #dbd5d5;
+        --color--border: #001630;
+        --color--card: #001630;
+        --color--text: #fff;
+        --bg-card:#138f4b;
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+    padding: 0.5rem 1rem;
+}
+
+.nav-item a {
+    color: #000 ;
+}
+
+.nav-link.active {
+    color: #000;
+    font-weight: 600;
+}
+
+.tab-content {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 0.5rem;
+    background-color: #fff;
+}
+
+.modal-header {
+    background: rgb(54, 50, 50);
+}
+
+.modal-body {
+    background: var(--color--background-modal);
+}
+
+.modal-footer {
+    background: var(--color--background-modal);
+}

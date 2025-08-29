@@ -15,13 +15,15 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>Painel de Vendas - Dashboard</title>
     <link rel="shortcut icon" href="../../public/assets/img/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Painel de Vendas - Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/vendas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/vendas.css">
     <script src="../assets/js/core/main.js" defer></script>
+    <script src="../assets/js/core/modal.js" defer></script>
 </head>
 <body>
     <?php include '../includes/components/sidebar.php' ?>
@@ -46,19 +48,26 @@
                         <form action="../controllers/vendas/adicionar_venda.php" method="POST" id="formVenda">
                             <div class="mb-3">
                                 <label for="nomeCliente" class="form-label">Cliente</label>
-                                <input type="text" id="nomeCliente" name="nome_cliente" class="form-control" required>
+                                <input type="text" id="nomeCliente" name="nome_cliente" class="form-control" placeholder="Nome do Cliente" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="telCliente" class="form-label">Telefone</label>
-                                <input type="text" id="telCliente" name="tel_cliente" class="form-control" required>
+                                <input type="text" id="telCliente" name="tel_cliente" class="form-control" placeholder="Telefone ( Opcional )">
                             </div>
 
                             <div class="mb-3">
                                 <label for="vendedor" class="form-label">Vendedor</label>
-                                <select id="vendedor" name="vendedor" class="form-select">
+                                <select id="vendedor" name="vendedor" class="form-select" required>
                                     <option value="">Selecione um Vendedor</option>
-                                    <option value="">Wesley</option>
+                                        <?php
+                                            $stmt = $conn->prepare("SELECT id, nome FROM vendedores");
+                                            $stmt->execute();
+                                            $result = $stmt->get_result();
+                                            while ($vendedor = $result->fetch_assoc()) {
+                                                echo "<option value='{$vendedor['id']}'>{$vendedor['nome']}</option>";
+                                            }
+                                        ?>
                                 </select>
                             </div>
 
@@ -143,6 +152,10 @@
                                                 <td>{$quantidade}</td>
                                                 <td>R$ " . number_format($produto['preco'], 2, ',', '.') . "</td>
                                                 <td>R$ " . number_format($subtotal, 2, ',', '.') . "</td>
+                                                <td><button class='btn'>
+                                                    <i class='bi bi-trash</i>
+                                                    <i class='bi bi-pencil-square'</i>
+                                                </button></td>
                                             </tr>";
                                         }
                                         $stmt->close();
@@ -156,8 +169,8 @@
                             <h5>Total:</h5>
                             <h5 id="totalVenda">R$ <?= number_format($total, 2, ',', '.') ?></h5>
                         </div>
-                            <form action="../controllers/vendas/finalizar_venda.php" method="POST">
-                                <button type="submit" class="btn btn-primary w-100 mt-3">Finalizar Venda</button>
+                            <form action="../controllers/vendas/finalizar_venda.php" id="formFinalizarVenda" method="POST">
+                                <button type="button" class="btn btn-primary w-100 mt-3" id="finalizarVenda">Finalizar Venda</button>
                             </form>
                     </div>
                 </div>
@@ -165,37 +178,23 @@
             </div>
 
         </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('produto').addEventListener('change', function () {
             const option = this.options[this.selectedIndex];
-            if (option.value !== "") {
-                const preco = option.getAttribute('data-preco');
-                const foto = option.getAttribute('data-foto');
-                const qtd = option.getAttribute('data-quantidade');
-                const desc = option.getAttribute('data-descricao')
-
-                document.getElementById('detalhesProduto').style.display = 'block';
-                document.getElementById('precoProduto').innerText = preco;
-                document.getElementById('descProduto').innerText = desc;
-                document.getElementById('previewProduto').src = foto;
-                document.getElementById('quantidade').max = qtd; // limite até o estoque disponível
-            } else {
-                document.getElementById('detalhesProduto').style.display = 'none';
+            const det = document.getElementById('detalhesProduto');
+            if (!option.value) { 
+                det.style.display = 'none'; 
+                return; 
             }
+
+            document.getElementById('precoProduto').innerText = option.getAttribute('data-preco');
+            document.getElementById('descProduto').innerText  = option.getAttribute('data-descricao');
+            document.getElementById('previewProduto').src     = option.getAttribute('data-foto');
+            document.getElementById('quantidade').max         = option.getAttribute('data-quantidade');
+            det.style.display = 'block';
         });
-  document.getElementById('produto').addEventListener('change', function () {
-    const option = this.options[this.selectedIndex];
-    const det = document.getElementById('detalhesProduto');
-    if (!option.value) { det.style.display = 'none'; return; }
-
-    document.getElementById('precoProduto').innerText = option.getAttribute('data-preco');
-    document.getElementById('descProduto').innerText  = option.getAttribute('data-descricao');
-    document.getElementById('previewProduto').src     = option.getAttribute('data-foto');
-    document.getElementById('quantidade').max         = option.getAttribute('data-quantidade');
-    det.style.display = 'block';
-  });
-
 </script>
 </body>
 </html>

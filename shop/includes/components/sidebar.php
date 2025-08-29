@@ -13,7 +13,7 @@
         <a href="../../shop/views/dashboard.php"><i class="bi bi-cash-coin"></i><span class="sidebar-text active">Dashboard</span></a>
         <a href="../../shop/views/relatorios.php"><i class="bi bi-bar-chart-line"></i><span class="sidebar-text">Relatórios</span></a>
         <a href="../../shop/views/estoque.php"><i class="bi bi-box-seam"></i><span class="sidebar-text">Estoque</span></a>
-        <a href="../../shop/views/config.php"><i class="bi bi-gear"></i><span class="sidebar-text">Configurações</span></a>
+        <a href="../../shop/views/sistema.php"><i class="bi bi-gear"></i><span class="sidebar-text">Configurações</span></a>
         <a href="../../includes/core/deslogar.php"><i class="bi bi-box-arrow-left"></i><span class="sidebar-text">Sair</span></a>
     </aside>
 </body>

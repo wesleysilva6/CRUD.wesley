@@ -17,14 +17,15 @@
     <link rel="shortcut icon" href="../../public/assets/img/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Painel de Vendas - Configurações</title>
-    <link rel="stylesheet" href="../assets/css/config.css">
+    <link rel="stylesheet" href="../assets/css/sistema.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="../assets/js/core/main.js" defer></script>
+    <script src="../assets/js/core/modal.js" defer></script>
 </head>
 <body>
     <?php include '../includes/components/sidebar.php'?>
-    <?php include '../includes/components/modal.php'?>
         <div class="content" id="content">
             <div class="dash d-flex justify-content-between align-items-center mb-4">
                 <button id="toggleSidebar"><i class="bi bi-arrow-bar-left"></i></button>
@@ -65,7 +66,7 @@
 
             <!-- ABA VENDEDORES -->
             <div id="vendedores" class="tab-section" style="display:none;">  
-                <form action="../controllers/configs/adicionar_vendedor.php" method="POST" enctype="multipart/form-data">
+                <form id="formVendedor" action="../controllers/configs/adicionar_vendedor.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="">Nome do Vendedor</label>
                         <input type="text" class="form-control" name="nome_vendedor" placeholder="Nome do Vendedor">
@@ -80,9 +81,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="">Foto do Vendedor</label>
-                        <input type="file" name="foto_vendedor" id="">
+                        <input type="file" name="foto_vendedor">
                     </div>
-                    <button type="submit" class="btn btn-primary">Adicionar Vendedor</button>
+                    <button type="button" class="btn btn-primary" id="cadastrarVendedor"> Cadastrar Vendedor </button>
                 </form>
             </div>
 
@@ -99,7 +100,7 @@
             </div>
         </div>
 
-
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const links = document.querySelectorAll('.nav-link');
