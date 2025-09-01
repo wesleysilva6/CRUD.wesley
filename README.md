@@ -101,7 +101,6 @@ Funcional, e com foco na experiência do usuário, ele permite:
 - [ ] 🔔 Notificações de estoque baixo  
 - [ ] 📦 Histórico de movimentações de estoque  
 - [ ] ⚙️ Implementar funcionalidade real para vendas
-- [ ] 
 
 ---
 

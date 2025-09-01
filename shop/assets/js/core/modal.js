@@ -27,21 +27,23 @@ if (btnCadastrar) {
                                         flex-direction: column;
                                         align-items: center;
                                         justify-content: center;
-                                        padding: 20px;
-                                        border-radius: 12px;
-                                        background: #ffffff;
-                                        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-                                        max-width: 320px;
-                                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                        padding: 25px;
+                                        border-radius: 16px;
+                                        background: linear-gradient(135deg, #ffffff, #f8f9fa);
+                                        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+                                        max-width: 360px;
                                         margin: 0 auto;
+                                        animation: fadeIn 0.6s ease-in-out;
                                     ">
                                         <div style="
-                                            width: 110px; 
-                                            height: 110px; 
+                                            width: 120px; 
+                                            height: 120px; 
                                             border-radius: 50%; 
                                             overflow: hidden; 
-                                            border: 3px solid #157347;
-                                            margin-bottom: 15px;
+                                            border: 4px solid #157347;
+                                            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                                            margin-bottom: 18px;
+                                            animation: zoomIn 0.5s ease;
                                         ">
                                             <img src="${data.foto}" 
                                                 alt="Foto do vendedor" 
@@ -49,20 +51,24 @@ if (btnCadastrar) {
                                         </div>
                                         <h2 style="
                                             margin: 0; 
-                                            font-size: 20px; 
+                                            font-size: 22px; 
                                             font-weight: 700; 
                                             color: #157347;
                                             text-align: center;
                                         ">${data.nome}</h2>
                                         <div style="
-                                            margin-top: 10px; 
+                                            margin-top: 15px; 
                                             width: 100%; 
-                                            text-align: left;
-                                            font-size: 14px;
-                                            color: #333;
+                                            font-size: 15px;
+                                            color: #444;
+                                            line-height: 1.6;
                                         ">
-                                            <p style="margin: 5px 0;"><strong>Email:</strong> ${data.email}</p>
-                                            <p style="margin: 5px 0;"><strong>Telefone:</strong> ${data.telefone}</p>
+                                            <p style="margin: 6px 0;">
+                                                <strong>Email:</strong> ${data.email}
+                                            </p>
+                                            <p style="margin: 6px 0;">
+                                                <strong>Telefone:</strong> ${data.telefone}
+                                            </p>
                                         </div>
                                     </div>
                                 `,

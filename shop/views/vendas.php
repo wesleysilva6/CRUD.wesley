@@ -152,16 +152,17 @@
                                                 <td>{$quantidade}</td>
                                                 <td>R$ " . number_format($produto['preco'], 2, ',', '.') . "</td>
                                                 <td>R$ " . number_format($subtotal, 2, ',', '.') . "</td>
-                                                <td><button class='btn'>
-                                                    <i class='bi bi-trash</i>
-                                                    <i class='bi bi-pencil-square'</i>
-                                                </button></td>
+                                                <td>
+                                                    <div class='d-flex align-items-center'>
+                                                        <button class='btn btn-sm'><i class='bi bi-trash'></i></button>
+                                                        <button class='btn btn-sm'><i class='bi bi-pencil-square'></i></button>
+                                                    </div>
+                                                </td>
                                             </tr>";
                                         }
                                         $stmt->close();
                                     }
                                 } ?>
-                                
                                 </tr>
                             </tbody>
                         </table>

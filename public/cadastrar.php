@@ -51,7 +51,6 @@
 
                             <div class="card-body">
                                 <form action="cadastrar.php" method="POST" class="spinnerForm">
-
                                     <div class="input-group mt-1">
                                         <span class="input-group-text"><i class="bi bi-person-circle" style="color:#fff"></i></span>
                                         <input type="text" class="form-control" name="nome" placeholder="Usuário" required>
