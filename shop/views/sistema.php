@@ -45,7 +45,7 @@
                     <a class="nav-link" data-tab="usuarios">Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-tab="vendedores">Vendedores</a>
+                    <a class="nav-link" data-tab="vendedores">Funcionários</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-tab="vendas">Vendas</a>
@@ -65,7 +65,7 @@
             </div>  
 
             <!-- ABA VENDEDORES -->
-            <?php include '../includes/components/vendedores.php' ?>
+            <?php include '../includes/components/funcionarios.php' ?>
 
                 <!-- ABA US -->
                 <div id="vendas" class="tab-section" style="display:none;">  

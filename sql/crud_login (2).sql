@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/08/2025 às 17:01
+-- Tempo de geração: 02/09/2025 às 16:59
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `crud_login`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `funcionarios`
+--
+
+CREATE TABLE `funcionarios` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `cargo` enum('Vendedor','Estoquista','Gerente') NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `salario` decimal(10,2) NOT NULL,
+  `data_admissao` datetime DEFAULT current_timestamp(),
+  `status` enum('ativo','inativo') NOT NULL DEFAULT 'ativo',
+  `foto` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `funcionarios`
+--
+
+INSERT INTO `funcionarios` (`id`, `nome`, `cargo`, `email`, `telefone`, `salario`, `data_admissao`, `status`, `foto`) VALUES
+(1, 'Vendedor Teste', 'Vendedor', 'vendedor.teste@estoque.com', '11 94543-9688', 1500.00, '2025-09-02 11:47:05', 'ativo', '../../../uploads/funcionario_68b70369e2371.png'),
+(2, 'Estoquista Teste', 'Estoquista', 'estoquista.teste@estoque.com', '44 99742-2772', 1500.00, '2025-09-02 11:50:00', 'ativo', '../../../uploads/funcionario_68b70418c7067.png'),
+(3, 'Gerente Teste', 'Gerente', 'gerente.teste@estoque.com', '11 98512-9993', 1500.00, '2025-09-02 11:50:55', 'ativo', '../../../uploads/funcionario_68b7044f978ce.png');
 
 -- --------------------------------------------------------
 
@@ -42,7 +69,8 @@ CREATE TABLE `itens_simulacao` (
 --
 
 INSERT INTO `itens_simulacao` (`id`, `id_simulacao`, `produto_id`, `nome_produto`, `quantidade`, `preco`, `subtotal`) VALUES
-(53, 161, 20, 'Mouse Logitech P34', 1, 4000.00, 4000.00);
+(53, 161, 20, 'Mouse Logitech P34', 1, 4000.00, 4000.00),
+(54, 162, 22, 'iPhone 13 Pro Max', 1, 2899.00, 2899.00);
 
 -- --------------------------------------------------------
 
@@ -58,6 +86,16 @@ CREATE TABLE `itens_venda` (
   `preco_unitario` decimal(10,2) NOT NULL,
   `subtotal` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `itens_venda`
+--
+
+INSERT INTO `itens_venda` (`id`, `venda_id`, `produto_id`, `quantidade`, `preco_unitario`, `subtotal`) VALUES
+(1, 1, 24, 1, 87.94, 87.94),
+(2, 2, 22, 2, 2899.00, 5798.00),
+(3, 3, 22, 1, 2899.00, 2899.00),
+(4, 4, 22, 1, 2899.00, 2899.00);
 
 -- --------------------------------------------------------
 
@@ -82,7 +120,8 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome_produto`, `quantidade`, `descricao`, `atualizado_em`, `topico_id`, `preco`, `imagem`, `criado_em`) VALUES
-(22, 'iPhone 13 Pro Max', 9, '128 GB DE ARMAZENAMENTO 3GB DE RAM\r\n', '2025-08-26 11:15:10', 204, 2899.00, '', '2025-08-26 10:58:08');
+(22, 'iPhone 13 Pro Max', 6, '128 GB DE ARMAZENAMENTO 3GB DE RAM\r\n', '2025-09-02 09:24:02', 204, 2899.00, '../../uploads/produto_68b1b22483523.png', '2025-08-26 10:58:08'),
+(24, 'Mouse Logitech P34', 18, 'desc', '2025-09-01 10:34:54', 204, 87.94, '', '2025-09-01 10:20:19');
 
 -- --------------------------------------------------------
 
@@ -103,7 +142,8 @@ CREATE TABLE `simulacoes` (
 --
 
 INSERT INTO `simulacoes` (`id`, `usuario_id`, `cliente`, `criada_em`, `total`) VALUES
-(161, 10, 'Cliente X', '2025-08-26 09:39:25', 4000.00);
+(161, 10, 'Cliente X', '2025-08-26 09:39:25', 4000.00),
+(162, 10, 'Cliente X', '2025-09-01 10:39:30', 2899.00);
 
 -- --------------------------------------------------------
 
@@ -162,24 +202,26 @@ CREATE TABLE `vendas` (
   `telefone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estrutura para tabela `vendedores`
+-- Despejando dados para a tabela `vendas`
 --
 
-CREATE TABLE `vendedores` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `telefone` varchar(20) DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL,
-  `inicio_em` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `vendas` (`id`, `cliente`, `vendedor_id`, `total`, `realizada_em`, `telefone`) VALUES
+(1, 'wesy', 1, 87.94, '2025-09-01 13:34:54', '11 94543-9688'),
+(2, 'wesy', 1, 5798.00, '2025-09-01 13:37:08', '11 94543-9688'),
+(3, 'wesy', 1, 2899.00, '2025-09-02 11:44:50', '44 99742-2772'),
+(4, 'Wesley', 1, 2899.00, '2025-09-02 12:24:02', '44 99742-2772');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Índices de tabela `itens_simulacao`
@@ -232,39 +274,38 @@ ALTER TABLE `vendas`
   ADD KEY `vendedor_id` (`vendedor_id`);
 
 --
--- Índices de tabela `vendedores`
---
-ALTER TABLE `vendedores`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
 -- AUTO_INCREMENT para tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `itens_simulacao`
 --
 ALTER TABLE `itens_simulacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de tabela `itens_venda`
 --
 ALTER TABLE `itens_venda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `simulacoes`
 --
 ALTER TABLE `simulacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT de tabela `topicos`
@@ -282,13 +323,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `vendas`
 --
 ALTER TABLE `vendas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `vendedores`
---
-ALTER TABLE `vendedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restrições para tabelas despejadas

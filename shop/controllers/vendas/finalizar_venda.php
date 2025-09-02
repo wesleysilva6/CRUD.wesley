@@ -24,14 +24,12 @@ if (empty($_SESSION['venda']) || $total <= 0) {
     exit;
 }
 
-// insere venda
 $stmt = $conn->prepare("INSERT INTO vendas (cliente, telefone, vendedor_id, total, realizada_em) VALUES (?, ?, ?, ?, ?)");
 $stmt->bind_param('ssids', $nome_cliente, $tel_cliente, $vendedor, $total, $realizada_em);
 $stmt->execute();
 $venda_id = $conn->insert_id;
 $stmt->close();
 
-// insere itens
 $stmt1 = $conn->prepare("INSERT INTO itens_venda (venda_id, produto_id, quantidade, preco_unitario, subtotal) VALUES (?, ?, ?, ?, ?)");
 foreach ($_SESSION['venda'] as $produto_id => $item) {
     $qtd = (int)$item['quantidade'];

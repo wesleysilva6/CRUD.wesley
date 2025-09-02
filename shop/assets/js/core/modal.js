@@ -1,8 +1,8 @@
-const btnCadastrar = document.getElementById("cadastrarVendedor");
+const btnCadastrar = document.getElementById("cadastrarFuncionario");
 if (btnCadastrar) {
     btnCadastrar.addEventListener("click", function() {
         Swal.fire({
-            title: 'Você deseja realmente cadastrar esse vendedor?',
+            title: 'Você deseja realmente cadastrar esse funcionário?',
             text: "Essa ação não poderá ser desfeita!",
             icon: 'warning',
             showCancelButton: true,
@@ -12,7 +12,7 @@ if (btnCadastrar) {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                const form = document.getElementById('formVendedor');
+                const form = document.getElementById('formFuncionario');
                 const formData = new FormData(form);
 
                 fetch(form.action, { method: 'POST', body: formData })
@@ -20,7 +20,7 @@ if (btnCadastrar) {
                     .then(data => {
                         if(data.success) {
                             Swal.fire({
-                                title: 'Vendedor cadastrado',
+                                title: 'Funcionário cadastrado',
                                 html: `
                                     <div style="
                                         display: flex;
@@ -46,7 +46,7 @@ if (btnCadastrar) {
                                             animation: zoomIn 0.5s ease;
                                         ">
                                             <img src="${data.foto}" 
-                                                alt="Foto do vendedor" 
+                                                alt="Foto do funcionario" 
                                                 style="width:100%; height:100%; object-fit: cover;">
                                         </div>
                                         <h2 style="
@@ -68,6 +68,12 @@ if (btnCadastrar) {
                                             </p>
                                             <p style="margin: 6px 0;">
                                                 <strong>Telefone:</strong> ${data.telefone}
+                                            </p>
+                                            <p style="margin: 6px 0;">
+                                                <strong>Cargo:</strong> ${data.cargo}
+                                            </p>
+                                            <p style="margin: 6px 0;">
+                                                <strong>Status:</strong> ${data.status}
                                             </p>
                                         </div>
                                     </div>

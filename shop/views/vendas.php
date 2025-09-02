@@ -61,7 +61,7 @@
                                 <select id="vendedor" name="vendedor" class="form-select" required>
                                     <option value="">Selecione um Vendedor</option>
                                         <?php
-                                            $stmt = $conn->prepare("SELECT id, nome FROM vendedores");
+                                            $stmt = $conn->prepare("SELECT id, nome FROM funcionarios WHERE cargo = 'Vendedor' AND status = 'ativo' ORDER BY nome");
                                             $stmt->execute();
                                             $result = $stmt->get_result();
                                             while ($vendedor = $result->fetch_assoc()) {
