@@ -90,7 +90,7 @@
             <div class="card p-3 text-center">
                 <h6>Estoque Baixo</h6>
                 <h4>
-                    <span><?php echo $total_unidades;  ?></span> | <span class="text-danger"><i class="bi bi-exclamation-triangle text-warning"> </i><?php echo $produtos_estoque_baixo; ?></span>
+                    <span><?php echo $total_unidades; ?></span> | <span class="text-danger"><i class="bi bi-exclamation-triangle text-warning"> </i><?php echo $produtos_estoque_baixo; ?></span>
                 </h4>
             </div>
         </div>
